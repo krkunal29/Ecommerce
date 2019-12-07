@@ -7,18 +7,18 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['blogTitle']) && isset($_POST['blogContent']) && isset($_POST['categoryId']) && isset($_POST['blogStatus']) && isset($_POST['blogUrl'])) {
-    
+
     $blogTitle   = mysqli_real_escape_string($conn, $blogTitle);
     $blogContent = mysqli_real_escape_string($conn, $blogContent);
     $blogUrl     = mysqli_real_escape_string($conn, $blogUrl);
-    
+
     $query    = "INSERT INTO blogmaster(blogTitle,blogContent,categoryId,blogStatus,blogUrl) VALUES('$blogTitle','$blogContent',$categoryId,$blogStatus,'$blogUrl')";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);
         $s       = strval($last_id);
-        
-        $sql       = "SELECT * FROM blogmaster WHERE blogId = $s";
+
+        $sql       = "SELECT * FROM blogmaster bm LEFT JOIN blogcategory bg ON bm.categoryId = bg.categoryId WHERE bm.blogId = $s";
         $jobQuery1 = mysqli_query($conn, $sql);
         if ($jobQuery1 != null) {
             $academicAffected = mysqli_num_rows($jobQuery1);
@@ -26,7 +26,7 @@ if (isset($_POST['blogTitle']) && isset($_POST['blogContent']) && isset($_POST['
                 $academicResults = mysqli_fetch_assoc($jobQuery1);
                 $records[]       = $academicResults;
                 $response        = array(
-                    'Message' => "All Blogs Data fetched Successfully",
+                    'Message' => "All Blogs Data Added Successfully",
                     "Data" => $records,
                     'Responsecode' => 200
                 );
@@ -44,7 +44,7 @@ if (isset($_POST['blogTitle']) && isset($_POST['blogContent']) && isset($_POST['
                 'Responsecode' => 301
             );
         }
-        
+
     } else {
         $response = array(
             'Message' => mysqli_error($conn),

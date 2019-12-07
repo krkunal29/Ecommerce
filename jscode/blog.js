@@ -2,7 +2,7 @@ const data = {
     userId: $('#userId').val(),
     roleId: $('#roleId').val()
 };
-var userId = null; //for updation
+var blogmainId = null; //for updation
 var details = {};
 var blogList = new Map();
 const loadblogs = () => {
@@ -58,9 +58,9 @@ const editBlog = blogId => {
     blogId = blogId.toString();
     if (blogList.has(blogId)) {
         $('.bloglist').hide();
-        $('#newblog').load('edit_vendor.php');
+        $('#newblog').load('edit_blog.php');
         const vendor = blogList.get(blogId);
-        userId = blogId;
+        blogmainId = blogId;
         details = vendor;
     } else {
         alert('something goes wrong');
@@ -69,10 +69,27 @@ const editBlog = blogId => {
 
 const removeBlog = blogId => {
     blogId = blogId.toString();
-    if (blogList.has(blogId)) {
-        $('.bloglist').hide();
-        $('#newblog').load('add_vendor.php');
-    }
+
+    $.ajax({
+        url:url+'deleteBlogs.php',
+        type:'POST',
+        data:{
+          blogId:blogId
+        },
+        dataType:'json',
+        success:function(response){
+
+          if(response.Responsecode==200){
+            blogList.delete(blogId.toString());
+            showblog(blogList);
+            goback();
+          }
+          else{
+            // alert(response.Message);
+              alert("Already Used Can't Delete");
+          }
+        }
+    });
 }
 
 function addBlog() {

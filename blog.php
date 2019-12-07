@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
+          <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
@@ -136,7 +137,7 @@
                 <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
-
+                <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="jscode/apis.js"></script>
                 <script src="jscode/getallblogcategory.js"></script>
                 <script src="jscode/blog.js"></script>

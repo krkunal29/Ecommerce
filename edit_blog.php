@@ -58,7 +58,14 @@
 <script src="js/jquery.validate.js"></script>
 <!-- <script src="jscode/quiz_validation.js"></script> -->
 <script>
-
+function loadDetails(values){
+// console.log(values);
+$("#blogtitle").val(values.blogTitle);
+$("#blogcategoryId").val(values.categoryId);
+$("#blogcontent").val(values.blogContent);
+$("#blogurl").val(values.blogUrl);
+$("#blogStatus").val(values.blogStatus).trigger('change');
+}
 function loadcategory()
 {
 
@@ -68,6 +75,7 @@ for(let k of blogcategoryList.keys()){
   html +='<option value='+categoryname.categoryId+'>'+categoryname.category+'</option>';
 }
 $("#blogcategoryId").html(html);
+loadDetails(details);
 }
 $("#blogcategoryId").select2();
 $("#blogStatus").select2();
@@ -80,6 +88,7 @@ $('#blogform').on('submit', function(e) {
         var blogUrl = $("#blogurl").val();
         var blogStatus = $("#blogStatus").val();
         var obj ={
+          blogId:blogmainId,
           blogTitle:blogTitle,
           categoryId:categoryId,
           blogContent:blogContent,
@@ -88,7 +97,7 @@ $('#blogform').on('submit', function(e) {
         };
 
         $.ajax({
-        url: url + 'addBlogs.php',
+        url: url + 'editBlogs.php',
         type: 'POST',
         data:obj,
         dataType: 'json',

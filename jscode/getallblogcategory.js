@@ -11,7 +11,7 @@ const bloglistcategory = () => {
                 for (var i = 0; i < count; i++) {
                     blogcategoryList.set(response.Data[i].categoryId, response.Data[i]);
                 }
-                console.log(blogcategoryList);
+                
             }
         }
     });

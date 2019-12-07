@@ -86,7 +86,7 @@ const removeUnit = unitId => {
             $('.unitlist').show();
             unitList.delete(unitId.toString());
             showUnits(unitList);
-            // alert(response.Message);
+
           }
           else{
             // alert(response.Message);

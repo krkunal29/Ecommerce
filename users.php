@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="plugins/chartist/dist/chartist.min.css">
+        <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -298,7 +299,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <!-- product and new customar start -->
+                            <!-- product and new customar start
                             <div class="col-xl-4 col-md-6">
                                 <div class="card new-cust-card">
                                     <div class="card-header">
@@ -346,8 +347,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-8 col-md-6">
+                            </div> -->
+                            <!-- <div class="col-xl-8 col-md-6">
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h3>New Products</h3>
@@ -426,11 +427,11 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- product and new customar end -->
 
                             <!-- top contact and member performance start -->
-                            <div class="col-xl-6 col-md-6">
+                            <!-- <div class="col-xl-6 col-md-6">
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h3>Top Contacts</h3>
@@ -582,11 +583,11 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- top contact and member performance end -->
 
                             <!-- lettest acivity and statustic card start -->
-                            <div class="col-xl-4 col-md-12">
+                            <!-- <div class="col-xl-4 col-md-12">
                                 <div class="card latest-update-card">
                                     <div class="card-header">
                                         <h3>What’s New</h3>
@@ -795,7 +796,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- lettest acivity and statustic card end -->
 
                             <!-- Customer overview start -->
@@ -813,7 +814,7 @@
                                     </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
-                                            <table class="table table-hover mb-0">
+                                            <table class="table table-hover mb-0" id="users">
                                                 <thead>
                                                     <tr>
                                                         <th>Customer</th>
@@ -824,11 +825,12 @@
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
+                                                <tbody class="usersData">
+                                                   
+                                                <tr>
                                                         <td>
                                                             <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
+                                                                <img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
                                                                 <div class="d-inline-block">
                                                                     <h6>Shirley  Hoe</h6>
                                                                     <p class="text-muted mb-0">Sales executive , NY</p>
@@ -844,104 +846,9 @@
                                                         </td>
                                                         <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/2.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>James Alexander</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , EL</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Facebook</td>
-                                                        <td>268</td>
-                                                        <td>19-11-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-primary">Ux</label>
-                                                            <label class="badge badge-danger">Ui</label>
-                                                            <label class="badge badge-danger">php</label>
-                                                        </td>
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>Shirley  Hoe</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , NY</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Twitter</td>
-                                                        <td>293</td>
-                                                        <td>16-03-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-danger">Sketch</label>
-                                                            <label class="badge badge-primary">Ui</label>
-                                                        </td>
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>Shirley  Hoe</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , NY</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Pinterest</td>
-                                                        <td>223</td>
-                                                        <td>19-11-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-primary">Ux</label>
-                                                            <label class="badge badge-success">Ui</label>
-                                                            <label class="badge badge-warning">php</label>
-                                                        </td>
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/2.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>James Alexander</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , EL</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Facebook</td>
-                                                        <td>268</td>
-                                                        <td>19-11-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-primary">Sketch</label>
-                                                            <label class="badge badge-primary">Ui</label>
-                                                        </td>
-
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="../img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>Shirley  Hoe</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , NY</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Twitter</td>
-                                                        <td>293</td>
-                                                        <td>16-03-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-danger">Sketch</label>
-                                                            <label class="badge badge-primary">Ui</label>
-                                                        </td>
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
+                                                   
+                                                   
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -951,7 +858,7 @@
                             <!-- Customer overview end -->
 
                             <!-- testimonial and top selling start -->
-                            <div class="col-xl-4 col-md-6">
+                            <!-- <div class="col-xl-4 col-md-6">
                                 <div class="card testimonial-card table-card">
                                     <div class="card-header">
                                         <h3>Testimonial</h3>
@@ -1131,11 +1038,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- testimonial and top selling end -->
 
                             <!-- Customer overview start -->
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h3>Project Task List</h3>
@@ -1219,10 +1126,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Customer overview end -->
+                            Customer overview end
 
-                            <!-- feed, project,chat start -->
-                            <div class="col-xl-4 col-md-12">
+                             feed, project,chat start -->
+                            <!-- <div class="col-xl-4 col-md-12">
                                 <div class="card feed-card">
                                     <div class="card-header">
                                         <h3>Feeds</h3>
@@ -1394,11 +1301,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  -->
                             <!-- feed, project,chat end -->
 
                             <!-- Application Sales start -->
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h3>Application Sales</h3>
@@ -1489,7 +1396,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- Application Sales end -->
 
                         </div>
@@ -1731,8 +1638,14 @@
         <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
         <script src="plugins/flot-charts/curvedLines.js"></script>
         <script src="plugins/flot-charts/jquery.flot.tooltip.min.js"></script>
+        <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="plugins/moment/moment.js"></script>
+        <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/widget-data.js"></script>
+        <script src="jscode/apis.js"></script>
+        <script src="jscode/users.js"></script>
         
     </body>
 </html>

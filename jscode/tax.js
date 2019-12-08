@@ -12,7 +12,7 @@ const showTaxs = taxList => {
     for (let k of taxList.keys()) {
         let tax = taxList.get(k);
         tblData +="<tr>";
-
+        tblData +="<td>"+tax.Taxname+"</td>";
         tblData +="<td>"+tax.Tax+"</td>";
 
         tblData += '<td><div class="table-actions">';

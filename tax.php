@@ -96,6 +96,7 @@
                                         <table  class="table" id="taxs">
                                             <thead>
                                                 <tr>
+                                                  <th>Tax Name</th>
                                                     <th>Tax Value</th>
 
                                                    <th class="nosort">&nbsp;</th>

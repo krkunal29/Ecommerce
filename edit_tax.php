@@ -57,7 +57,7 @@ $('#taxform').on('submit', function(e) {
         success: function(response) {
 
             if (response.Responsecode == 200) {
-                taxList.set(userId.toString());
+                taxList.set(response.Data.TaxId,response.Data);
                 showTaxs(taxList);
                 goback();
             } else {

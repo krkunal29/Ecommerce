@@ -99,7 +99,7 @@
                                                     <th>Title</th>
                                                     <th>Price</th>
                                                     <th>HSN</th>
-                                                    <th>Video URL</th>
+                                                    <th>Quantity</th>
                                                     <th>Details</th>
                                                     <th class="nosort">&nbsp;</th>
                                                 </tr>

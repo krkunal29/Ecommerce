@@ -8,17 +8,16 @@ var uproductId = null; //for updation
 var details = {};
 const loadProducts = () => {
     $.ajax({
-        url: url + 'getProducts.php',
+        url: url + 'getAllProducts.php',
         type: 'POST',
         dataType: 'json',
-        data: data,
         success: function(response) {
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    productList.set(response.Data[i].productId, response.Data[i]);
+                     productList.set(response.Data[i].productId, response.Data[i]);
                 }
-                showProducts(productList);
+               showProducts(productList);
             }
         }
     });
@@ -31,11 +30,11 @@ const showProducts = productList => {
     for (let k of productList.keys()) {
         let products = productList.get(k);
         tblData += '<tr><td><img src="' + url + 'upload/' + products.productId + '.jpg" class="table-user-thumb" alt="Image"></td>';
-        tblData += '<td>' + products.productTitle + '</td>';
-        tblData += '<td>' + products.price + '</td>';
-        tblData += '<td>' + products.GST + '</td>';
-        tblData += '<td><a href="' + products.videoUrl + '" target="_blank">' + products.videoUrl + '</a></td>';
-        tblData += '<td>' + products.details + '</td>';
+        tblData += '<td>' + products.productName + '</td>';
+        tblData += '<td>' + products.salePrice + '</td>';
+        tblData += '<td>' + products.HSN + '</td>';
+        tblData += '<td>' + products.Quantity + '</td>';
+        tblData += '<td>' + products.description + '</td>';
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editProduct(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="removeProduct(' + (k) + ')"><i class="ik ik-trash-2"></i></a>';
@@ -71,7 +70,7 @@ const loadVendors = () => {
         }
     });
 }
-loadVendors(); //for dropdown list
+// loadVendors(); //for dropdown list
 const editProduct = productId => {
     productId = productId.toString();
     if (productList.has(productId)) {
@@ -88,7 +87,6 @@ const removeProduct = productId => {
     if (productList.has(productId)) {
         var product = productList.get(productId);
         var listDelete = $('.list-delete');
-        listDelete.on('click', function() {
             swal({
                     title: "Are you sure?",
                     text: "Do you really want to delete ?",
@@ -119,7 +117,6 @@ const removeProduct = productId => {
                         swal("The item is not deleted!");
                     }
                 });
-        });
 
     }
 }

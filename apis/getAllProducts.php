@@ -5,7 +5,7 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT * FROM product_master pm LEFT JOIN productdetails pd ON pm.productId = pd.productId";
+$query = "SELECT * FROM product_master pm INNER JOIN productdetails pd ON pm.productId = pd.productId";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {

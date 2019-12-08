@@ -1,32 +1,49 @@
 $(function() {
-    var jvalidate=$("#productform").validate( {
+    $("#productform").validate( {
         ignore: [], rules: {
-            productTitle: {
-                required: true, minlength: 2, maxlength: 50
+            productName: {
+                required: true, minlength: 1, maxlength: 50
             }
-            , category: {
+            , unitId: {
+                required: true
+            }
+            , description: {
+                required: true
+            },
+            salePrice:{
                 required: true, number: true
-            }
-            , price: {
+            },
+            Quantity: {
                 required: true, number: true
-            }
-            , GST: {
-                required: true, minlength: 6, maxlength: 6
+            },
+            hsn:{
+                minlength: 6, maxlength: 6
+            },
+            displayPrice:{
+                number:true
             }
         }
         , messages: {
-            productTitle: {
-                required: "Please enter a valid product name", minlength: "Enter a valid product", maxlength: "Length Exceed 50 characters"
+            productName: {
+                required: "Please enter  product name", minlength: "Enter a product", maxlength: "Length Exceed 50 characters"
             }
-            , category: {
-                required: "Please enter a category in numbers", number: "It should be number"
+            , unitId: {
+                required: "Please select unit from list"
             }
-            , price: {
-                required: "Please enter price", number: "enter valid price"
-            }
-            , GST: {
-              
-                required: "Enter HSN Code", minlength: "It shouldn't be accept charectors or symbols, please enter valid 6 digits", maxlength: "It cannot be exceed mpre than 6 digits" 
+            , description: {
+                required: "Please enter product description"
+            },
+            salePrice:{
+                required: "Please Enter a product sale price", number: "Enter only digits"
+            }, 
+            Quantity:{
+                required: "Please Enter a product Quantity for", number: "Enter only digits"
+            },
+            hsn:{
+                minlength: "HSN is six digit code", maxlength: "Number should not exceed six digit"
+            },
+            displayPrice:{
+                number:"Enter only Digits"
             }
         }
     }

@@ -1,16 +1,5 @@
-vendorList(vendorsList);
-
 $('#productform').on('submit', function(e) {
     e.preventDefault();
-    const productDetails = {
-        productTitle: $('#productTitle').val(),
-        category: $('#productCategory').val(),
-        userId: $('#vendorId').val(),
-        price: $('#price').val(),
-        GST: $('#gst').val(),
-        videoUrl: $('#videoLink').val(),
-        details: $('#productDesc').val()
-    };
     var returnVal = $("#productform").valid();
     if (returnVal) {
         $.ajax({

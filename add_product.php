@@ -13,23 +13,22 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productTitle">Product Title</label>
-                            <input type="text" id="productTitle" name="productTitle" class="form-control"  placeholder="Product Title">
+                            <input type="text" id="productName" name="productName" class="form-control"  placeholder="Product Title">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productCategory">Category</label>
-                            <select  class="form-control select2" id="productCategory" name="category" placeholder="Category">
-                                <option value="0">Small scale</option>
-                                <option value="1">Large scale</option>
+                            <label for="categoryId">Category</label>
+                            <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category">
+                                
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="vendorId">Vendor</label>
-                            <select class="form-control" id="vendorId" name="userId">
-                              
+                            <label for="TaxId">Tax</label>
+                            <select class="form-control" id="TaxId" name="TaxId">
+                            
                             </select>
                         </div>
                     </div>
@@ -37,20 +36,42 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="text" class="form-control" id="price" name="price" placeholder="Price">
+                            <label for="salePrice">Price</label>
+                            <input type="text" class="form-control" id="salePrice" name="salePrice" placeholder="Price">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="gst">HSN No</label>
-                            <input type="text" class="form-control" id="gst"  name="GST" placeholder="HSN number">
+                            <label for="displayPrice">Price for Diplay</label>
+                            <input type="text" class="form-control" id="displayPrice"  name="displayPrice" placeholder="Display Price">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="videoLink">Video URL</label>
-                            <input type="url" class="form-control" id="videoLink" name="videoUrl" placeholder="Link">
+                            <label for="Quantity">Quantity</label>
+                            <input type="text" class="form-control" id="Quantity" name="Quantity" placeholder="Quantity">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                        <label for="unitId">Unit</label>
+                        <select class="form-control" id="unitId" name="unitId">
+                            
+                            </select>
+                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="hsn">HSN No</label>
+                            <input type="text" class="form-control" id="hsn"  name="hsn" placeholder="HSN number">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sku">SKU</label>
+                            <input type="text" class="form-control" id="sku" name="sku" placeholder="SKU number">
                         </div>
                     </div>
                 </div>
@@ -58,8 +79,8 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productDesc">Textarea</label>
-                            <textarea class="form-control" id="productDesc" name="details" rows="4"></textarea>
+                            <label for="description">Product Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="4"></textarea>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -83,6 +104,7 @@
 </div>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
-<script src="jscode/vendorList.js"></script>
+<script src="jscode/getAllTax.js"></script>
+<!-- <script src="jscode/vendorList.js"></script> -->
 <script src="jscode/product_validation.js"></script>
 <script src="jscode/addproduct.js"> </script>

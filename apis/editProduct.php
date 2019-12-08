@@ -18,13 +18,27 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
     
-    $query        = "UPDATE product_master pm INNER JOIN productdetails pd ON (pm.productId = pd.productId) 
+    $query        = "UPDATE product_master pm LEFT JOIN productdetails pd ON (pm.productId = pd.productId) 
     SET pm.productName = '$productName',pm.SKU='$sku',pm.HSN='$hsn',pm.unitId=$unitId,pm.categoryId=$categoryId,pm.description='$description',
     pd.TaxId = $taxId,pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
     WHERE pm.productId = $productId";
     $jobQuery     = mysqli_query($conn, $query);
     $rowsAffected = mysqli_affected_rows($conn);
+    if(isset($_FILES["imgname"]["type"])){
+        $imgname = $_FILES["imgname"]["name"];
+        $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+        $targetPath = "upload/".$productId.".jpg"; // Target path where file is to be stored
+        move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+      }
     if ($rowsAffected == 1) {
+        $academicQuery = mysqli_query($conn, "SELECT * FROM product_master pm INNER JOIN productdetails pd ON pm.productId = pd.productId  where pm.productId = $productId");
+        if ($academicQuery != null) {
+            $academicAffected = mysqli_num_rows($academicQuery);
+            if ($academicAffected > 0) {
+                $academicResults = mysqli_fetch_assoc($academicQuery);
+                $records         = $academicResults;
+            }
+        }
         $response = array(
             'Message' => "Products updated successfully",
             "Data" => $records,
@@ -33,8 +47,9 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
         
     } else {
         $response = array(
-            'Message' => mysqli_error($conn),
+            'Message' => "No Data change".mysqli_error($conn),
             "Data" => $records,
+            "sql"=> $query ,
             'Responsecode' => 403
         );
     }

@@ -23,6 +23,12 @@ if (isset($_POST['productName']) && isset($_POST['unitId']) && isset($_POST['des
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);
         $s       = strval($last_id);
+        if(isset($_FILES["imgname"]["type"])){
+            $imgname = $_FILES["imgname"]["name"];
+            $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+            $targetPath = "upload/". $s.".jpg"; // Target path where file is to be stored
+            move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+          }
         $query2  = "INSERT INTO productdetails(productId,TaxId,salePrice,displayPrice,Quantity) VALUES('$s',$taxId,'$salePrice','$displayPrice','$Quantity')";
         if (mysqli_query($conn, $query2)) {
             

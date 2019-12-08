@@ -25,7 +25,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productDesc">Blog Content</label>
-                            <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content">
+                            <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                            <textarea class="form-control" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
                         </div>
                     </div>
                 </div>

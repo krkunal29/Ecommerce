@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">
@@ -121,7 +122,33 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                            ...
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="productDesc">Customer Name</label>
+                                  <select class="form-control select2" id="customerName" name="customerName" style="width:100%;">
+                                    <option value="">Select Customer Name</option>
+                                    <option value="1">kunal kapse</option>
+                                   <option value="2">vikas Pawar</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="productDesc">Customer Email</label>
+                                    <input class="form-control" id="customeremail" placeholder="Enter Customer Email" type="email">
+                               </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <label for="productDesc">Customer Address</label>
+                                  <textarea class="form-control" id="cutomeraddress" placeholder="Enter Customer address" rows="2"></textarea>
+                                </div>
+
+                              </div>
+                            </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,9 +176,10 @@
                 <script src="plugins/moment/moment.js"></script>
                 <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
+                <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
-                <script src="jscode/tax.js"></script>
+                <script src="jscode/invoice.js"></script>
 
     </body>
 

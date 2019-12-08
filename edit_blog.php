@@ -25,7 +25,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productDesc">Blog Content</label>
-                            <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content">
+
+                            <textarea class="form-control" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
                         </div>
                     </div>
                 </div>
@@ -68,9 +69,10 @@ $("#blogStatus").val(values.blogStatus).trigger('change');
 }
 function loadcategory()
 {
-
+console.log(blogcategoryList);
 var html = '<option value="">Select Blog Category</option>';
-for(let k of blogcategoryList.keys()){
+for(let k of blogcategoryList.keys())
+{
   let categoryname = blogcategoryList.get(k);
   html +='<option value='+categoryname.categoryId+'>'+categoryname.category+'</option>';
 }

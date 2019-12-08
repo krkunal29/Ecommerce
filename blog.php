@@ -139,7 +139,7 @@
                 <script src="js/layouts.js"></script>
                 <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="jscode/apis.js"></script>
-                <script src="jscode/getallblogcategory.js"></script>
+                <script src="jscode/getallblogscat.js"></script>
                 <script src="jscode/blog.js"></script>
 
     </body>

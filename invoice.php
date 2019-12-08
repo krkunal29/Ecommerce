@@ -45,13 +45,13 @@
                 <div class="main-content">
                     <div class="container-fluid">
                         <div class="page-header">
-                            <div class="row align-items-end">
+                            <!-- <div class="row align-items-end">
                                 <div class="col-lg-8">
                                     <div class="page-header-title">
                                         <i class="ik ik-inbox bg-blue"></i>
                                         <div class="d-inline">
                                             <h5>Data Table</h5>
-                                            <span>Invoice</span>
+                                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                         </ol>
                                     </nav>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="newinvoice"></div>
                         <div class="row invoicelist">
@@ -78,13 +78,13 @@
                                       <div class="col-md-12">
                                         <div class="row">
                                           <div class="col-sm-4">
-                                            <h3>Invoice List</h3>
+                                            <h3>Transaction List</h3>
                                           </div>
                                           <div class="col-sm-4">
 
                                           </div>
                                           <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addInvoice();" >New Invoice</button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullwindowModal" style="float: right;">New Invoice</button>
                                           </div>
                                         </div>
                                         </div>
@@ -96,12 +96,9 @@
                                         <table  class="table" id="invoices">
                                             <thead>
                                                 <tr>
-                                                    <th>Invoice No</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Birth Date</th>
-                                                    <th>Contact Address</th>
-                                                    <th class="nosort">&nbsp;</th>
+                                                    <th>Tax Value</th>
+
+                                                   <th class="nosort">&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="invoiceData">
@@ -113,16 +110,34 @@
                         </div>
 
 
-                        <?php include "footer.php"; ?>
+                      <?php include "footer.php"; ?>
+                    </div>
+                </div>
+                <div class="modal fade full-window-modal" id="fullwindowModal" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="fullwindowModalLabel">New Invoice</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                            ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
-
+              </div>
+            </div>
 
                <?php include "dashboardmodal.php"; ?>
 
-                <script src="js/jquery.min.js"></script>
+                  <script src="js/jquery.min.js"></script>
+
                 <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
                 <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
                 <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -136,7 +151,7 @@
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
-                <script src="jscode/invoices.js"></script>
+                <script src="jscode/tax.js"></script>
 
     </body>
 

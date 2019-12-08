@@ -113,7 +113,8 @@
                     </div>
                 </div>
 
-
+              </div>
+            </div>
 
 
                <?php include "dashboardmodal.php"; ?>
@@ -133,6 +134,7 @@
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
+                <script src="jscode/getallblogcategory.js"></script>
                 <script src="jscode/blogcategory.js"></script>
 
     </body>

@@ -113,7 +113,8 @@
                         <?php include "footer.php"; ?>
                     </div>
                 </div>
-
+              </div>
+              </div>
 
 
 
@@ -134,6 +135,7 @@
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
+                <script src="jscode/getallunit.js"></script>
                 <script src="jscode/unit.js"></script>
 
     </body>

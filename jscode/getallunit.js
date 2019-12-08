@@ -1,7 +1,8 @@
-var blogcategoryList = new Map();
-const loadBlogcategory = () => {
+var unitList = new Map();
+const loadUnits = () => {
+  // console.log("Add Unit");
     $.ajax({
-        url: url + 'getAllBlogCategory.php',
+        url: url + 'getAllUnits.php',
         type: 'POST',
         dataType: 'json',
         // data: data,
@@ -9,11 +10,11 @@ const loadBlogcategory = () => {
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    blogcategoryList.set(response.Data[i].categoryId, response.Data[i]);
+                    unitList.set(response.Data[i].unitId, response.Data[i]);
                 }
-                showblogcategory(blogcategoryList);
+                showUnits(unitList);
             }
         }
     });
 }
-loadBlogcategory();
+loadUnits();

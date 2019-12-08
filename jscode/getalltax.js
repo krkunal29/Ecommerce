@@ -1,7 +1,7 @@
-var blogcategoryList = new Map();
-const loadBlogcategory = () => {
+var taxList = new Map();
+const loadTaxs = () => {
     $.ajax({
-        url: url + 'getAllBlogCategory.php',
+        url: url + 'getAllTaxes.php',
         type: 'POST',
         dataType: 'json',
         // data: data,
@@ -9,11 +9,11 @@ const loadBlogcategory = () => {
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    blogcategoryList.set(response.Data[i].categoryId, response.Data[i]);
+                    taxList.set(response.Data[i].TaxId, response.Data[i]);
                 }
-                showblogcategory(blogcategoryList);
+                showTaxs(taxList);
             }
         }
     });
 }
-loadBlogcategory();
+loadTaxs();

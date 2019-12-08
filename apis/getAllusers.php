@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 
-$sql      = "SELECT * FROM user_master um INNER JOIN user_details ud ON um.userId = ud.userId";
+$sql      = "SELECT * FROM user_master um INNER JOIN user_details ud ON um.userId = ud.userId INNER JOIN rolemaster rm ON rm.roleId = um.roleId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

@@ -2,7 +2,7 @@ const data = {
     userId: $('#userId').val(),
     roleId: $('#roleId').val()
 };
-var userId = null; //for updation
+var userIdu = null; //for updation
 var details = {};
 var userList = new Map();
 const loadUsers = () => {
@@ -29,20 +29,19 @@ const showUsers = userList => {
     var tblData = '';
     for (let k of userList.keys()) {
         let users = userList.get(k);
-        console.log(users);
         // var bdate = moment(users.birthDate).format("dddd, MMMM Do YYYY");
-        tblData += '<tr><td><div class="d-inline-block align-middle"></td>';
+        tblData += '<tr><td><div class="d-inline-block align-middle">';
         tblData += '<img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">';
-        tblData += '<div class="d-inline-block"> <h6>Shirley  Hoe</h6>';
-        tblData += '<p class="text-muted mb-0">Sales executive , NY</p>  </div></div></td>';
-        tblData += '<td>Pinterest</td>';
-        tblData += '<td>223</td>';
-        tblData += '<td>19-11-2018</td> <label class="badge badge-primary">Sketch</label>';
-        tblData += '<label class="badge badge-primary">Ui</label></td>';
-        tblData += '<td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>';
+        tblData += '<div class="d-inline-block"> <h6>'+users.fname+' '+users.lname+'</h6>';
+        tblData += '<p class="text-muted mb-0">'+users.role+'</p>  </div></div></td>';
+        tblData += '<td>'+users.contactNumber+'</td>';
+        tblData += '<td>'+users.emailId+'</td>';
+        tblData += '<td>'+users.contactAddress+'</td><td> <label class="badge badge-primary">active</label>';
+        tblData += '</td>';
+        tblData += '<td><a href="#" onclick="editUsers('+(k)+')"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!" onclick="removeUser('+(k)+')"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>';
         tblData += '</tr>';
     }
-    console.log(tblData);
+    
     $('.usersData').html(tblData);
     $('#users').dataTable({
         searching: true,
@@ -50,7 +49,7 @@ const showUsers = userList => {
         paging: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        // columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5] }],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
@@ -58,22 +57,24 @@ const showUsers = userList => {
 }
 loadUsers();
 
-const editVendor = vendorId => {
-    vendorId = vendorId.toString();
-    if (vendorsList.has(vendorId)) {
+const editUsers = userId => {
+    console.log(userId);
+    userId = vendorId.toString();
+    if (userList.has(userId)) {
         $('.vendorlist').hide();
         $('#newvendor').load('edit_vendor.php');
-        const vendor = vendorsList.get(vendorId);
-        userId = vendorId;
-        details = vendor;
+        const user = userList.get(userId);
+        userIdu = userId;
+        details = user;
     } else {
         alert('something goes wrong');
     }
 }
 
-const removeVendor = vendorId => {
-    vendorId = vendorId.toString();
-    if (vendorsList.has(vendorId)) {
+const removeUser = userId => {
+    console.log(userId);
+    userId = userId.toString();
+    if (userList.has(userId)) {
         $('.vendorlist').hide();
         $('#newvendor').load('add_vendor.php');
     }

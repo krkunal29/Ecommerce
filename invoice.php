@@ -46,30 +46,7 @@
                 <div class="main-content">
                     <div class="container-fluid">
                         <div class="page-header">
-                            <!-- <div class="row align-items-end">
-                                <div class="col-lg-8">
-                                    <div class="page-header-title">
-                                        <i class="ik ik-inbox bg-blue"></i>
-                                        <div class="d-inline">
-                                            <h5>Data Table</h5>
-                                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item">
-                                                <a href="../index.html"><i class="ik ik-home"></i></a>
-                                            </li>
-                                            <li class="breadcrumb-item">
-                                                <a href="#">Tables</a>
-                                            </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Data Table</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div> -->
+
                         </div>
                         <div id="newinvoice"></div>
                         <div class="row invoicelist">
@@ -81,9 +58,14 @@
                                           <div class="col-sm-4">
                                             <h3>Transaction List</h3>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-sm-8">
 
                                           </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-sm-8">
+
+                                              </div>
                                           <div class="col-sm-4">
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullwindowModal" style="float: right;">New Invoice</button>
                                           </div>
@@ -114,49 +96,7 @@
                       <?php include "footer.php"; ?>
                     </div>
                 </div>
-                <div class="modal fade full-window-modal" id="fullwindowModal" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="fullwindowModalLabel">New Invoice</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                            <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="productDesc">Customer Name</label>
-                                  <select class="form-control select2" id="customerName" name="customerName" style="width:100%;">
-                                    <option value="">Select Customer Name</option>
-                                    <option value="1">kunal kapse</option>
-                                   <option value="2">vikas Pawar</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="productDesc">Customer Email</label>
-                                    <input class="form-control" id="customeremail" placeholder="Enter Customer Email" type="email">
-                               </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-4">
-                                <div class="form-group">
-                                  <label for="productDesc">Customer Address</label>
-                                  <textarea class="form-control" id="cutomeraddress" placeholder="Enter Customer address" rows="2"></textarea>
-                                </div>
-
-                              </div>
-                            </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include "invoicemainmodal.php"; ?>
 
               </div>
             </div>
@@ -179,6 +119,10 @@
                 <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
+                <script src="jscode/undefinedfunction.js"></script>
+                <script src="jscode/getallproducts.js"></script>
+                <script src="jscode/getalltax.js"></script>
+                <script src="jscode/getallunit.js"></script>
                 <script src="jscode/invoice.js"></script>
 
     </body>

@@ -23,6 +23,9 @@ $("#customerName").select2();
 //         }
 //     });
 // }
+console.log(productList);
+console.log(taxList);
+console.log(unitList);
 //
 //
 // const showblog = blogList => {

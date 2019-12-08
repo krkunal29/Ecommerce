@@ -132,7 +132,7 @@
                 <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
                 <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
                 <script src="dist/js/theme.min.js"></script>
-                <script src="js/datatables.js"></script>
+                <!-- <script src="js/datatables.js"></script> -->
                 <script src="plugins/moment/moment.js"></script>
                 <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>

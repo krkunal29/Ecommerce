@@ -6,8 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['Tax']) && isset($_POST['TaxId'])) {
-    $sql          = "UPDATE taxmaster SET Tax='$Tax' WHERE TaxId = $TaxId";
+if (isset($_POST['tax']) && isset($_POST['taxname']) && isset($_POST['taxId'])) {
+    $sql          = "UPDATE taxmaster SET Tax='$tax'  ,Taxname='$taxname' WHERE TaxId = $taxId";
     $query        = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {

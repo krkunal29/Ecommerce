@@ -69,7 +69,7 @@ $("#blogStatus").val(values.blogStatus).trigger('change');
 }
 function loadcategory()
 {
-console.log(blogcategoryList);
+// console.log(blogcategoryList);
 var html = '<option value="">Select Blog Category</option>';
 for(let k of blogcategoryList.keys())
 {

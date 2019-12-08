@@ -25,6 +25,12 @@
                                     <a href="products.php"><i class="ik ik-menu"></i><span>Add Product</span> <span class="badge badge-success">New</span></a>
                                 </div> -->
                                 <div class="nav-item">
+                                    <a href="products.php"><i class="ik ik-menu"></i><span>Product/Services</span> <span class="badge badge-success">New</span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="invoice.php"><i class="ik ik-menu"></i><span>Invoice</span> <span class="badge badge-success">New</span></a>
+                                </div>
+                                <div class="nav-item">
                                     <a href="tax.php"><i class="ik ik-menu"></i><span>Tax</span> <span class="badge badge-success">New</span></a>
                                 </div>
                                 <div class="nav-item">
@@ -37,14 +43,9 @@
                                     <a href="blog.php"><i class="ik ik-menu"></i><span>Blog</span> <span class="badge badge-success">New</span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="blogcategory.php"><i class="ik ik-menu"></i><span>Category</span> <span class="badge badge-success">New</span></a>
+                                    <a href="blogcategory.php"><i class="ik ik-menu"></i><span>Blog Category</span> <span class="badge badge-success">New</span></a>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="products.php"><i class="ik ik-menu"></i><span>Product/Services</span> <span class="badge badge-success">New</span></a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="invoice.php"><i class="ik ik-menu"></i><span>Invoice</span> <span class="badge badge-success">New</span></a>
-                                </div>
+
                             </nav>
                         </div>
                     </div>

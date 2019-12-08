@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label for="categoryId">Category</label>
                             <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category">
-                                
+
                             </select>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="TaxId">Tax</label>
                             <select class="form-control" id="TaxId" name="TaxId">
-                            
+
                             </select>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <div class="form-group">
                         <label for="unitId">Unit</label>
                         <select class="form-control" id="unitId" name="unitId">
-                            
+
                             </select>
                             </div>
                     </div>

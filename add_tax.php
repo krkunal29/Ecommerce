@@ -1,3 +1,8 @@
+<style>
+.error{
+    color: red;
+}
+</style>
 <div class="row">
 
     <div class="card">
@@ -7,11 +12,17 @@
             <form class="forms-sample" id="taxform" method="POST">
 
                 <div class="row">
-
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        
+                          <label for="productDesc">Tax Name</label>
+                          <input type="text" class="form-control" id="taxname" name="taxname" placeholder="Enter Tax Name">
+                      </div>
+                  </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productDesc">Tax</label>
-                            <input type="text" class="form-control" id="taxval" placeholder="Enter Tax">
+                            <label for="productDesc">Tax Value</label>
+                            <input type="text" class="form-control" id="taxval" name="tax" placeholder="Enter Tax Value">
                         </div>
                     </div>
                 </div>
@@ -21,22 +32,21 @@
         </div>
     </div>
 </div>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/tax_validate.js"></script>
 <script>
 
 $('#taxform').on('submit', function(e) {
     e.preventDefault();
-    var taxval = $("#taxval").val();
-
-    if(taxval===""){
-      alert("Enter Tax");
-    }
-    else {
+    var returnVal = $("#taxform").valid();
+    if (returnVal) {
         $.ajax({
         url: url + 'addTax.php',
         type: 'POST',
-        data:{
-          tax:taxval
-        },
+        data:new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
         dataType: 'json',
         success: function(response) {
 
@@ -49,6 +59,6 @@ $('#taxform').on('submit', function(e) {
             }
         }
     });
-  }
+   }
 });
 </script>

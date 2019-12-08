@@ -52,8 +52,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-inbox bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Products List</h5>
-                                            <span>List of brands</span>
+                                            <h5>Users List</h5>
+                                            <span>See all users with their roles</span>
                                         </div>
                                     </div>
                                 </div>

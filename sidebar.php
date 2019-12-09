@@ -16,7 +16,7 @@
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
                                 <div class="nav-item active">
-                                    <a href="index.php"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                    <a href="customers.php"><i class="ik ik-bar-chart-2"></i><span>Users</span></a>
                                 </div>
                                 <!-- <div class="nav-item">
                                     <a href="vendors.php"><i class="ik ik-menu"></i><span>Add Vendor</span> <span class="badge badge-success">New</span></a>
@@ -24,9 +24,9 @@
                                 <div class="nav-item">
                                     <a href="products.php"><i class="ik ik-menu"></i><span>Add Product</span> <span class="badge badge-success">New</span></a>
                                 </div> -->
-                                <div class="nav-item">
+                                <!-- <div class="nav-item">
                                     <a href="customers.php"><i class="ik ik-menu"></i><span>Users</span> </a>
-                                </div>
+                                </div> -->
                                 <div class="nav-item">
                                     <a href="products.php"><i class="ik ik-menu"></i><span>Product/Services</span> </a>
                                 </div>

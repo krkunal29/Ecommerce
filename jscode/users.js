@@ -72,11 +72,41 @@ const editUsers = userId => {
 }
 
 const removeUser = userId => {
-    console.log(userId);
     userId = userId.toString();
     if (userList.has(userId)) {
-        $('.vendorlist').hide();
-        $('#newvendor').load('add_vendor.php');
+        var userId = userList.get(userId);
+        var listDelete = $('.list-delete');
+            swal({
+                    title: "Are you sure?",
+                    text: "Do you really want to Inactive this user ?",
+                    icon: "warning",
+                    buttons: ["Cancel", "Inactive Now"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: url + 'inactiveUser.php',
+                            type: 'POST',
+                            data: { userId: userId },
+                            dataType: 'json',
+                            success: function(response) {
+                                if (response.Responsecode == 200) {
+                                    userList.delete(userId);
+                                    showUsers(userList);
+                                    swal({
+                                        title: "In active",
+                                        text: response.Message,
+                                        icon: "success",
+                                    });
+                                }
+                            }
+                        })
+                    } else {
+                        swal("User Not In Activated!");
+                    }
+                });
+
     }
 }
 

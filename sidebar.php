@@ -2,9 +2,9 @@
                 <div class="app-sidebar colored">
                     <div class="sidebar-header">
                         <a class="header-brand" href="index.html">
-                            <!-- <div class="logo-img">
+                            <div class="logo-img">
                                <img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite">
-                            </div> -->
+                            </div>
                             <span class="text">Ecommerce</span>
                         </a>
                         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
@@ -25,25 +25,28 @@
                                     <a href="products.php"><i class="ik ik-menu"></i><span>Add Product</span> <span class="badge badge-success">New</span></a>
                                 </div> -->
                                 <div class="nav-item">
-                                    <a href="products.php"><i class="ik ik-menu"></i><span>Product/Services</span> <span class="badge badge-success">New</span></a>
+                                    <a href="customers.php"><i class="ik ik-menu"></i><span>Users</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="invoice.php"><i class="ik ik-menu"></i><span>Invoice</span> <span class="badge badge-success">New</span></a>
+                                    <a href="products.php"><i class="ik ik-menu"></i><span>Product/Services</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="tax.php"><i class="ik ik-menu"></i><span>Tax</span> <span class="badge badge-success">New</span></a>
+                                    <a href="invoice.php"><i class="ik ik-menu"></i><span>Invoice</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="unit.php"><i class="ik ik-menu"></i><span>Unit</span> <span class="badge badge-success">New</span></a>
+                                    <a href="tax.php"><i class="ik ik-menu"></i><span>Tax</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> <span class="badge badge-success">New</span></a>
+                                    <a href="unit.php"><i class="ik ik-menu"></i><span>Unit</span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="blog.php"><i class="ik ik-menu"></i><span>Blog</span> <span class="badge badge-success">New</span></a>
+                                    <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="blogcategory.php"><i class="ik ik-menu"></i><span>Blog Category</span> <span class="badge badge-success">New</span></a>
+                                    <a href="blog.php"><i class="ik ik-menu"></i><span>Blog</span> </a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="blogcategory.php"><i class="ik ik-menu"></i><span>Blog Category</span> </a>
                                 </div>
 
                             </nav>

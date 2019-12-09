@@ -9,7 +9,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Data Tables | ThemeKit - Admin Template</title>
+        <title>Ecommerce</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -288,7 +288,7 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script type="text/javascript" src="js/dropzone.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
@@ -301,11 +301,18 @@
         <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/datatables.js"></script>
+        <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
-
+        <script src="jscode/apis.js"></script>
+        <script src="jscode/undefinedfunction.js"></script>
+        <!-- <script src="jscode/getallproducts.js"></script> -->
+        <script src="jscode/apis.js"></script>
+        <script src="jscode/getallcategory.js"></script>
+        <script src="jscode/getalltax.js"></script>
+        <script src="jscode/getallunit.js"></script>
         <!-- <script src="js/layouts.js"></script> -->
 
-        <script src="jscode/apis.js"></script>
+
         <script src="jscode/products.js"></script>
 
     </body>

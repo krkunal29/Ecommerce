@@ -71,8 +71,9 @@ for(let k of blogcategoryList.keys()){
 $("#blogcategoryId").html(html);
 }
 $("#blogcategoryId").select2();
-$("#blogStatus").select2();
 loadcategory();
+$("#blogStatus").select2();
+
 $('#blogform').on('submit', function(e) {
     e.preventDefault();
         var blogTitle = $("#blogtitle").val();

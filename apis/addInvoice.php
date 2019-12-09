@@ -10,6 +10,7 @@ extract($_POST);
 
 if (isset($_POST['postdata'])) {
     $someArray            = json_decode($postdata, true);
+  
     $type                 = $someArray['t_type'];
     $userId               = $someArray["userId"];
     $invDate              = $someArray["invDate"];
@@ -22,6 +23,7 @@ if (isset($_POST['postdata'])) {
         $last_id = mysqli_insert_id($conn);
         $tId     = strval($last_id);
         foreach ($transaction_products as $key => $value) {
+
             $productid    = $transaction_products[$key]['productId'];
             $taxid        = $transaction_products[$key]['taxid'];
             $quantity     = $transaction_products[$key]['quantity'];
@@ -49,7 +51,7 @@ if (isset($_POST['postdata'])) {
             "Responsecode" => 404
         );
     }
-    
+
 } else {
     $response = array(
         "Message" => "Parameters missing",
@@ -58,4 +60,4 @@ if (isset($_POST['postdata'])) {
 }
 mysqli_close($conn);
 print json_encode($response);
-?> 
+?>

@@ -22,7 +22,7 @@ const loadProducts = () => {
         }
     });
 }
-
+loadProducts();
 const showProducts = productList => {
     $('#products').dataTable().fnDestroy();
     $('.productsData').empty();
@@ -52,7 +52,7 @@ const showProducts = productList => {
         destroy: true
     });
 }
-loadProducts();
+
 
 const loadVendors = () => {
     $.ajax({

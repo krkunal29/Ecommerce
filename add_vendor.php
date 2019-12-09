@@ -6,7 +6,7 @@
 
         <div class="card-body">
             <form class="forms-sample" id="vendorForm" method="POST">
-                
+
 
                     <div class="row">
                         <div class="col-md-4">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-               
+
 
                 <div class="row">
                     <div class="col-md-4">
@@ -54,8 +54,8 @@
                             <input id="dropper-max-year" class="form-control" type="text" placeholder="Max Year 2020" />
                         </div>
                     </div>
-                   
-                    
+
+
                 </div>
 
                 <div class="row">

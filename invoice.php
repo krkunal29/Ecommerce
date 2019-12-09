@@ -62,12 +62,13 @@
 
                                           </div>
                                             </div>
+                                            <!-- data-toggle="modal" data-target="#fullwindowModal" -->
                                             <div class="row">
                                               <div class="col-sm-8">
 
                                               </div>
                                           <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullwindowModal" style="float: right;">New Invoice</button>
+                                            <button type="button" class="btn btn-primary"  style="float: right;" onclick="addopenInvoice()">New Invoice</button>
                                           </div>
                                         </div>
                                         </div>
@@ -103,7 +104,9 @@
 
                <?php include "dashboardmodal.php"; ?>
 
-                  <script src="js/jquery.min.js"></script>
+                <script src="js/jquery.min.js"></script>
+                <script src="plugins/datedropper/datedropper.min.js"></script>
+                <!-- <script src="js/form-picker.js"></script> -->
 
                 <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
                 <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -122,9 +125,16 @@
                 <script src="jscode/undefinedfunction.js"></script>
                 <script src="jscode/getallproducts.js"></script>
                 <script src="jscode/getalltax.js"></script>
-                <script src="jscode/getallunit.js"></script>
+                <script src="jscode/getallcustomers.js"></script>
+                <!-- <script src="jscode/getallunit.js"></script> -->
+                <script src="jscode/loadcustomer.js"></script>
+                <script src="jscode/loadtax.js"></script>
+                <script src="jscode/loadproducts.js"></script>
+                <!-- <script src="jscode/loadunit.js"></script>
+                <script src="jscode/loadcategory.js"></script> -->
+                <script src="jscode/invoiceopen.js"></script>
                 <script src="jscode/invoice.js"></script>
-
+                <script src="plugins/moment/moment.js"></script>
     </body>
 
 </html>

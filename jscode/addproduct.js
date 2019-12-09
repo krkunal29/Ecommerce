@@ -1,3 +1,4 @@
+
 $('#productform').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#productform").valid();

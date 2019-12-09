@@ -102,9 +102,10 @@
         </div>
     </div>
 </div>
+<script src="jscode/loadtaxproduct.js"></script>
+<script src="jscode/loadunit.js"></script>
+<script src="jscode/loadcategory.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
-<script src="jscode/getAllTax.js"></script>
-<!-- <script src="jscode/vendorList.js"></script> -->
 <script src="jscode/product_validation.js"></script>
 <script src="jscode/addproduct.js"> </script>

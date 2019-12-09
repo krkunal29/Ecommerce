@@ -6,8 +6,12 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
+if(isset($_POST['roleId'])){
+$sql      = "SELECT um.emailId,ud.contactAddress,um.userId,ud.fname,ud.lname FROM user_master um INNER JOIN user_details ud ON um.userId = ud.userId INNER JOIN rolemaster rm ON rm.roleId = um.roleId WHERE um.roleId = $roleId";
 
+}else{
 $sql      = "SELECT * FROM user_master um INNER JOIN user_details ud ON um.userId = ud.userId INNER JOIN rolemaster rm ON rm.roleId = um.roleId";
+}
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -15,7 +19,7 @@ if ($jobQuery != null) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
             $records[] = $academicResults;
         }
-        
+
         $response = array(
             'Message' => "All Users Data Fetched successfully",
             "Data" => $records,
@@ -31,4 +35,4 @@ if ($jobQuery != null) {
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?> 
+?>

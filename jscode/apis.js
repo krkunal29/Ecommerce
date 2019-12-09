@@ -1,1 +1,1 @@
-const url = 'apis/';
+var url = 'apis/';

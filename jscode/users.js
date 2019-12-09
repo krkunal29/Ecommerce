@@ -10,7 +10,6 @@ const loadUsers = () => {
         url: url + 'getAllusers.php',
         type: 'POST',
         dataType: 'json',
-        data: data,
         success: function(response) {
             if (response.Data != null) {
                 const count = response.Data.length;

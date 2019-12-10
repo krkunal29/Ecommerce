@@ -3,9 +3,9 @@
                     <div class="sidebar-header">
                         <a class="header-brand" href="index.html">
                             <div class="logo-img">
-                               <img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite">
+                               <img src="img/brand1.png" class="header-brand-img" alt="lavalite" width="100px">
                             </div>
-                            <span class="text">Ecommerce</span>
+                            <!-- <span class="text">Ecommerce</span> -->
                         </a>
                         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
                         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>

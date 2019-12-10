@@ -38,12 +38,12 @@
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
-                                <a href="index.php"><img src="src/img/brand.svg" alt=""></a>
+                                <a href="index.php"><img src="img/brand1.png" alt=""></a>
                             </div>
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
                                 Please Enter Correct Email Id  or password
                             </div>
-                            <h3>Sign In to ThemeKit</h3>
+                            <h3>Sign In to Markedia</h3>
                             <p>Happy to see you again!</p>
                             <form id="signin">
                                 <div class="form-group">

@@ -24,20 +24,20 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productDesc">Blog Content</label>
-
-                            <textarea class="form-control" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="form-group">
                             <label for="productDesc">Blog Url</label>
                             <input type="text" class="form-control" id="blogurl" placeholder="Enter Blog URL">
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="productDesc">Blog Content</label>
+
+                          <textarea class="form-control" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
+                      </div>
+                  </div>
+
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productDesc">Blog Status</label>

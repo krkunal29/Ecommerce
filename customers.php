@@ -9,10 +9,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Data Tables | ThemeKit - Admin Template</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php include "metatag.php"; ?>
 
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
@@ -72,16 +69,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="newcustomer"></div>
+                        <div class="row customerlist">
                         <div class="col-md-12">
                                 <div class="card table-card">
                                     <div class="card-header">
-                                        <h3>Customer  Overview</h3>
-                                        <div class="card-header-right">
-                                            <ul class="list-unstyled card-option">
-                                                <li><i class="ik ik-chevron-left action-toggle"></i></li>
-                                                <li><i class="ik ik-minus minimize-card"></i></li>
-                                                <li><i class="ik ik-x close-card"></i></li>
-                                            </ul>
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-sm-4">
+                                            <h3>Customer List</h3>
+                                          </div>
+                                          <div class="col-sm-4">
+
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addCustomer();" >New Customers</button>
+                                          </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="card-block">
@@ -98,8 +102,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="usersData">
-                                                   
-                                                <tr>
+
+                                                <!-- <tr>
                                                         <td>
                                                             <div class="d-inline-block align-middle">
                                                                 <img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
@@ -117,20 +121,20 @@
                                                             <label class="badge badge-primary">Ui</label>
                                                         </td>
                                                         <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr>
-                                                   
-                                                   
-                                                   
+                                                    </tr> -->
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                          </div>
 
 
-
-                <div class="chat-panel" hidden>
+                <!-- <div class="chat-panel" hidden>
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <a href="javascript:void(0);"><i class="ik ik-message-square text-success"></i></a>
@@ -211,20 +215,15 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <footer class="footer">
-                    <div class="w-100 clearfix">
-                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
-                    </div>
-                </footer>
+                </div> -->
+              <?php include "footer.php"; ?>
             </div>
         </div>
 
 
 
 
-        <div class="modal fade apps-modal" id="appsModal" tabindex="-1" role="dialog" aria-labelledby="appsModalLabel" aria-hidden="true" data-backdrop="false">
+        <!-- <div class="modal fade apps-modal" id="appsModal" tabindex="-1" role="dialog" aria-labelledby="appsModalLabel" aria-hidden="true" data-backdrop="false">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ik ik-x-circle"></i></button>
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -299,9 +298,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="js/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script type="text/javascript" src="js/dropzone.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>

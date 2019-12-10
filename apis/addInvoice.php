@@ -10,7 +10,7 @@ extract($_POST);
 
 if (isset($_POST['postdata'])) {
     $someArray            = json_decode($postdata, true);
-  
+
     $type                 = $someArray['t_type'];
     $userId               = $someArray["userId"];
     $invDate              = $someArray["invDate"];

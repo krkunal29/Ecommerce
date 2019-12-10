@@ -30,7 +30,7 @@ const showUsers = userList => {
         let users = userList.get(k);
         // var bdate = moment(users.birthDate).format("dddd, MMMM Do YYYY");
         tblData += '<tr><td><div class="d-inline-block align-middle">';
-        tblData += '<img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">';
+        // tblData += '<img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">';
         tblData += '<div class="d-inline-block"> <h6>'+users.fname+' '+users.lname+'</h6>';
         tblData += '<p class="text-muted mb-0">'+users.role+'</p>  </div></div></td>';
         tblData += '<td>'+users.contactNumber+'</td>';
@@ -40,7 +40,7 @@ const showUsers = userList => {
         tblData += '<td><a href="#" onclick="editUsers('+(k)+')"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!" onclick="removeUser('+(k)+')"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>';
         tblData += '</tr>';
     }
-    
+
     $('.usersData').html(tblData);
     $('#users').dataTable({
         searching: true,
@@ -57,11 +57,11 @@ const showUsers = userList => {
 loadUsers();
 
 const editUsers = userId => {
-    console.log(userId);
-    userId = vendorId.toString();
+    // console.log(userId);
+    userId = userId.toString();
     if (userList.has(userId)) {
-        $('.vendorlist').hide();
-        $('#newvendor').load('edit_vendor.php');
+        $('.customerlist').hide();
+        $('#newcustomer').load('edit_customer.php');
         const user = userList.get(userId);
         userIdu = userId;
         details = user;
@@ -109,12 +109,12 @@ const removeUser = userId => {
     }
 }
 
-function addVendor() {
-    $('.vendorlist').hide();
-    $('#newvendor').load('add_vendor.php');
+function addCustomer() {
+    $('.customerlist').hide();
+    $('#newcustomer').load('add_customer.php');
 }
 
 function goback() {
-    $('#newvendor').empty();
-    $('.vendorlist').show();
+    $('#newcustomer').empty();
+    $('.customerlist').show();
 }

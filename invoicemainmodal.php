@@ -60,7 +60,7 @@
                           <table id="invoicetbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 250px; display:block;">
                               <thead>
                                 <tr>
-                                    <th style="width: 30%;">Product Name</th>
+                                    <th style="width: 35%;">Product Name</th>
                                     <th style="width: 10%;">HSN</th>
                                     <th style="width: 20%;">TAX</th>
                                     <th style="width: 10%;">QTY</th>
@@ -92,6 +92,22 @@
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
+                  <table id="invoicetaxtbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 250px; display:block;">
+                      <thead>
+
+                      </thead>
+                      <tbody id="invoicetaxtblbody">
+                        <tr>
+                          <td style="width: 100%;">Tax name </td>
+                          <td>1000</td>
+                        </tr>
+                        <tr>
+                          <td style="width: 100%;">Tax name </td>
+                          <td>1000</td>
+                        </tr>
+                      </tbody>
+
+                  </table>
                 </div>
               </div>
             </div>

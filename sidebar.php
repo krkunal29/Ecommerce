@@ -43,6 +43,9 @@
                                     <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
                                 </div>
                                 <div class="nav-item">
+                                    <a href="subcategory.php"><i class="ik ik-menu"></i><span> Sub Category</span> </a>
+                                </div>
+                                <div class="nav-item">
                                     <a href="blog.php"><i class="ik ik-edit"></i><span>Blog</span> </a>
                                 </div>
                                 <div class="nav-item">

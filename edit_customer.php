@@ -108,7 +108,7 @@ $('#customerform').on('submit', function(e) {
       processData: false,
       dataType: 'json',
       success: function(response) {
-           console.log(response);
+           // console.log(response);
           if (response.Responsecode == 200) {
             userList.set(response.Data.userId, response.Data);
               showUsers(userList);

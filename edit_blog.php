@@ -80,8 +80,9 @@ $("#blogcategoryId").html(html);
 loadDetails(details);
 }
 $("#blogcategoryId").select2();
-$("#blogStatus").select2();
 loadcategory();
+$("#blogStatus").select2();
+
 $('#blogform').on('submit', function(e) {
     e.preventDefault();
         var blogTitle = $("#blogtitle").val();

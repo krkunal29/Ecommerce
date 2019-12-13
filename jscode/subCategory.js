@@ -49,7 +49,7 @@ const editcategory = subCategoryId => {
 const removecategory = subCategoryId => {
     subCategoryId = subCategoryId.toString();
     $.ajax({
-        url:url+'deleteProductCategory.php',
+        url:url+'deleteSubCategory.php',
         type:'POST',
         data:{
             subCategoryId:subCategoryId

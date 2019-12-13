@@ -24,7 +24,7 @@ if (isset($_POST['subcategoryid']) && isset($_POST['category']) && isset($_POST[
                       $academicResults = mysqli_fetch_assoc($jobQuery1);
                       $records       = $academicResults;
                 $response = array(
-                    'Message' => "User Updated Successfully",
+                    'Message' => "Sub Category Updated Successfully",
                     "Data" => $records,
                     'Responsecode' => 200
                 );

@@ -68,7 +68,7 @@ $('#subcategoryform').on('submit', function(e) {
         success: function(response) {
 
             if (response.Responsecode == 200) {
-                subCategoryList.set(response.Data[0].subcategoryId,response.Data[0]);
+                subCategoryList.set(response.Data.subcategoryId,response.Data);
                 showcategory(subCategoryList);
                 goback();
             } else {

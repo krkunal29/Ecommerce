@@ -30,7 +30,7 @@ const showUsers = userList => {
         let users = userList.get(k);
         // var bdate = moment(users.birthDate).format("dddd, MMMM Do YYYY");
         tblData += '<tr><td><div class="d-inline-block align-middle">';
-        // tblData += '<img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">';
+         tblData += '<img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">';
         tblData += '<div class="d-inline-block"> <h6>'+users.fname+' '+users.lname+'</h6>';
         tblData += '<p class="text-muted mb-0">'+users.role+'</p>  </div></div></td>';
         tblData += '<td>'+users.contactNumber+'</td>';

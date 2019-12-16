@@ -12,7 +12,7 @@
             <form class="forms-sample" id="customerform" method="POST">
 
                 <input type="hidden" name="userId"  id="usercusId" />
-                <input type="hidden" name="roleId" value="2" id="roleId" />
+                <!-- <input type="hidden" name="roleId" value="2" id="roleId" /> -->
                 <div class="row">
 
                     <div class="col-md-4">
@@ -58,6 +58,34 @@
 
                 </div>
                 <div class="row">
+
+
+                  <div class="col-md-4">
+                      <div class="form-group">
+                  <label for="productDesc">User Type</label>
+                  <select class="form-control select2" id="userTypeId" name="roleId" onchange="changeuserId()">
+
+                  </select>
+                  </div>
+                  </div>
+                  <div class="col-md-4" id="showtehsil" style="display:none;">
+                      <div class="form-group">
+                          <label for="productDesc">Tehsil</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="text" class="form-control" id="Tehsil" placeholder="Enter Customer Tehsil" name="tehsil" />
+                      </div>
+                  </div>
+                  <div class="col-md-4"  id="showpeek" style="display:none;">
+                      <div class="form-group">
+                          <label for="productDesc">Peek</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="text" class="form-control" id="Peek" placeholder="Enter Customer Peek" name="peek" />
+                      </div>
+                  </div>
+
+
+                </div>
+                <div class="row">
                   <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Contact Address</label>
@@ -65,13 +93,29 @@
                           <textarea class="form-control" id="customeraddress" placeholder="Enter Customer Address" name="contactAddress" rows="4"></textarea>
                       </div>
                   </div>
-
-                  <div class="col-md-4">
+                  <div class="col-md-4"  id="showhector" style="display:none;">
                       <div class="form-group">
-                          <label for="productDesc">Password</label>
-                          <input type="text" class="form-control" id="password" name="upassword" placeholder="Enter Password">
+                          <label for="productDesc">Hector</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="number" class="form-control" id="Hector" placeholder="Enter Customer Hector" name="hectre" />
                       </div>
                   </div>
+                  <div class="col-md-4"  id="showwaterstat" style="display:none;">
+                    <label for="productDesc">Water Status</label>
+                      <div class="form-group">
+
+                          <div class="radio-inline">
+
+                                <input name="water" checked="checked" type="radio" value="1" id="water1">
+                                <i class="helper"></i>Available
+
+                                <input name="water" type="radio" value="0" id="water0">
+                                <i class="helper"></i>UnAvailable
+
+                          </div>
+
+              </div>
+                </div>
 
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -83,11 +127,32 @@
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/user_validation.js"></script>
 <script>
+function loadUserRoles()
+{
+// console.log(roleList);
+var html = '<option value="">Select User Roles</option>';
+for(let k of roleList.keys()){
+  let rolename = roleList.get(k);
+  html +='<option value='+rolename.roleId+'>'+rolename.role+'</option>';
+}
+$("#userTypeId").html(html);
+}
+$("#userTypeId").select2();
+loadUserRoles();
 function loadcusDetails(customer){
+  // console.log(customer);
 $("#usercusId").val(userIdu);
+$("#userTypeId").val(customer.roleId).trigger('change');
 $("#fname").val(customer.fname);
 $("#mname").val(customer.mname);
 $("#lname").val(customer.lname);
+$("#Tehsil").val(customer.tehsil);
+$("#Peek").val(customer.peek);
+$("#Hector").val(customer.hectre);
+// console.log("#water"+customer.water);
+$("#water"+customer.water).prop('checked',true);
+
+
 $("#cnumber").val(customer.contactNumber);
 $("#emailaddress").val(customer.emailId);
 $("#pincode").val(customer.pincode);
@@ -95,6 +160,24 @@ $("#customeraddress").val(customer.contactAddress);
 $("#password").val(customer.upassword);
 }
 loadcusDetails(details);
+function changeuserId(){
+  var usertypeid = $("#userTypeId").val();
+  // console.log(usertypeid);
+  if(usertypeid==2){
+          $("#showtehsil").show();
+          $("#showpeek").show();
+          $("#showhector").show();
+          $("#showwaterstat").show();
+  }
+  else
+  {
+    $("#showtehsil").hide();
+    $("#showpeek").hide();
+    $("#showhector").hide();
+    $("#showwaterstat").hide();
+  }
+}
+
 $('#customerform').on('submit', function(e) {
   e.preventDefault();
   var returnVal = $("#customerform").valid();

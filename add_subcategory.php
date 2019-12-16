@@ -63,9 +63,10 @@ $('#subcategoryform').on('submit', function(e) {
             if (response.Responsecode == 200) {
                 subCategoryList.set(response.Data[0].subcategoryId,response.Data[0]);
                 showcategory(subCategoryList);
+                swal(response.Message);
                 goback();
             } else {
-                alert(response.Message);
+                swal(response.Message);
             }
         }
     });

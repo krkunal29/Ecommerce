@@ -70,9 +70,10 @@ $('#subcategoryform').on('submit', function(e) {
             if (response.Responsecode == 200) {
                 subCategoryList.set(response.Data.subcategoryId,response.Data);
                 showcategory(subCategoryList);
+                swal(response.Message);
                 goback();
             } else {
-                alert(response.Message);
+                swal(response.Message);
             }
         }
     });

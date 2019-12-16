@@ -6,7 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['emailId']) && isset($_POST['upassword']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contactAddress'])) {
+// && isset($_POST['upassword'])
+if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['emailId'])  && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contactAddress'])) {
 
     $mname     = isset($_POST['mname']) ? $_POST['mname'] : 'NULL';
     $pincode   = isset($_POST['pincode']) ? $_POST['pincode'] : 'NULL';
@@ -17,7 +18,7 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
     $lname          = mysqli_real_escape_string($conn, $lname);
     $mname          = mysqli_real_escape_string($conn, $mname);
 
-    $sql   = "INSERT INTO  user_master(roleId,emailId,contactNumber,upassword) VALUES($roleId,'$emailId','$contactNumber','$upassword')";
+    $sql   = "INSERT INTO  user_master(roleId,emailId,contactNumber,upassword) VALUES($roleId,'$emailId','$contactNumber','12345')";
     $query = mysqli_query($conn, $sql);
 
     $rowsAffected = mysqli_affected_rows($conn);

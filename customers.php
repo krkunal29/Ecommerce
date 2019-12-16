@@ -314,10 +314,11 @@
         <script src="dist/js/theme.min.js"></script>
         <script src="js/datatables.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
-
+        <script src="plugins/select2/dist/js/select2.min.js"></script>
         <!-- <script src="js/layouts.js"></script> -->
 
         <script src="jscode/apis.js"></script>
+        <script src="jscode/getallroles.js"></script>
         <script src="jscode/users.js"></script>
 
     </body>

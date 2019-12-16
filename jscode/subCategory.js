@@ -42,7 +42,7 @@ const editcategory = subCategoryId => {
         userId = subCategoryId;
         details = subcategory;
     } else {
-        alert('something goes wrong');
+        swal('something goes wrong');
     }
 }
 
@@ -60,10 +60,11 @@ const removecategory = subCategoryId => {
           if(response.Responsecode==200){
             subCategoryList.delete(subCategoryId.toString());
             showcategory(subCategoryList);
+            swal(response.Message);
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
     });

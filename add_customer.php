@@ -10,7 +10,7 @@
             <h3>Add New Customer</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="customerform" method="POST">
-                <input type="hidden" name="roleId" value="2" id="roleId" />
+                <!-- <input type="hidden" name="roleId" value="2" id="roleId" /> -->
                 <div class="row">
 
                     <div class="col-md-4">
@@ -56,6 +56,34 @@
 
                 </div>
                 <div class="row">
+
+
+                  <div class="col-md-4">
+                      <div class="form-group">
+                  <label for="productDesc">User Type</label>
+                  <select class="form-control select2" id="userTypeId" name="roleId" onchange="changeuserId()">
+
+                  </select>
+                  </div>
+                  </div>
+                  <div class="col-md-4" id="showtehsil" style="display:none;">
+                      <div class="form-group">
+                          <label for="productDesc">Tehsil</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="text" class="form-control" id="Tehsil" placeholder="Enter Customer Tehsil" name="tehsil" />
+                      </div>
+                  </div>
+                  <div class="col-md-4"  id="showpeek" style="display:none;">
+                      <div class="form-group">
+                          <label for="productDesc">Peek</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="text" class="form-control" id="Peek" placeholder="Enter Customer Peek" name="peek" />
+                      </div>
+                  </div>
+
+
+                </div>
+                <div class="row">
                   <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Contact Address</label>
@@ -63,13 +91,29 @@
                           <textarea class="form-control" id="customeraddress" placeholder="Enter Customer Address" name="contactAddress" rows="4"></textarea>
                       </div>
                   </div>
-
-                  <div class="col-md-4">
+                  <div class="col-md-4"  id="showhector" style="display:none;">
                       <div class="form-group">
-                          <label for="productDesc">Password</label>
-                          <input type="text" class="form-control" id="password" name="upassword" placeholder="Enter Password">
+                          <label for="productDesc">Hector</label>
+                          <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                          <input type="number" class="form-control" id="Hector" placeholder="Enter Customer Hector" name="hectre" />
                       </div>
                   </div>
+                  <div class="col-md-4"  id="showwaterstat" style="display:none;">
+                    <label for="productDesc">Water Status</label>
+                      <div class="form-group">
+
+                          <div class="radio-inline">
+
+                                <input name="water" checked="checked" type="radio" value="1">
+                                <i class="helper"></i>Available
+
+                                <input name="water" type="radio" value="0">
+                                <i class="helper"></i>UnAvailable
+
+                          </div>
+
+              </div>
+                </div>
 
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -81,19 +125,35 @@
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/user_validation.js"></script>
 <script>
-
-// function loadcategory()
-// {
-//
-// var html = '<option value="">Select Blog Category</option>';
-// for(let k of blogcategoryList.keys()){
-//   let categoryname = blogcategoryList.get(k);
-//   html +='<option value='+categoryname.categoryId+'>'+categoryname.category+'</option>';
-// }
-// $("#blogcategoryId").html(html);
-// }
-// $("#blogcategoryId").select2();
-// loadcategory();
+function changeuserId(){
+  var usertypeid = $("#userTypeId").val();
+  // console.log(usertypeid);
+  if(usertypeid==2){
+          $("#showtehsil").show();
+          $("#showpeek").show();
+          $("#showhector").show();
+          $("#showwaterstat").show();
+  }
+  else
+  {
+    $("#showtehsil").hide();
+    $("#showpeek").hide();
+    $("#showhector").hide();
+    $("#showwaterstat").hide();
+  }
+}
+function loadUserRoles()
+{
+// console.log(roleList);
+var html = '<option value="">Select User Roles</option>';
+for(let k of roleList.keys()){
+  let rolename = roleList.get(k);
+  html +='<option value='+rolename.roleId+'>'+rolename.role+'</option>';
+}
+$("#userTypeId").html(html);
+}
+$("#userTypeId").select2();
+loadUserRoles();
 // $("#blogStatus").select2();
 
 $('#customerform').on('submit', function(e) {

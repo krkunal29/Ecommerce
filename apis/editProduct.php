@@ -12,6 +12,7 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
     $categoryId   = isset($_POST['categoryId']) ? $categoryId : "NULL";
     $displayPrice = isset($_POST['displayPrice']) ? $displayPrice : "NULL";
     $taxId        = isset($_POST['taxId']) ? $taxId : "NULL";
+    $subcategoryId     = isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
     
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
@@ -19,7 +20,7 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
     
     $query        = "UPDATE product_master pm LEFT JOIN productdetails pd ON (pm.productId = pd.productId) 
-    SET pm.productName = '$productName',pm.SKU='$sku',pm.HSN='$hsn',pm.unitId=$unitId,pm.categoryId=$categoryId,pm.description='$description',
+    SET pm.productName = '$productName',pm.SKU='$sku',pm.HSN='$hsn',pm.unitId=$unitId,pm.categoryId=$categoryId,pm.subcategoryId = '$subcategoryId',pm.description='$description',
     pd.TaxId = $taxId,pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
     WHERE pm.productId = $productId";
     $jobQuery     = mysqli_query($conn, $query);

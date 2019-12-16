@@ -31,7 +31,15 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="categoryId">Category</label>
-                            <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category">
+                            <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category" onchange="getSubCategory(this.value)">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="subcategoryId">Sub Category</label>
+                            <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="Sub Category">
 
                             </select>
                         </div>

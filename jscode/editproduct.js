@@ -11,6 +11,7 @@ function loadDetails(product) {
     $('#sku').val(product.SKU);
     $('#TaxId').val(product.TaxId).trigger('change');
     $('#description').val(product.description);
+    $('#subcategoryId').val(product.subcategoryId).trigger('change');
     var src = url + "upload/" + product.productId + ".jpg";
     console.log(src);
     $('#prevImage').attr("src", src);

@@ -12,13 +12,14 @@ if (isset($_POST['productName']) && isset($_POST['unitId']) && isset($_POST['des
     $categoryId   = isset($_POST['categoryId']) ? $categoryId : "NULL";
     $displayPrice = isset($_POST['displayPrice']) ? $displayPrice : "NULL";
     $taxId        = isset($_POST['taxId']) ? $taxId : "NULL";
+    $subcategoryId     = isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
     
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
     
-    $query    = "INSERT INTO product_master(productName,SKU,HSN,unitId,categoryId,description) VALUES('$productName','$sku','$hsn',$unitId,$categoryId,'$description')";
+    $query    = "INSERT INTO product_master(productName,SKU,HSN,unitId,categoryId,subcategoryId,description) VALUES('$productName','$sku','$hsn',$unitId,$categoryId,$subcategoryId,'$description')";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);

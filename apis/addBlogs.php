@@ -17,12 +17,12 @@ if (isset($_POST['blogTitle']) && isset($_POST['blogContent']) && isset($_POST['
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);
         $s       = strval($last_id);
-        if(isset($_FILES["imgname"]["type"])){
-            $imgname = $_FILES["imgname"]["name"];
-            $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
-            $targetPath = "blog/". $s.".jpg"; // Target path where file is to be stored
-            move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-          }
+        // if(isset($_FILES["imgname"]["type"])){
+        //     $imgname = $_FILES["imgname"]["name"];
+        //     $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+        //     $targetPath = "blog/". $s.".jpg"; // Target path where file is to be stored
+        //     move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+        //   }
         $sql       = "SELECT * FROM blogmaster bm LEFT JOIN blogcategory bg ON bm.categoryId = bg.categoryId WHERE bm.blogId = $s";
         $jobQuery1 = mysqli_query($conn, $sql);
         if ($jobQuery1 != null) {

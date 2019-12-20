@@ -10,15 +10,16 @@ if (isset($_POST['productName']) && isset($_POST['unitId']) && isset($_POST['des
     $hsn          = isset($_POST['hsn']) ? $hsn : "NULL";
     $sku          = isset($_POST['sku']) ? $sku : "NULL";
     $categoryId   = isset($_POST['categoryId']) ? $categoryId : "NULL";
+
     $displayPrice = isset($_POST['displayPrice']) ? $displayPrice : "NULL";
-    $taxId        = isset($_POST['taxId']) ? $taxId : "NULL";
-    $subcategoryId     = isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
-    
+    $TaxId        = isset($_POST['TaxId']) ? $TaxId : "NULL";
+    $subcategoryId= isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
+
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
-    
+
     $query    = "INSERT INTO product_master(productName,SKU,HSN,unitId,categoryId,subcategoryId,description) VALUES('$productName','$sku','$hsn',$unitId,$categoryId,$subcategoryId,'$description')";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery == 1) {
@@ -30,16 +31,17 @@ if (isset($_POST['productName']) && isset($_POST['unitId']) && isset($_POST['des
             $targetPath = "upload/". $s.".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
           }
-        $query2  = "INSERT INTO productdetails(productId,TaxId,salePrice,displayPrice,Quantity) VALUES('$s',$taxId,'$salePrice','$displayPrice','$Quantity')";
+        $query2  = "INSERT INTO productdetails(productId,TaxId,salePrice,displayPrice,Quantity) VALUES('$s','$TaxId','$salePrice','$displayPrice','$Quantity')";
+        // echo $query2;
         if (mysqli_query($conn, $query2)) {
-            
+
             $sql       = "SELECT * FROM product_master pm LEFT JOIN productdetails pd ON pm.productId = pd.productId WHERE pm.productId = $s";
             $jobQuery1 = mysqli_query($conn, $sql);
             if ($jobQuery1 != null) {
                 $academicAffected = mysqli_num_rows($jobQuery1);
                 if ($academicAffected > 0) {
                     $academicResults = mysqli_fetch_assoc($jobQuery1);
-                    $records[]       = $academicResults;
+                    $records       = $academicResults;
                     $response        = array(
                         'Message' => "All Product Data fetched Successfully",
                         "Data" => $records,

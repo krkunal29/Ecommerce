@@ -309,6 +309,7 @@
         <!-- <script src="jscode/getallproducts.js"></script> -->
         <script src="jscode/apis.js"></script>
         <script src="jscode/getallcategory.js"></script>
+        <script src="jscode/getallsubCategory.js"></script>
         <script src="jscode/getalltax.js"></script>
         <script src="jscode/getallunit.js"></script>
         <!-- <script src="js/layouts.js"></script> -->

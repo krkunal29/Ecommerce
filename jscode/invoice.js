@@ -3,6 +3,7 @@ var details = {};
 
 var TableData;
 function saveorder(){
+  console.log("ok");
   var customerName=$("#customerName").val();
   var customeremail=$("#customeremail").val();
   var cutomeraddress=$("#cutomeraddress").val();
@@ -19,7 +20,7 @@ function saveorder(){
     invDate:'2019/12/09'
   };
   postdata = JSON.stringify(postdata);
-  // console.log(postdata);
+   console.log(postdata);
   $.ajax({
   url: url + 'addInvoice.php',
   type: 'POST',
@@ -30,7 +31,7 @@ function saveorder(){
   if (response.Responsecode == 200) {
 
           swal(response.Message);
-          // goback();
+          goback();
       }
       else
        {
@@ -49,7 +50,7 @@ function storeTblValues() {
   var TaxId = $(tr).find('td:eq(2) select').val();
   var Qty = $(tr).find('td:eq(3) input').val();
   var Rate = $(tr).find('td:eq(4) input').val();
-  var Total = $(tr).find('td:eq(5) inpu // customer Name Sett').val();
+  var Total = $(tr).find('td:eq(5) input').val();
   if(productId==''||TaxId==''||Qty==''||Rate==''||Total==''||Total=="NaN"){
     swal('Please Add Required Field ');
     TableData =[];
@@ -140,13 +141,7 @@ const editinvoice = invoiceid => {
               {
                      swal(response.Message);
               }
-              // if (response.Data != null) {
-              //     const count = response.Data.length;
-              //     for (var i = 0; i < count; i++) {
-              //         invoiceList.set(response.Data[i].transactionId, response.Data[i]);
-              //     }
-              //     showinvoicetable(invoiceList);
-              // }
+
           }
       });
 }

@@ -35,7 +35,7 @@ $(function() {
             },
             salePrice:{
                 required: "Please Enter a product sale price", number: "Enter only digits"
-            }, 
+            },
             Quantity:{
                 required: "Please Enter a product Quantity for", number: "Enter only digits"
             },

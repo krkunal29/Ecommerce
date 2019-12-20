@@ -9,7 +9,7 @@ $("#dropper-default").dateDropper({
 })
 function addopenInvoice() {
     loadUsers(); // customer Name Set
-  
+
     $("#customeremail").val("");
     $("#cutomeraddress").val("");
     $("#orderremark").val("");

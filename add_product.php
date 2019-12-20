@@ -9,14 +9,14 @@
             <h3>Add New Product</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="productform" method="POST" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-md-4">
+                   <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="productTitle">Product Title</label>
                             <input type="text" id="productName" name="productName" class="form-control"  placeholder="Product Title">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="categoryId">Category</label>
                             <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category" onchange="getSubCategory(this.value)">
@@ -24,7 +24,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    </div>
+                    <div class="row">
+
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="subcategoryId">Sub Category</label>
                             <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="sub Category">
@@ -32,7 +35,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="TaxId">Tax</label>
                             <select class="form-control" id="TaxId" name="TaxId">
@@ -113,6 +116,7 @@
 <script src="jscode/loadtaxproduct.js"></script>
 <script src="jscode/loadunit.js"></script>
 <script src="jscode/loadcategory.js"></script>
+<script src="jscode/loadsubcategory.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/product_validation.js"></script>

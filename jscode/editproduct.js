@@ -1,8 +1,11 @@
 
 function loadDetails(product) {
+  // console.log(product);
     $('#productId').val(product.productId);
     $('#productName').val(product.productName);
     $('#categoryId').val(product.categoryId).trigger('change');
+    $('#subcategoryId1').val(product.subcategoryId).trigger('change');
+
     $('#salePrice').val(product.salePrice);
     $('#displayPrice').val(product.displayPrice);
     $('#Quantity').val(product.Quantity);
@@ -11,9 +14,9 @@ function loadDetails(product) {
     $('#sku').val(product.SKU);
     $('#TaxId').val(product.TaxId).trigger('change');
     $('#description').val(product.description);
-    $('#subcategoryId').val(product.subcategoryId).trigger('change');
+
     var src = url + "upload/" + product.productId + ".jpg";
-    console.log(src);
+     console.log(src);
     $('#prevImage').attr("src", src);
 }
 loadDetails(details);

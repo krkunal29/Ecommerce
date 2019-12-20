@@ -11,17 +11,17 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
     $sku          = isset($_POST['sku']) ? $sku : "NULL";
     $categoryId   = isset($_POST['categoryId']) ? $categoryId : "NULL";
     $displayPrice = isset($_POST['displayPrice']) ? $displayPrice : "NULL";
-    $taxId        = isset($_POST['taxId']) ? $taxId : "NULL";
+    $TaxId        = isset($_POST['TaxId']) ? $TaxId : "NULL";
     $subcategoryId     = isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
-    
+
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
-    
-    $query        = "UPDATE product_master pm LEFT JOIN productdetails pd ON (pm.productId = pd.productId) 
+
+    $query        = "UPDATE product_master pm LEFT JOIN productdetails pd ON (pm.productId = pd.productId)
     SET pm.productName = '$productName',pm.SKU='$sku',pm.HSN='$hsn',pm.unitId=$unitId,pm.categoryId=$categoryId,pm.subcategoryId = '$subcategoryId',pm.description='$description',
-    pd.TaxId = $taxId,pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
+    pd.TaxId = $TaxId, pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
     WHERE pm.productId = $productId";
     $jobQuery     = mysqli_query($conn, $query);
     $rowsAffected = mysqli_affected_rows($conn);
@@ -45,7 +45,7 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
             "Data" => $records,
             'Responsecode' => 200
         );
-        
+
     } else {
         $response = array(
             'Message' => "No Data change".mysqli_error($conn),
@@ -62,4 +62,4 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?> 
+?>

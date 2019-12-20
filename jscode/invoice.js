@@ -3,7 +3,7 @@ var details = {};
 
 var TableData;
 function saveorder(){
-  console.log("ok");
+  // console.log("ok");
   var customerName=$("#customerName").val();
   var customeremail=$("#customeremail").val();
   var cutomeraddress=$("#cutomeraddress").val();

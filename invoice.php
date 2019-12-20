@@ -22,12 +22,15 @@
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
         <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
+
+
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+
     </head>
 
     <body>
@@ -59,7 +62,7 @@
 
                                           </div>
                                             </div>
-                                            <!-- data-toggle="modal" data-target="#fullwindowModal" -->
+
                                             <div class="row">
                                               <div class="col-sm-8">
 
@@ -107,7 +110,8 @@
 
                <?php include "dashboardmodal.php"; ?>
 
-                <script src="js/jquery.min.js"></script>
+               <script src="js/jquery.min.js"></script>
+<script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="plugins/datedropper/datedropper.min.js"></script>
                 <!-- <script src="js/form-picker.js"></script> -->
 
@@ -122,7 +126,7 @@
                 <script src="plugins/moment/moment.js"></script>
                 <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
-                <script src="plugins/select2/dist/js/select2.min.js"></script>
+
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
                 <script src="jscode/undefinedfunction.js"></script>

@@ -50,6 +50,21 @@
                     </div>
 
                 </div>
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="productDesc">Brand Image</label>
+                          <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="output">Brand Image view</label>
+                          <img src="" alt="" id="output" width="110px" height="110px">
+                      </div>
+                  </div>
+
+                </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light" type="button" onclick="goback()">Cancel</button>
             </form>
@@ -57,6 +72,7 @@
     </div>
 </div>
 <script src="js/jquery.validate.js"></script>
+<script src="jscode/loadFile.js"></script>
 <!-- <script src="jscode/quiz_validation.js"></script> -->
 <script>
 
@@ -95,8 +111,8 @@ $('#blogform').on('submit', function(e) {
         data:obj,
         dataType: 'json',
         success: function(response) {
+          if (response.Responsecode == 200) {
         // console.log(response);
-        if (response.Responsecode == 200) {
                 blogList.set(response.Data[0].blogId,response.Data[0]);
                 showblog(blogList);
                 goback();

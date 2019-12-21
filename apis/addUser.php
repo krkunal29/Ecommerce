@@ -36,7 +36,10 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
             $query = mysqli_query($conn, $sql);
         }
         if ($rowsAffected == 1) {
-            $academicQuery = mysqli_query($conn, "SELECT * FROM user_master um INNER JOIN user_details ud ON um.userId = ud.userId INNER JOIN rolemaster rm ON rm.roleId = um.roleId WHERE um.userId=$userId");
+          $sql   = "SELECT * FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId Left JOIN rolemaster rm ON rm.roleId = um.roleId
+          Left JOIN farmer_details fd ON fd.userId = ud.userId
+          WHERE um.userId=$userId";
+            $academicQuery = mysqli_query($conn,$sql);
             if ($academicQuery != null) {
                 $academicAffected = mysqli_num_rows($academicQuery);
                 if ($academicAffected > 0) {

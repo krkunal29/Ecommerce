@@ -35,10 +35,10 @@ const showblog = blogList => {
         tblData += '<td>' + blogs.category + '</td>';
         var blogStatus ='';
         if(blogs.blogStatus==0){
-          blogStatus ='<span class="label label-danger">Inactive</span>';
+          blogStatus ='<span class="badge badge-danger">Inactive</span>';
         }
         else{
-          blogStatus ='<span class="label label-success">Active</span>';
+          blogStatus ='<span class="badge badge-primary">Active</span>';
         }
         tblData += '<td>' + blogStatus + '</td>';
         tblData += '<td><div class="table-actions">';

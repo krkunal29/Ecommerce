@@ -41,9 +41,32 @@
                 <?php include 'sidebar.php';?>
                 <div class="main-content">
                     <div class="container-fluid">
-                        <div class="page-header">
-                            
-                        </div>
+                      <div class="page-header">
+                          <div class="row align-items-end">
+                              <div class="col-lg-8">
+                                  <div class="page-header-title">
+                                      <i class="ik ik-inbox bg-blue"></i>
+                                      <div class="d-inline">
+                                          <h5>Tax List</h5>
+                                          <!-- <span>See all users with their roles</span> -->
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4">
+                                  <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                      <ol class="breadcrumb">
+                                          <li class="breadcrumb-item">
+                                              <a href="#"><i class="ik ik-home"></i></a>
+                                          </li>
+                                          <li class="breadcrumb-item">
+                                              <a href="#">Tax</a>
+                                          </li>
+                                          <li class="breadcrumb-item active" aria-current="page">Tax List</li>
+                                      </ol>
+                                  </nav>
+                              </div>
+                          </div>
+                      </div>
                         <div id="newtax"></div>
                         <div class="row taxlist">
                             <div class="col-md-12">

@@ -50,7 +50,7 @@
                                         <i class="ik ik-inbox bg-blue"></i>
                                         <div class="d-inline">
                                             <h5>Users List</h5>
-                                            <span>See all users with their roles</span>
+                                            <!-- <span>See all users with their roles</span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -58,12 +58,12 @@
                                     <nav class="breadcrumb-container" aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item">
-                                                <a href="../index.html"><i class="ik ik-home"></i></a>
+                                                <a href="#"><i class="ik ik-home"></i></a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="#">Tables</a>
+                                                <a href="#">Users</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Users List</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -102,29 +102,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="usersData">
-
-                                                <!-- <tr>
-                                                        <td>
-                                                            <div class="d-inline-block align-middle">
-                                                                <img src="img/users/4.jpg" alt="user image" class="rounded-circle img-40 align-top mr-15">
-                                                                <div class="d-inline-block">
-                                                                    <h6>Shirley  Hoe</h6>
-                                                                    <p class="text-muted mb-0">Sales executive , NY</p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Pinterest</td>
-                                                        <td>223</td>
-                                                        <td>19-11-2018</td>
-                                                        <td>
-                                                            <label class="badge badge-primary">Sketch</label>
-                                                            <label class="badge badge-primary">Ui</label>
-                                                        </td>
-                                                        <td><a href="#!"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>
-                                                    </tr> -->
-
-
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -134,171 +111,11 @@
                           </div>
 
 
-                <!-- <div class="chat-panel" hidden>
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <a href="javascript:void(0);"><i class="ik ik-message-square text-success"></i></a>
-                            <span class="user-name">John Doe</span>
-                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="card-body">
-                            <div class="widget-chat-activity flex-1">
-                                <div class="messages">
-                                    <div class="message media reply">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="img/users/3.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Epic Cheeseburgers come in all kind of styles.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Cheeseburgers make your knees weak.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media reply">
-                                        <figure class="user--offline">
-                                            <a href="#">
-                                                <img src="img/users/5.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Cheeseburgers will never let you down.</p>
-                                            <p>They'll also never run around or desert you.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>A great cheeseburger is a gastronomical event.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media reply">
-                                        <figure class="user--busy">
-                                            <a href="#">
-                                                <img src="img/users/5.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>There's a cheesy incarnation waiting for you no matter what you palete preferences are.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>If you are a vegan, we are sorry for you loss.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="javascript:void(0)" class="card-footer" method="post">
-                            <div class="d-flex justify-content-end">
-                                <textarea class="border-0 flex-1" rows="1" placeholder="Type your message here"></textarea>
-                                <button class="btn btn-icon" type="submit"><i class="ik ik-arrow-right text-success"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div> -->
               <?php include "footer.php"; ?>
             </div>
         </div>
-
-
-
-
-        <!-- <div class="modal fade apps-modal" id="appsModal" tabindex="-1" role="dialog" aria-labelledby="appsModalLabel" aria-hidden="true" data-backdrop="false">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ik ik-x-circle"></i></button>
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="quick-search">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 ml-auto mr-auto">
-                                    <div class="input-wrap">
-                                        <input type="text" id="quick-search" class="form-control" placeholder="Search..." />
-                                        <i class="ik ik-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="container">
-                            <div class="apps-wrap">
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-mail"></i><span>Message</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-users"></i><span>Accounts</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-shopping-cart"></i><span>Sales</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-briefcase"></i><span>Purchase</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-server"></i><span>Menus</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-clipboard"></i><span>Pages</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-message-square"></i><span>Chats</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-map-pin"></i><span>Contacts</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-box"></i><span>Blocks</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-calendar"></i><span>Events</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-bell"></i><span>Notifications</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-pie-chart"></i><span>Reports</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-layers"></i><span>Tasks</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-edit"></i><span>Blogs</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-more-horizontal"></i><span>More</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+      </div>
+    </div>
 
       <script src="js/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>

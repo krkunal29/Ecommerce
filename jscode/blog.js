@@ -33,7 +33,14 @@ const showblog = blogList => {
         let blogs = blogList.get(k);
         tblData += '<tr><td>' + blogs.blogTitle + '</td>';
         tblData += '<td>' + blogs.category + '</td>';
-        tblData += '<td>' + blogs.blogStatus + '</td>';
+        var blogStatus ='';
+        if(blogs.blogStatus==0){
+          blogStatus ='<span class="label label-danger">Inactive</span>';
+        }
+        else{
+          blogStatus ='<span class="label label-success">Active</span>';
+        }
+        tblData += '<td>' + blogStatus + '</td>';
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editBlog(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="removeBlog(' + (k) + ')"><i class="ik ik-trash-2"></i></a>';
@@ -69,7 +76,17 @@ const editBlog = blogId => {
 
 const removeBlog = blogId => {
     blogId = blogId.toString();
+    if (blogList.has(blogId)) {
 
+          swal({
+                  title: "Are you sure?",
+                  text: "Do you really want to remove this flow ?",
+                  icon: "warning",
+                  buttons: ["Cancel", "Delete Now"],
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                  if (willDelete) {
     $.ajax({
         url:url+'deleteBlogs.php',
         type:'POST',
@@ -83,13 +100,24 @@ const removeBlog = blogId => {
             blogList.delete(blogId.toString());
             showblog(blogList);
             goback();
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+    swal("The Tax is safe!");
+}
+});
+
+}
 }
 
 function addBlog() {

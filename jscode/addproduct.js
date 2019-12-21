@@ -17,7 +17,7 @@ $('#productform').on('submit', function(e) {
                         position: 'top-end',
                         icon: 'success',
                         title: response.Message,
-                        showConfirmButton: false,
+                        button: false,
                         timer: 1500
                     });
                     productList.set(response.Data.productId, response.Data);
@@ -28,7 +28,7 @@ $('#productform').on('submit', function(e) {
                         position: 'top-end',
                         icon: 'warning',
                         title: response.Message,
-                        showConfirmButton: false,
+                        button: false,
                         timer: 1500
                     });
                 }

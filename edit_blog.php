@@ -5,51 +5,77 @@
             <h3>Add New Blog</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="blogform" method="POST">
+              <div class="row">
+                      <div class="col-md-4">
+                      <input type="hidden" id="blogId" name="blogId" />
+                      </div>
+                  <div class="col-md-4" style="text-align: center;">
+                          <div class="form-group">
+                          <img id="prevImage" name="prevImage" src="" class="img-circle" alt="No Image" width="100" height="100"/>
+                          </div>
+                      </div>
+                      <div class="col-md-4"></div>
+                  </div>
+                  <div class="row">
 
-                <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="productDesc">Blog Title</label>
+                              <input type="text" class="form-control" name="blogTitle" id="blogtitle" placeholder="Enter Blog Title" >
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="productDesc">Blog Category</label>
+                              <select class="form-control select2" name="categoryId" id="blogcategoryId" >
 
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="productDesc">Blog Title</label>
-                            <input type="text" class="form-control" id="blogtitle" placeholder="Enter Blog Title">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="productDesc">Blog Category</label>
-                            <select class="form-control select2" id="blogcategoryId" name="categoryId">
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="productDesc">Blog Url</label>
-                            <input type="text" class="form-control" id="blogurl" placeholder="Enter Blog URL">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                      <div class="form-group">
-                          <label for="productDesc">Blog Content</label>
-
-                          <textarea class="form-control" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="productDesc">Blog Url</label>
+                              <input type="text" class="form-control" name="blogUrl" id="blogurl" placeholder="Enter Blog URL">
+                          </div>
                       </div>
                   </div>
-
+                  <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productDesc">Blog Status</label>
-                            <select class="form-control select2" id="blogStatus" name="blogStatus">
-                              <option value="">Select Blog Status</option>
-                              <option value="0">Inactive</option>
-                             <option value="1">Active</option>
-                            </select>
+                            <label for="productDesc">Blog Content</label>
+                            <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
+                            <textarea class="form-control" name="blogContent" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
                         </div>
                     </div>
 
-                </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="productDesc">Blog Status</label>
+                              <select class="form-control select2" id="blogStatus" name="blogStatus">
+                                <option value="">Select Blog Status</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+
+                              </select>
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">Brand Image</label>
+                            <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="output">Brand Image view</label>
+                            <img src="" alt="" id="output" width="110px" height="110px">
+                        </div>
+                    </div>
+
+                  </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light" type="button" onclick="goback()">Cancel</button>
             </form>
@@ -57,15 +83,20 @@
     </div>
 </div>
 <script src="js/jquery.validate.js"></script>
+<script src="jscode/loadFile.js"></script>
+<script src="validation/blogval.js"></script>
 <!-- <script src="jscode/quiz_validation.js"></script> -->
 <script>
-function loadDetails(values){
-// console.log(values);
-$("#blogtitle").val(values.blogTitle);
-$("#blogcategoryId").val(values.categoryId);
-$("#blogcontent").val(values.blogContent);
-$("#blogurl").val(values.blogUrl);
-$("#blogStatus").val(values.blogStatus).trigger('change');
+function loadDetails(blogs){
+// console.log(blogs);
+$("#blogId").val(blogs.blogId);
+$("#blogtitle").val(blogs.blogTitle);
+$("#blogcategoryId").val(blogs.categoryId);
+$("#blogcontent").val(blogs.blogContent);
+$("#blogurl").val(blogs.blogUrl);
+$("#blogStatus").val(blogs.blogStatus).trigger('change');
+var src = url + "blog/" + blogs.blogId + ".jpg";
+$('#prevImage').attr("src", src);
 }
 function loadcategory()
 {
@@ -82,39 +113,37 @@ loadDetails(details);
 $("#blogcategoryId").select2();
 loadcategory();
 $("#blogStatus").select2();
-
 $('#blogform').on('submit', function(e) {
     e.preventDefault();
-        var blogTitle = $("#blogtitle").val();
-        var categoryId = $("#blogcategoryId").val();
-        var blogContent = $("#blogcontent").val();
-        var blogUrl = $("#blogurl").val();
-        var blogStatus = $("#blogStatus").val();
-        var obj ={
-          blogId:blogmainId,
-          blogTitle:blogTitle,
-          categoryId:categoryId,
-          blogContent:blogContent,
-          blogUrl:blogUrl,
-          blogStatus:blogStatus
-        };
-
+    var returnVal = $("#blogform").valid();
+    if (returnVal) {
         $.ajax({
         url: url + 'editBlogs.php',
         type: 'POST',
-        data:obj,
+        data:new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
         dataType: 'json',
         success: function(response) {
-        // console.log(response);
-        if (response.Responsecode == 200) {
+          if (response.Responsecode == 200) {
+                // console.log(response);
                 blogList.set(response.Data[0].blogId,response.Data[0]);
                 showblog(blogList);
                 goback();
+                swal({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: response.Message,
+                  Button: false,
+                  timer: 1500
+              })
             } else {
-                alert(response.Message);
+                swal(response.Message);
         }
         }
     });
-
+  }
 });
+
 </script>

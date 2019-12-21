@@ -15,6 +15,12 @@ if(isset($_POST['blogId']) && isset($_POST['blogTitle']) && isset($_POST['blogCo
     $query = "UPDATE blogmaster SET blogTitle='$blogTitle',blogContent='$blogContent',categoryId=$categoryId,blogStatus='$blogStatus',blogUrl='$blogUrl' WHERE blogId = $blogId";
     $jobQuery = mysqli_query($conn,$query);
     $rowsAffected=mysqli_affected_rows($conn);
+    if(isset($_FILES["imgname"]["type"])){
+        $imgname = $_FILES["imgname"]["name"];
+        $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+        $targetPath = "blog/".$blogId.".jpg"; // Target path where file is to be stored
+        move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+      }
 if($rowsAffected==1)
     {
       $sql       = "SELECT * FROM blogmaster bm LEFT JOIN blogcategory bg ON bm.categoryId = bg.categoryId WHERE bm.blogId = $blogId";

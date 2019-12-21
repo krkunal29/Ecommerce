@@ -12,7 +12,7 @@ if (isset($_POST['category']) && isset($_POST['categoryId'])) {
 					$rowsAffected=mysqli_affected_rows($conn);
 						if($rowsAffected > 0)
 						{
-					  			$response = array('Message'=>"Tax updated successfully",'Responsecode'=>200);
+					  			$response = array('Message'=>"Category updated successfully",'Responsecode'=>200);
 						}
 						else
 						{

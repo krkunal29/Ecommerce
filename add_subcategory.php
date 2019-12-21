@@ -42,34 +42,8 @@ $("#categoryId").html(html);
 }
 $("#categoryId").select2();
 loadcategory();
-$('#subcategoryform').on('submit', function(e) {
-    e.preventDefault();
-    var subcategoryval = $("#subcategoryval").val();
-    var categoryId =$("#categoryId").val();
-    if(subcategoryval===""){
-      alert("Enter Sub Category");
-    }
-    else {
-        $.ajax({
-        url: url + 'addsubCategory.php',
-        type: 'POST',
-        data:{
-          categoryId:categoryId,
-          category:subcategoryval
-        },
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-                subCategoryList.set(response.Data[0].subcategoryId,response.Data[0]);
-                showcategory(subCategoryList);
-                swal(response.Message);
-                goback();
-            } else {
-                swal(response.Message);
-            }
-        }
-    });
-  }
-});
+</script>
+<script src="savecode/addsubcategory.js">
+
 </script>

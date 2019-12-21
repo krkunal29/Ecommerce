@@ -23,7 +23,7 @@ if($jobQuery==1)
 		{
 	$academicResults = mysqli_fetch_assoc($jobQuery1);
 	$records[]=$academicResults;
-    $response = array('Message'=>"All Category Data fetched Successfully","Data"=>$records ,'Responsecode'=>200);
+    $response = array('Message'=>"All Sub Category Data fetched Successfully","Data"=>$records ,'Responsecode'=>200);
 		}else{
             $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200);
         }

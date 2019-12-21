@@ -48,6 +48,19 @@ const editcategory = categoryId => {
 
 const removecategory = categoryId => {
     categoryId = categoryId.toString();
+
+    if (categoryList.has(categoryId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                      // console.log(categoryId);
     $.ajax({
         url:url+'deleteProductCategory.php',
         type:'POST',
@@ -60,13 +73,23 @@ const removecategory = categoryId => {
           if(response.Responsecode==200){
             categoryList.delete(categoryId.toString());
             showcategory(categoryList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
-            // alert(response.Message);
-              alert("Already Used Can't Delete");
+
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+        swal("The Category is safe!");
+    }
+});
+}
 }
 
 function addcategory() {

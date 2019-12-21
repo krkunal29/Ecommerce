@@ -21,34 +21,4 @@
         </div>
     </div>
 </div>
-<script>
-
-$('#blogcategoryform').on('submit', function(e) {
-    e.preventDefault();
-    var categoryval = $("#categoryval").val();
-
-    if(categoryval===""){
-      alert("Enter Category");
-    }
-    else {
-        $.ajax({
-        url: url + 'addBlogCategory.php',
-        type: 'POST',
-        data:{
-          category:categoryval
-        },
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                blogcategoryList.set(response.Data[0].categoryId,response.Data[0]);
-                showblogcategory(blogcategoryList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-  }
-});
-</script>
+<script src="savecode/add_blogcategory.js"></script>

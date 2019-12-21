@@ -53,6 +53,17 @@ const editUnit = unitId => {
 const removeUnit = unitId => {
   // console.log(unitId);
     unitId = unitId.toString();
+    if (unitList.has(unitId)) {
+
+      swal({
+              title: "Are you sure?",
+              text: "Do you really want to remove this flow ?",
+              icon: "warning",
+              buttons: ["Cancel", "Delete Now"],
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+              if (willDelete) {
     $.ajax({
         url:url+'deleteUnit.php',
         type:'POST',
@@ -67,14 +78,24 @@ const removeUnit = unitId => {
             $('.unitlist').show();
             unitList.delete(unitId.toString());
             showUnits(unitList);
-
+            swal({
+                            title: "Deleted",
+                            text: response.Message,
+                            icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+    swal("The Unit is safe!");
+}
+});
+
+}
 }
 
 function addUnit() {

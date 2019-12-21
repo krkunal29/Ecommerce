@@ -21,20 +21,20 @@ if($jobQuery==1)
 	 if($academicAffected>0)
 		{
 	$academicResults = mysqli_fetch_assoc($jobQuery1);
-	$records[]=$academicResults;    
-    $response = array('Message'=>"All Category Data fetched Successfully","Data"=>$records ,'Responsecode'=>200); 
+	$records[]=$academicResults;
+    $response = array('Message'=>"All Unit Data fetched Successfully","Data"=>$records ,'Responsecode'=>200); 
 		}else{
-            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200); 
+            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200);
         }
 	}else{
-        $response = array('Message'=>"Refresh a page","Data"=>$records ,'Responsecode'=>200); 
+        $response = array('Message'=>"Refresh a page","Data"=>$records ,'Responsecode'=>200);
     }
 
     }else{
         $response = array('Message'=>mysqli_error($conn),"Data"=>$records ,'Responsecode'=>403);
     }
 }else{
-    $response = array('Message'=>"Parameter Missing" ,'Responsecode'=>500);  
+    $response = array('Message'=>"Parameter Missing" ,'Responsecode'=>500);
 }
 mysqli_close($conn);
 exit(json_encode($response));

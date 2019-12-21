@@ -21,33 +21,7 @@
         </div>
     </div>
 </div>
-<script>
+<script src="savecode/addunit.js">
 
-$('#unitform').on('submit', function(e) {
-    e.preventDefault();
-    var unitval = $("#unitval").val();
-    if(unitval===""){
-      alert("Enter Unit");
-    }
-    else {
-    $.ajax({
-        url: url + 'addUnit.php',
-        type: 'POST',
-        data:{
-          unit:unitval
-        },
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-                unitList.set(response.Data[0].unitId, response.Data[0]);
-                showUnits(unitList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>

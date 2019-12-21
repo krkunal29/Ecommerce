@@ -21,42 +21,11 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
-
-
 function loadDetails(categoryval){
     $('#categoryval').val(categoryval.category);
-
 }
 loadDetails(details);
-$('#blogcategoryform').on('submit', function(e) {
-    e.preventDefault();
-    var categoryval = $("#categoryval").val();
-
-    if(categoryval===""){
-      alert("Enter Category");
-    }
-    else {
-      var obj = {
-        categoryId: userId,
-        category:categoryval
-        };
-        $.ajax({
-        url: url + 'editBlogCategory.php',
-        type: 'POST',
-        data:obj,
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                blogcategoryList.set(userId.toString(),obj);
-                showblogcategory(blogcategoryList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>
+<script src="savecode/edit_blogcategory.js"></script>

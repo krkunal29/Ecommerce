@@ -48,6 +48,17 @@ const editcategory = subCategoryId => {
 
 const removecategory = subCategoryId => {
     subCategoryId = subCategoryId.toString();
+    if (subCategoryList.has(subCategoryId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     $.ajax({
         url:url+'deleteSubCategory.php',
         type:'POST',
@@ -60,14 +71,24 @@ const removecategory = subCategoryId => {
           if(response.Responsecode==200){
             subCategoryList.delete(subCategoryId.toString());
             showcategory(subCategoryList);
-            swal(response.Message);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
               swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+      swal("The Sub Category is safe!");
+  }
+});
+
+}
 }
 
 function addsubCategory() {

@@ -25,36 +25,7 @@
 <script>
 function loadDetails(unit){
     $('#unitval').val(unit.unit);
-
 }
 loadDetails(details);
-$('#unitform').on('submit', function(e) {
-    e.preventDefault();
-    var unitval = $("#unitval").val();
-    if(unitval===""){
-      alert("Enter Unit");
-    }
-    else {
-      var obj = {
-        unitId: userId,
-        unit:unitval
-        };
-    $.ajax({
-        url: url + 'editUnit.php',
-        type: 'POST',
-        data:obj,
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                unitList.set(userId.toString(),obj);
-                showUnits(unitList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>
+<script src="savecode/edit_unit.js" charset="utf-8"></script>

@@ -49,6 +49,17 @@ const editblogcategory = blogcategoryId => {
 
 const removeblogcategory = blogcategoryId => {
     blogcategoryId = blogcategoryId.toString();
+    if (blogcategoryList.has(blogcategoryId)) {
+
+      swal({
+              title: "Are you sure?",
+              text: "Do you really want to remove this flow ?",
+              icon: "warning",
+              buttons: ["Cancel", "Delete Now"],
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+              if (willDelete) {
     $.ajax({
         url:url+'deleteBlogCategory.php',
         type:'POST',
@@ -61,15 +72,24 @@ const removeblogcategory = blogcategoryId => {
           if(response.Responsecode==200){
             blogcategoryList.delete(blogcategoryId.toString());
             showblogcategory(blogcategoryList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
     });
+  } else {
+    swal("The Blog Category is safe!");
 }
-
+});
+}
+}
 function addBlogcategory() {
     $('.blogcategorylist').hide();
     $('#newblogcategory').load('add_blogcategory.php');

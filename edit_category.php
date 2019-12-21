@@ -22,41 +22,9 @@
     </div>
 </div>
 <script type="text/javascript">
-
-
 function loadDetails(categoryval){
     $('#categoryval').val(categoryval.category);
-
 }
 loadDetails(details);
-$('#categoryform').on('submit', function(e) {
-    e.preventDefault();
-    var categoryval = $("#categoryval").val();
-
-    if(categoryval===""){
-      alert("Enter Category");
-    }
-    else {
-      var obj = {
-        categoryId: userId,
-        category:categoryval
-        };
-        $.ajax({
-        url: url + 'editProductCategory.php',
-        type: 'POST',
-        data:obj,
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                categoryList.set(userId.toString(),obj);
-                showcategory(categoryList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>
+<script src="savecode/edit_category.js"></script>

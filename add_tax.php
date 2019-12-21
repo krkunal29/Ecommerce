@@ -14,7 +14,7 @@
                 <div class="row">
                   <div class="col-md-4">
                       <div class="form-group">
-                        
+
                           <label for="productDesc">Tax Name</label>
                           <input type="text" class="form-control" id="taxname" name="taxname" placeholder="Enter Tax Name">
                       </div>
@@ -34,31 +34,4 @@
 </div>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/tax_validate.js"></script>
-<script>
-
-$('#taxform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#taxform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'addTax.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                taxList.set(response.Data[0].TaxId,response.Data[0]);
-                showTaxs(taxList);
-                goback();
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-   }
-});
-</script>
+<script src="savecode/addtax.js"></script>

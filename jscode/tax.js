@@ -44,12 +44,23 @@ const editTax = taxId => {
         userId = taxId;
         details = vendor;
     } else {
-        alert('something goes wrong');
+        swal('something goes wrong');
     }
 }
 
 const removeTax = taxId => {
     taxId = taxId.toString();
+    if (taxList.has(taxId)) {
+
+          swal({
+                  title: "Are you sure?",
+                  text: "Do you really want to remove this flow ?",
+                  icon: "warning",
+                  buttons: ["Cancel", "Delete Now"],
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                  if (willDelete) {
     $.ajax({
         url:url+'deleteTax.php',
         type:'POST',
@@ -62,13 +73,24 @@ const removeTax = taxId => {
           if(response.Responsecode==200){
             taxList.delete(taxId.toString());
             showTaxs(taxList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+    swal("The Tax is safe!");
+}
+});
+
+}
 }
 
 function addTax() {

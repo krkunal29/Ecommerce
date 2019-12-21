@@ -168,7 +168,7 @@ $("#userTypeId").html(html);
 $("#userTypeId").select2();
 loadUserRoles();
 function loadcusDetails(customer){
-// console.log(customer);
+ console.log(customer);
 $("#usercusId").val(userIdu);
 $("#spanemail").html(customer.emailId);
 $("#spanphone").html(customer.contactNumber);

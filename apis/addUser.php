@@ -36,7 +36,11 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
             $query = mysqli_query($conn, $sql);
         }
         if ($rowsAffected == 1) {
-          $sql   = "SELECT * FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId Left JOIN rolemaster rm ON rm.roleId = um.roleId
+          $sql   = "SELECT um.userId,um.roleId,um.emailId,um.contactNumber,
+          ud.fname,ud.mname,ud.lname,ud.contactAddress,ud.pincode,
+          rm.role,rm.roleId,fd.tehsil,fd.hectre,fd.water,fd.peek
+          FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId
+           Left JOIN rolemaster rm ON rm.roleId = um.roleId
           Left JOIN farmer_details fd ON fd.userId = ud.userId
           WHERE um.userId=$userId";
             $academicQuery = mysqli_query($conn,$sql);

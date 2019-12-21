@@ -24,6 +24,14 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $userId       = $conn->insert_id;
+        $last_id = mysqli_insert_id($conn);
+        $s       = strval($last_id);
+        if(isset($_FILES["imgname"]["type"])){
+            $imgname = $_FILES["imgname"]["name"];
+            $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+            $targetPath = "user/". $s.".jpg"; // Target path where file is to be stored
+            move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+          }
         $sql          = "INSERT INTO user_details(userId,fname,mname,lname,contactAddress,pincode) VALUES($userId,'$fname','$mname','$lname','$contactAddress','$pincode')";
         $query        = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);

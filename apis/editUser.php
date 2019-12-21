@@ -18,7 +18,12 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
     $fname          = mysqli_real_escape_string($conn, $fname);
     $lname          = mysqli_real_escape_string($conn, $lname);
     $mname          = mysqli_real_escape_string($conn, $mname);
-
+    if(isset($_FILES["imgname"]["type"])){
+        $imgname = $_FILES["imgname"]["name"];
+        $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
+        $targetPath = "user/".$userId.".jpg"; // Target path where file is to be stored
+        move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+      }
     $sql   = "UPDATE  user_master um SET um.roleId=$roleId,um.emailId='$emailId',
     um.contactNumber='$contactNumber'  WHERE um.userId = $userId";
     $query = mysqli_query($conn, $sql);
@@ -36,9 +41,11 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
             $hectre   = isset($_POST['hectre']) ? $_POST['hectre'] : 'NULL';
             $water    = isset($_POST['water']) ? $_POST['water'] : 'NULL';
             $peek    = isset($_POST['peek']) ? $_POST['peek'] : 'NULL';
-            $sql   = "UPDATE farmer_details SET tehsil='$tehsil',hectre='$hectre',water='$water',peek='$peek' WHERE userId = $userId";
+            $sql   = "DELETE FROM farmer_details WHERE userId= $userId";
             $query = mysqli_query($conn, $sql);
-            // echo $sql;
+            $sql   = "INSERT INTO farmer_details(userId,tehsil, hectre, water, peek) VALUES ('$userId','$tehsil','$hectre','$water','$peek')";
+            $query = mysqli_query($conn, $sql);
+            // 
         }
         // if ($rowsAffected == 1 || $rowsAffected1 == 1) {
           $sql   = "SELECT um.userId,um.roleId,um.emailId,um.contactNumber,ud.fname,
@@ -47,7 +54,7 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
           FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId Left JOIN rolemaster rm ON rm.roleId = um.roleId
           Left JOIN farmer_details fd ON fd.userId = ud.userId
           WHERE um.userId=$userId";
-          
+
           $jobQuery1 = mysqli_query($conn, $sql);
           if ($jobQuery1 != null) {
               $academicAffected = mysqli_num_rows($jobQuery1);

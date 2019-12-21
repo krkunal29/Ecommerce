@@ -111,7 +111,7 @@ $('#blogform').on('submit', function(e) {
         dataType: 'json',
         success: function(response) {
           if (response.Responsecode == 200) {
-                console.log(response);
+                // console.log(response);
                 blogList.set(response.Data[0].blogId,response.Data[0]);
                 showblog(blogList);
                 goback();

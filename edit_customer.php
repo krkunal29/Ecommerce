@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-center">
-                    <img src="img/user.jpg" class="rounded-circle" width="150" />
+                    <img src="img/user.jpg" id="previmg1" class="rounded-circle" width="150" />
                 </div>
             </div>
             <hr class="mb-0">
@@ -43,7 +43,18 @@
                 <div class="tab-pane fade show active" id="userdetail" role="tabpanel" aria-labelledby="pills-setting-tab">
                     <div class="card-body">
                         <form class="form-horizontal" id="customerform" method="POST">
-                          <input type="hidden" name="userId"  id="usercusId" />
+
+                          <div class="row">
+                                  <div class="col-md-4">
+                                    <input type="hidden" name="userId"  id="usercusId" />
+                                  </div>
+                              <div class="col-md-4" style="text-align: center;" style="display:none;">
+                                      <div class="form-group">
+                                      <img id="prevImage" name="prevImage" src="" style="display:none;" class="img-circle" alt="No Image" width="100" height="100"/>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-4"></div>
+                              </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -136,6 +147,21 @@
                                     </div>
                             </div>
                             </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="productDesc">Brand Image</label>
+                                      <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="form-group">
+                                      <label for="output">Brand Image view</label>
+                                      <img src="" alt="" id="output" width="110px" height="110px">
+                                  </div>
+                              </div>
+
+                            </div>
                             <div class="form-group">
                                 <label for="userAddressFirst">Contact Address </label>
                                 <textarea id="customeraddress"  placeholder="Enter Customer Address" name="contactAddress" rows="2" class="form-control"></textarea>
@@ -153,6 +179,7 @@
 </div>
 
 <script src="js/jquery.validate.js"></script>
+<script src="jscode/loadFile.js"></script>
 <script src="jscode/user_validation.js"></script>
 <script>
 function loadUserRoles()
@@ -186,6 +213,9 @@ $("#emailaddress").val(customer.emailId);
 $("#pincode").val(customer.pincode);
 $("#customeraddress").val(customer.contactAddress);
 $("#password").val(customer.upassword);
+var src = url + "user/" +userIdu + ".jpg";
+$('#prevImage').attr("src", src);
+$('#previmg1').attr("src", src);
 }
 loadcusDetails(details);
 function changeuserId(){

@@ -2,7 +2,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3>Add New Blog</h3></div>
+            <h3>Update New Blog</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="blogform" method="POST">
               <div class="row">
@@ -113,37 +113,7 @@ loadDetails(details);
 $("#blogcategoryId").select2();
 loadcategory();
 $("#blogStatus").select2();
-$('#blogform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#blogform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'editBlogs.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-          if (response.Responsecode == 200) {
-                // console.log(response);
-                blogList.set(response.Data[0].blogId,response.Data[0]);
-                showblog(blogList);
-                goback();
-                swal({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: response.Message,
-                  Button: false,
-                  timer: 1500
-              })
-            } else {
-                swal(response.Message);
-        }
-        }
-    });
-  }
-});
+
 
 </script>
+<script src="savecode/edit_blog.js" charset="utf-8"></script>

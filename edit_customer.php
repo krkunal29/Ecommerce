@@ -195,7 +195,7 @@ $("#userTypeId").html(html);
 $("#userTypeId").select2();
 loadUserRoles();
 function loadcusDetails(customer){
- console.log(customer);
+ // console.log(customer);
 $("#usercusId").val(userIdu);
 $("#spanemail").html(customer.emailId);
 $("#spanphone").html(customer.contactNumber);
@@ -236,31 +236,6 @@ function changeuserId(){
   }
 }
 
-$('#customerform').on('submit', function(e) {
-  e.preventDefault();
-  var returnVal = $("#customerform").valid();
-  if (returnVal) {
-      $.ajax({
-      url: url + 'editUser.php',
-      type: 'POST',
-      data:new FormData(this),
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType: 'json',
-      success: function(response) {
-           // console.log(response);
-          if (response.Responsecode == 200) {
-            userList.set(response.Data.userId, response.Data);
-              showUsers(userList);
-              goback();
-              swal(response.Message);
-          } else {
-              alert(response.Message);
-          }
-      }
-  });
- }
 
-});
 </script>
+<script src="savecode/edit_customer.js" charset="utf-8"></script>

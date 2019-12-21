@@ -94,8 +94,10 @@
                                         <table  class="table" id="blogs">
                                             <thead>
                                                 <tr>
+
                                                     <th>Blog Tile</th>
                                                     <th>Category</th>
+                                                      <th>Blog Image</th>
                                                     <th>Blog Status</th>
 
                                                     <th class="nosort">&nbsp;</th>

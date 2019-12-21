@@ -33,6 +33,9 @@ const showblog = blogList => {
         let blogs = blogList.get(k);
         tblData += '<tr><td>' + blogs.blogTitle + '</td>';
         tblData += '<td>' + blogs.category + '</td>';
+        tblData += '<td><div class="d-inline-block align-middle">';
+        tblData += '<img src="apis/blog/'+k+'.jpg" alt="Blog image" class="rounded-circle img-40 align-top mr-15">';
+        tblData +='</div></td>';
         var blogStatus ='';
         if(blogs.blogStatus==0){
           blogStatus ='<span class="badge badge-danger">Inactive</span>';
@@ -53,7 +56,7 @@ const showblog = blogList => {
         paging: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3] }],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3,4] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true

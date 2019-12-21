@@ -19,7 +19,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="categoryId">Category</label>
-                            <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category" onchange="getSubCategory(this.value)">
+                            <select  class="form-control select2" id="categoryId" name="categoryId" placeholder="Category" onchange="getSubCategory(this.value,1)">
 
                             </select>
                         </div>
@@ -116,7 +116,10 @@
 <script src="jscode/loadtaxproduct.js"></script>
 <script src="jscode/loadunit.js"></script>
 <script src="jscode/loadcategory.js"></script>
-<script src="jscode/loadsubcategory.js"></script>
+<script src="jscode/getSubCategoryfunction.js">
+
+</script>
+<!-- <script src="jscode/loadsubcategory.js"></script> -->
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/product_validation.js"></script>

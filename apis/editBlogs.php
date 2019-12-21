@@ -11,16 +11,16 @@ if(isset($_POST['blogId']) && isset($_POST['blogTitle']) && isset($_POST['blogCo
     $blogTitle = mysqli_real_escape_string($conn,$blogTitle);
     $blogContent =  mysqli_real_escape_string($conn,$blogContent);
     $blogUrl = mysqli_real_escape_string($conn,$blogUrl);
-
-    $query = "UPDATE blogmaster SET blogTitle='$blogTitle',blogContent='$blogContent',categoryId=$categoryId,blogStatus='$blogStatus',blogUrl='$blogUrl' WHERE blogId = $blogId";
-    $jobQuery = mysqli_query($conn,$query);
-    $rowsAffected=mysqli_affected_rows($conn);
     if(isset($_FILES["imgname"]["type"])){
         $imgname = $_FILES["imgname"]["name"];
         $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
         $targetPath = "blog/".$blogId.".jpg"; // Target path where file is to be stored
         move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
       }
+    $query = "UPDATE blogmaster SET blogTitle='$blogTitle',blogContent='$blogContent',categoryId=$categoryId,blogStatus='$blogStatus',blogUrl='$blogUrl' WHERE blogId = $blogId";
+    $jobQuery = mysqli_query($conn,$query);
+    $rowsAffected=mysqli_affected_rows($conn);
+
 if($rowsAffected==1)
     {
       $sql       = "SELECT * FROM blogmaster bm LEFT JOIN blogcategory bg ON bm.categoryId = bg.categoryId WHERE bm.blogId = $blogId";
@@ -46,7 +46,7 @@ if($rowsAffected==1)
         // $response = array('Message'=>"Blogs updated successfully","Data"=>$records ,'Responsecode'=>200);
 
     }else{
-        $response = array('Message'=>mysqli_error($conn).'Failed',"Data"=>$records ,'Responsecode'=>403);
+        $response = array('Message'=>'Only Image Upload',"Data"=>$records ,'Responsecode'=>403);
     }
 }else{
     $response = array('Message'=>"Parameter Missing" ,'Responsecode'=>500);

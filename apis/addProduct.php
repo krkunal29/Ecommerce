@@ -14,13 +14,17 @@ if (isset($_POST['productName']) && isset($_POST['unitId']) && isset($_POST['des
     $displayPrice = isset($_POST['displayPrice']) ? $displayPrice : "NULL";
     $TaxId        = isset($_POST['TaxId']) ? $TaxId : "NULL";
     $subcategoryId= isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
+    $innersubcategoryId= isset($_POST['innersubcategoryId']) ? $innersubcategoryId : "NULL";
+    $lastsubcategoryId= isset($_POST['lastsubcategoryId']) ? $lastsubcategoryId : "NULL";
+
 
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
     $Quantity    = mysqli_real_escape_string($conn, $Quantity);
 
-    $query    = "INSERT INTO product_master(productName,SKU,HSN,unitId,categoryId,subcategoryId,description) VALUES('$productName','$sku','$hsn',$unitId,$categoryId,$subcategoryId,'$description')";
+    $query    = "INSERT INTO product_master(productName,SKU,HSN,unitId,categoryId,subcategoryId,innersubcategoryId,lastsubcategoryId,description)
+    VALUES('$productName','$sku','$hsn',$unitId,$categoryId,$subcategoryId,$innersubcategoryId,$lastsubcategoryId,'$description')";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);

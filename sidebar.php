@@ -16,6 +16,9 @@
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
                                 <div class="nav-item active">
+                                    <a href="dashboard.php"><i class="ik ik-menu"></i><span>Dashboard</span></a>
+                                </div>
+                                <div class="nav-item active">
                                     <a href="customers.php"><i class="ik ik-users"></i><span>Users</span></a>
                                 </div>
                                 <!-- <div class="nav-item">
@@ -34,17 +37,31 @@
                                     <a href="invoice.php"><i class="ik ik-shield"></i><span>Invoice</span> </a>
                                 </div>
                                 <div class="nav-item">
+                                    <a href="maininvoice.php"><i class="ik ik-shield"></i><span>Invoice1</span> </a>
+                                </div>
+                                <div class="nav-item">
                                     <a href="tax.php"><i class="ik ik-tag"></i><span>Tax</span> </a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="unit.php"><i class="ik ik-target"></i><span>Unit</span></a>
                                 </div>
-                                <div class="nav-item">
+
+
+                                <div class="nav-item has-sub">
+                                    <a href="#"><i class="ik ik-box"></i><span>Category</span></a>
+                                    <div class="submenu-content">
+                                        <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
+                                        <a href="subcategory.php"><i class="ik ik-menu"></i><span> Sub Category</span> </a>
+                                        <a href="innersubcategory.php"><i class="ik ik-menu"></i><span> Inner Category</span> </a>
+                                        <a href="lastsubcategory.php"><i class="ik ik-menu"></i><span> Inner Level Category</span> </a>
+                                    </div>
+                                </div>
+                                <!-- <div class="nav-item">
                                     <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="subcategory.php"><i class="ik ik-menu"></i><span> Sub Category</span> </a>
-                                </div>
+                                </div> -->
                                 <div class="nav-item">
                                     <a href="blog.php"><i class="ik ik-edit"></i><span>Blog</span> </a>
                                 </div>

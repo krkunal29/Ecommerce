@@ -6,7 +6,7 @@
 <div class="row">
     <div class="card">
         <div class="card-header">
-            <h3>Add New Product</h3></div>
+            <h3>Update New Product</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="productform" method="POST" enctype="multipart/form-data">
             <div class="row">
@@ -38,10 +38,30 @@
                     </div>
                     </div>
                     <div class="row">
+
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="subcategoryId1">Sub Category</label>
-                            <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="Sub Category">
+                            <label for="subcategoryId">Sub Category</label>
+                            <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="sub Category" onchange="getinnerSubCategory1(this.value)">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="subcategoryId">Inner Sub Category</label>
+                            <select  class="form-control select2" id="innersubcategoryId" name="innersubcategoryId" placeholder="Inner sub Category" onchange="getlastSubCategory1(this.value)">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="subcategoryId">Last Sub Category</label>
+                            <select  class="form-control select2" id="lastsubcategoryId" name="lastsubcategoryId" placeholder="Last sub Category">
 
                             </select>
                         </div>
@@ -127,8 +147,11 @@
 <script src="jscode/loadunit.js"></script>
 <script src="jscode/loadcategory.js"></script>
 <script src="jscode/loadsubcategory.js"></script>
+<script src="jscode/loadinnersubcategory.js"></script>
+<script src="jscode/loadlastsubcategory.js"></script>
 <script src="jscode/getSubCategoryfunction.js"></script>
-
+<script src="jscode/getinnerSubCategoryfunction.js"></script>
+<script src="jscode/getlastSubCategoryfunction.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
 

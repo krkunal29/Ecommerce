@@ -30,7 +30,26 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="subcategoryId">Sub Category</label>
-                            <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="sub Category">
+                            <select  class="form-control select2" id="subcategoryId" name="subcategoryId" placeholder="sub Category" onchange="getinnerSubCategory(this.value,1)">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="subcategoryId">Inner Sub Category</label>
+                            <select  class="form-control select2" id="innersubcategoryId" name="innersubcategoryId" placeholder="Inner sub Category" onchange="getlastSubCategory(this.value,1)">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="subcategoryId">Last Sub Category</label>
+                            <select  class="form-control select2" id="lastsubcategoryId" name="lastsubcategoryId" placeholder="Last sub Category">
 
                             </select>
                         </div>
@@ -116,9 +135,10 @@
 <script src="jscode/loadtaxproduct.js"></script>
 <script src="jscode/loadunit.js"></script>
 <script src="jscode/loadcategory.js"></script>
-<script src="jscode/getSubCategoryfunction.js">
+<script src="jscode/getSubCategoryfunction.js"></script>
+<script src="jscode/getinnerSubCategoryfunction.js"></script>
+<script src="jscode/getlastSubCategoryfunction.js"></script>
 
-</script>
 <!-- <script src="jscode/loadsubcategory.js"></script> -->
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>

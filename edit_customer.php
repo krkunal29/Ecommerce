@@ -39,7 +39,54 @@
 
             </ul>
             <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade" id="walletdetail" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                  <div class="card-body">
+                    <table  class="table" id="walletdetailtbluser">
+                        <thead>
+                            <tr>
 
+                                <th>Wallet Tile</th>
+                                <th>Invoice Amount</th>
+                                  <th>Total Amount</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="walletdetailuserData">
+                          <tr>
+
+                              <td>Invoice Tile</td>
+                                  <td>Invoice Tile</td>
+                                  <td>Invoice Tile</td>
+
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="invoicedetail" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="card-body">
+                    <table  class="table" id="invoicetbluser">
+                        <thead>
+                            <tr>
+
+                                <th>Invoice Tile</th>
+                                <th>Invoice Amount</th>
+                                  <th>Total Amount</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="invoicetbluserData">
+                          <tr>
+
+                              <td>Invoice Tile</td>
+                                  <td>Invoice Tile</td>
+                                  <td>Invoice Tile</td>
+
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
                 <div class="tab-pane fade show active" id="userdetail" role="tabpanel" aria-labelledby="pills-setting-tab">
                     <div class="card-body">
                         <form class="form-horizontal" id="customerform" method="POST">
@@ -148,6 +195,28 @@
                             </div>
                             </div>
                             <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="productDesc">City</label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="productDesc">State</label>
+                                        <input type="text" class="form-control" id="state" name="state" placeholder="Enter State">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="productDesc">Country</label>
+                                        <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
                               <div class="col-md-4">
                                   <div class="form-group">
                                       <label for="productDesc">Brand Image</label>
@@ -204,6 +273,9 @@ $("#userTypeId").val(customer.roleId).trigger('change');
 $("#fname").val(customer.fname);
 $("#mname").val(customer.mname);
 $("#lname").val(customer.lname);
+$("#city").val(customer.city);
+$("#state").val(customer.state);
+$("#country").val(customer.country);
 $("#Tehsil").val(customer.tehsil);
 $("#Peek").val(customer.peek);
 $("#Hector").val(customer.hectre);

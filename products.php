@@ -310,6 +310,11 @@
         <script src="jscode/apis.js"></script>
         <script src="jscode/getallcategory.js"></script>
         <script src="jscode/getallsubCategory.js"></script>
+        <script src="jscode/undefinedinnersubcategory.js"></script>
+        <script src="jscode/getallinnersubCategory.js"></script>
+        <script src="jscode/undefinedlastsubCategory.js"></script>
+        <script src="jscode/getalllastsubCategory.js"></script>
+
         <script src="jscode/getalltax.js"></script>
         <script src="jscode/getallunit.js"></script>
         <!-- <script src="js/layouts.js"></script> -->

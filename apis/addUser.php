@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 // && isset($_POST['upassword'])
-if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['emailId'])  && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contactAddress'])) {
+if (isset($_POST['roleId']) && isset($_POST['contactNumber'])&& isset($_POST['state']) && isset($_POST['city']) && isset($_POST['country'])  && isset($_POST['emailId'])  && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contactAddress'])) {
 
     $mname     = isset($_POST['mname']) ? $_POST['mname'] : 'NULL';
     $pincode   = isset($_POST['pincode']) ? $_POST['pincode'] : 'NULL';
@@ -17,7 +17,9 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
     $fname          = mysqli_real_escape_string($conn, $fname);
     $lname          = mysqli_real_escape_string($conn, $lname);
     $mname          = mysqli_real_escape_string($conn, $mname);
-
+    $state         = mysqli_real_escape_string($conn, $state);
+    $city          = mysqli_real_escape_string($conn, $city);
+    $country          = mysqli_real_escape_string($conn, $country);
     $sql   = "INSERT INTO  user_master(roleId,emailId,contactNumber,upassword) VALUES($roleId,'$emailId','$contactNumber','12345')";
     $query = mysqli_query($conn, $sql);
 
@@ -32,7 +34,7 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
             $targetPath = "user/". $s.".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
           }
-        $sql          = "INSERT INTO user_details(userId,fname,mname,lname,contactAddress,pincode) VALUES($userId,'$fname','$mname','$lname','$contactAddress','$pincode')";
+        $sql          = "INSERT INTO user_details(userId,fname,mname,lname,city,state,country,contactAddress,pincode) VALUES($userId,'$fname','$mname','$lname','$city','$state','$country','$contactAddress','$pincode')";
         $query        = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if($roleId == 2){
@@ -45,7 +47,7 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['e
         }
         if ($rowsAffected == 1) {
           $sql   = "SELECT um.userId,um.roleId,um.emailId,um.contactNumber,
-          ud.fname,ud.mname,ud.lname,ud.contactAddress,ud.pincode,
+          ud.fname,ud.mname,ud.lname,ud.contactAddress,ud.pincode, ud.city,ud.state,ud.country,
           rm.role,rm.roleId,fd.tehsil,fd.hectre,fd.water,fd.peek
           FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId
            Left JOIN rolemaster rm ON rm.roleId = um.roleId

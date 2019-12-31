@@ -117,6 +117,28 @@
 
                 </div>
                 <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">City</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">State</label>
+                            <input type="text" class="form-control" id="state" name="state" placeholder="Enter State">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">Country</label>
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
                   <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Brand Image</label>

@@ -45,9 +45,32 @@
                 <?php include 'sidebar.php';?>
                 <div class="main-content">
                     <div class="container-fluid">
-                        <div class="page-header">
-
-                        </div>
+                      <div class="page-header">
+                          <div class="row align-items-end">
+                              <div class="col-lg-8">
+                                  <div class="page-header-title">
+                                      <i class="ik ik-inbox bg-blue"></i>
+                                      <div class="d-inline">
+                                          <h5>Invoice List</h5>
+                                          <!-- <span>See all users with their roles</span> -->
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4">
+                                  <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                      <ol class="breadcrumb">
+                                          <li class="breadcrumb-item">
+                                              <a href="#"><i class="ik ik-home"></i></a>
+                                          </li>
+                                          <li class="breadcrumb-item">
+                                              <a href="#">Invoice</a>
+                                          </li>
+                                          <li class="breadcrumb-item active" aria-current="page">Invoice List</li>
+                                      </ol>
+                                  </nav>
+                              </div>
+                          </div>
+                      </div>
                         <div id="newinvoice"></div>
                         <div class="row invoicelist">
                             <div class="col-md-12">
@@ -103,7 +126,7 @@
                       <?php include "footer.php"; ?>
                     </div>
                 </div>
-                <?php include "invoicemainmodal.php"; ?>
+
 
               </div>
             </div>
@@ -133,15 +156,10 @@
                 <script src="jscode/getallproducts.js"></script>
                 <script src="jscode/getalltax.js"></script>
                 <script src="jscode/getallcustomers.js"></script>
-                <!-- <script src="jscode/getallunit.js"></script> -->
-                <script src="jscode/loadcustomer.js"></script>
-                <script src="jscode/loadtax.js"></script>
-                <script src="jscode/loadproducts.js"></script>
-                <!-- <script src="jscode/loadunit.js"></script>
-                <script src="jscode/loadcategory.js"></script> -->
+
                 <script src="jscode/invoicetable.js"></script>
-                <script src="jscode/invoiceopen.js"></script>
-                <script src="jscode/invoice.js"></script>
+                <script src="jscode/invoiceopen1.js"></script>
+                <!-- <script src="jscode/invoice.js"></script> -->
                 <script src="plugins/moment/moment.js"></script>
     </body>
 

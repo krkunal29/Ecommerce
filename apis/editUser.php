@@ -7,8 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 // && isset($_POST['upassword'])
-if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['emailId'])
- && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['contactAddress'])) {
+if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactNumber']) && isset($_POST['emailId']) && isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['contactAddress'])) {
 
     $mname     = isset($_POST['mname']) ? $_POST['mname'] : 'NULL';
     $pincode   = isset($_POST['pincode']) ? $_POST['pincode'] : 'NULL';
@@ -18,6 +17,9 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
     $fname          = mysqli_real_escape_string($conn, $fname);
     $lname          = mysqli_real_escape_string($conn, $lname);
     $mname          = mysqli_real_escape_string($conn, $mname);
+    $state         = mysqli_real_escape_string($conn, $state);
+    $city          = mysqli_real_escape_string($conn, $city);
+    $country          = mysqli_real_escape_string($conn, $country);
     if(isset($_FILES["imgname"]["type"])){
         $imgname = $_FILES["imgname"]["name"];
         $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
@@ -30,7 +32,9 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
     // $rowsAffected = mysqli_affected_rows($query);
     // echo "rowaffected".$rowsAffected."\n";
     $sql1   = "UPDATE user_details ud SET
-    ud.fname = '$fname',ud.mname='$mname',ud.lname = '$lname',ud.pincode = '$pincode',ud.contactAddress='$Contactaddress'  WHERE  ud.userId = $userId";
+    ud.fname = '$fname',ud.mname='$mname',ud.lname = '$lname',ud.pincode = '$pincode',
+    ud.city = '$city',ud.state='$state',ud.country = '$country',
+    ud.contactAddress='$Contactaddress'  WHERE  ud.userId = $userId";
     $query1 = mysqli_query($conn, $sql1);
 
     // $rowsAffected1 = mysqli_affected_rows($query1);
@@ -45,11 +49,11 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
             $query = mysqli_query($conn, $sql);
             $sql   = "INSERT INTO farmer_details(userId,tehsil, hectre, water, peek) VALUES ('$userId','$tehsil','$hectre','$water','$peek')";
             $query = mysqli_query($conn, $sql);
-            // 
+            //
         }
         // if ($rowsAffected == 1 || $rowsAffected1 == 1) {
           $sql   = "SELECT um.userId,um.roleId,um.emailId,um.contactNumber,ud.fname,
-          ud.mname,ud.lname,ud.contactAddress,ud.pincode,
+          ud.mname,ud.lname,ud.contactAddress,ud.pincode,  ud.city,ud.state,ud.country,
           rm.role,rm.roleId,fd.tehsil,fd.hectre,fd.water,fd.peek
           FROM user_master um Left JOIN user_details ud ON um.userId = ud.userId Left JOIN rolemaster rm ON rm.roleId = um.roleId
           Left JOIN farmer_details fd ON fd.userId = ud.userId

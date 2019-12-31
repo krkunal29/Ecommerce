@@ -1,6 +1,6 @@
 
 function loadDetails(product) {
-   // console.log(product);
+   // console.log("ok"+product);
     $('#productId').val(product.productId);
     $('#productName').val(product.productName);
 
@@ -14,6 +14,13 @@ function loadDetails(product) {
     $('#TaxId').val(product.TaxId).trigger('change');
     $('#description').val(product.description);
     $('#subcategoryId').val(product.subcategoryId).trigger('change');
+    // setTimeout(function(){
+      // swal("ok12");
+      $('#innersubcategoryId').val(product.innersubcategoryId).trigger('change');
+      $('#lastsubcategoryId').val(product.lastsubcategoryId).trigger('change');
+
+    // }, 10000);
+
     var src = url + "upload/" + product.productId + ".jpg";
      // console.log(src);
     $('#prevImage').attr("src", src);

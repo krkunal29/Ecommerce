@@ -8,6 +8,7 @@ $("#dropper-default").dateDropper({
     dropBorder: "1px solid #1abc9c"
 })
 function addopenInvoice() {
+    
     loadUsers(); // customer Name Set
 
     $("#customeremail").val("");

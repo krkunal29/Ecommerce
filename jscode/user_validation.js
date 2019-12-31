@@ -14,6 +14,15 @@ $(function() {
             emailId: {
                 required: true
             },
+            city: {
+                required: true
+            },
+            state: {
+                required: true
+            },
+            country: {
+                required: true
+            },
             pincode:{
                 minlength: 6, maxlength: 6
             },
@@ -38,6 +47,15 @@ $(function() {
             },
             emailId:{
                 required: "Please Enter a Valid Email Address"
+            },
+            city: {
+                required: "Please Enter a City"
+            },
+            state: {
+                required: "Please Enter a State"
+            },
+            country: {
+                required: "Please Enter a Country"
             },
             pincode:{
                 minlength: "Pincode is six digit code", maxlength: "Number should not exceed six digit"

@@ -16,9 +16,9 @@ if($jobQuery!=null)
 				{
 					$records[]=$academicResults;
                 }
-            $response = array('Message'=>"All Roles listed Successfully","Data"=>$records ,'Responsecode'=>200); 
+            $response = array('Message'=>"All Roles listed Successfully","Data"=>$records ,'Responsecode'=>200);
 		}else{
-            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200); 
+            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200);
         }
 	}else{
         $response = array('Message'=>mysqli_error($conn),"Data"=>$records ,'Responsecode'=>403);

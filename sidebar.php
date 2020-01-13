@@ -43,7 +43,17 @@
                                         <a href="products.php" class="menu-item active">Products</a>
                                         <a href="tax.php" class="menu-item">Units</a>
                                         <a href="unit.php" class="menu-item">Tax</a>
+                                        <div class="nav-item has-sub">
+                                    <a href="#" class="menu-item"><span>Category</span></a>
+                                    <div class="submenu-content">
+                                    <a href="category.php" class="menu-item active"><span>Category</span> </a>
+                                        <a href="subcategory.php" class="menu-item"><span> Sub Category</span> </a>
+                                        <a href="innersubcategory.php" class="menu-item"><span> Inner Category</span> </a>
+                                        <a href="lastsubcategory.php" class="menu-item"><span> Inner Level Category</span> </a>
                                     </div>
+                                    </div>
+                                   
+                                </div>
                                 </div>
                                 <div class="nav-item has-sub active">
                                     <a href="#"><i class="ik ik-layers"></i><span>Website Blogs</span></a>
@@ -59,15 +69,7 @@
                                         <a href="maininvoice.php" class="menu-item">Main</a>
                                     </div>
                                 </div>
-                                <div class="nav-item has-sub">
-                                    <a href="#"><i class="ik ik-package"></i><span>Category</span></a>
-                                    <div class="submenu-content">
-                                    <a href="category.php" class="menu-item active"><span>Category</span> </a>
-                                        <a href="subcategory.php" class="menu-item"><span> Sub Category</span> </a>
-                                        <a href="innersubcategory.php" class="menu-item"><span> Inner Category</span> </a>
-                                        <a href="lastsubcategory.php" class="menu-item"><span> Inner Level Category</span> </a>
-                                    </div>
-                                </div>
+                               
                                
                             </nav>
                         </div>

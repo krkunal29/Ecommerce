@@ -109,10 +109,18 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="description">Product Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                            <label for="pexpiryDate">Product Expiry Date</label>
+                        <input type="date" id="pexpiryDate" name="pexpiryDate" class="form-control">
                         </div>
                     </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="description">Product Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+                        </div>
+                    </div>
+</div>
+<div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productDesc">Brand Image</label>

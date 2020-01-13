@@ -1068,7 +1068,7 @@ if(isset($_SESSION['userId'])){
             </div>
         </div>
         
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="../src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>

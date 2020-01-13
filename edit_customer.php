@@ -22,6 +22,8 @@
                 <h6 id="userP"><span id="spanphone"></span></h6>
                 <small class="text-muted d-block pt-10">Address</small>
                 <h6 id="userA"><span id="spanaddress"></span></h6>
+                <small class="text-muted d-block pt-10">Refferal Code</small>
+                <h6 id="urefferCode"></h6>
             </div>
         </div>
     </div>
@@ -255,6 +257,7 @@
 <script src="jscode/Wallet.js"></script>
 <script>
     function loadcusDetails(customer) {
+        $('#urefferCode').html(customer.refferalCode);
         $("#usercusId").val(userIdu);
         $("#spanemail").html(customer.emailId);
         $("#spanphone").html(customer.contactNumber);

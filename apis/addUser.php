@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "../refferCode.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -22,9 +23,10 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber'])&& isset($_POST['st
     $country          = mysqli_real_escape_string($conn, $country);
     $sql   = "INSERT INTO  user_master(roleId,emailId,contactNumber,upassword) VALUES($roleId,'$emailId','$contactNumber','12345')";
     $query = mysqli_query($conn, $sql);
-
+    
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
+        $refferalCode = random_strings(6);
         $userId       = $conn->insert_id;
         $last_id = mysqli_insert_id($conn);
         $s       = strval($last_id);
@@ -34,7 +36,8 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber'])&& isset($_POST['st
             $targetPath = "user/". $s.".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
           }
-        $sql          = "INSERT INTO user_details(userId,fname,mname,lname,city,state,country,contactAddress,pincode) VALUES($userId,'$fname','$mname','$lname','$city','$state','$country','$contactAddress','$pincode')";
+        $sql          = "INSERT INTO user_details(userId,fname,mname,lname,city,state,country,contactAddress,pincode,refferalCode)
+         VALUES($userId,'$fname','$mname','$lname','$city','$state','$country','$contactAddress','$pincode','$refferalCode')";
         $query        = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if($roleId == 2){

@@ -1,6 +1,6 @@
 
 function loadDetails(product) {
-   // console.log("ok"+product);
+   console.log("ok"+product);
     $('#productId').val(product.productId);
     $('#productName').val(product.productName);
 
@@ -18,7 +18,7 @@ function loadDetails(product) {
       // swal("ok12");
       $('#innersubcategoryId').val(product.innersubcategoryId).trigger('change');
       $('#lastsubcategoryId').val(product.lastsubcategoryId).trigger('change');
-
+$('#pexpiryDate').val(product.expiryDate);
     // }, 10000);
 
     var src = url + "upload/" + product.productId + ".jpg";

@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['usrname']) && isset($_POST['passwrd'])) {
-    $sql      = "SELECT userId,roleId FROM  user_master WHERE emailId='$usrname' AND upassword='$passwrd'";
+    $sql      = "SELECT um.userId,um.roleId,ud.fname FROM  user_master um INNER JOIN user_details ud ON um.userId=ud.userId WHERE um.emailId='$usrname' AND um.upassword='$passwrd'";
     $jobQuery = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);

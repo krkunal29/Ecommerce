@@ -4,4 +4,12 @@
     a:customer info
     b:invoice info
     c:wallet information
+
+-remove static data from website
+-blog has filter category wise 
+-add category in product list admin
+-invoice pdf,invoice view
+- add refferal code in customer and executive in admin and website
+-add expiry date in product page
+- add \n in product page and blog page
     

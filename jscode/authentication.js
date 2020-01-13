@@ -14,7 +14,7 @@ $('#signin').on('submit', function(event) {
         },
         success: function(response) {
             if (response.Responsecode == 200) {
-                window.location.href = 'createSession.php?userId=' + response.Data.userId + '&roleId=' + response.Data.roleId;
+                window.location.href = 'createSession.php?userId=' + response.Data.userId + '&roleId=' + response.Data.roleId+'&username='+response.Data.fname;
             } else {
                 $('.message').show();
             }

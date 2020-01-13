@@ -15,6 +15,8 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
     $subcategoryId     = isset($_POST['subcategoryId']) ? $subcategoryId : "NULL";
     $innersubcategoryId= isset($_POST['innersubcategoryId']) ? $innersubcategoryId : "NULL";
     $lastsubcategoryId= isset($_POST['lastsubcategoryId']) ? $lastsubcategoryId : "NULL";
+    $pexpiryDate= isset($_POST['pexpiryDate']) ? $pexpiryDate : "NULL";
+
     $productName = mysqli_real_escape_string($conn, $productName);
     $description = mysqli_real_escape_string($conn, $description);
     $salePrice   = mysqli_real_escape_string($conn, $salePrice);
@@ -22,10 +24,11 @@ if (isset($_POST['productId']) && isset($_POST['productName']) && isset($_POST['
 
     $query        = "UPDATE product_master pm LEFT JOIN productdetails pd ON (pm.productId = pd.productId)
     SET pm.productName = '$productName',pm.SKU='$sku',pm.HSN='$hsn',pm.unitId=$unitId,pm.categoryId=$categoryId,pm.subcategoryId = '$subcategoryId',
-    pm.innersubcategoryId = '$innersubcategoryId',pm.lastsubcategoryId = '$lastsubcategoryId',
+    pm.innersubcategoryId = '$innersubcategoryId',pm.lastsubcategoryId = '$lastsubcategoryId',pm.expiryDate = '$pexpiryDate',
     pm.description='$description',
-    pd.TaxId = $TaxId, pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
+    pd.TaxId = '$TaxId', pd.salePrice = '$salePrice',pd.displayPrice = '$displayPrice',pd.Quantity = '$Quantity'
     WHERE pm.productId = $productId";
+   
     $jobQuery     = mysqli_query($conn, $query);
     $rowsAffected = mysqli_affected_rows($conn);
     if(isset($_FILES["imgname"]["type"])){

@@ -34,7 +34,7 @@ const showProducts = productList => {
         tblData += '<td>' + products.salePrice + '</td>';
         tblData += '<td>' + products.HSN + '</td>';
         tblData += '<td>' + products.Quantity + '</td>';
-        tblData += '<td>' + products.description + '</td>';
+        tblData += '<td>' + products.expiryDate + '</td>';
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editProduct(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="removeProduct(' + (k) + ')"><i class="ik ik-trash-2"></i></a>';

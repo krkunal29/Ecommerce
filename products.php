@@ -98,7 +98,7 @@ if(isset($_SESSION['userId'])){
                                                     <th>Price</th>
                                                     <th>HSN</th>
                                                     <th>Quantity</th>
-                                                    <th>Details</th>
+                                                    <th>Product Expiry Date</th>
                                                     <th class="nosort">&nbsp;</th>
                                                 </tr>
                                             </thead>

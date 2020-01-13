@@ -6,6 +6,6 @@ if(isset($_GET['userId']) && isset($_GET['roleId'])){
     $_SESSION['roleId'] = $roleId;
     header('Location:dashboard.php');
 }else{
-    header('Location:login.html');
+    header('Location:index.php');
 }
 ?>

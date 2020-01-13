@@ -73,18 +73,11 @@ if (isset($_POST['userId']) && isset($_POST['roleId']) && isset($_POST['contactN
           }
 
         }
-    // } else {
-    //     $response = array(
-    //         'Message' => "Parameters failed",
-    //         'Responsecode' => 500
-    //     );
-    // }
-// } else {
-//     $response = array(
-//         "Message" => "Parameters missing",
-//         "Responsecode" => 403
-//     );
-//   }
+}else{
+  $response = array(
+    'Message' => "Parameter Missing",
+    'Responsecode' => 401
+);
 }
 mysqli_close($conn);
 print json_encode($response);

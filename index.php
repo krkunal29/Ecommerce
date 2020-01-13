@@ -1,3 +1,6 @@
+<?php
+if(!isset($_SESSION['userId'])){
+    ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -89,6 +92,13 @@
         <script src="dist/js/theme.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/authentication.js"></script>
+       
     </body>
 
 </html>
+<?php
+}
+else{
+    header('Location:dashboard.php');
+}
+?>

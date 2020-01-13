@@ -1,8 +1,6 @@
 <?php
-// session_start();
-// if(isset($_SESSION['userId'])){
-//     $userId = $_SESSION['userId'];
-//     $roleId = $_SESSION['roleId'];
+session_start();
+if(isset($_SESSION['userId'])){
      ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -324,3 +322,8 @@
 
     </body>
 </html>
+<?php
+}else{
+    header('Location:index.php');
+}
+?>

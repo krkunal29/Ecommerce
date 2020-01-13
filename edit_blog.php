@@ -40,7 +40,7 @@
                       </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label for="productDesc">Blog Content</label>
                             <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
@@ -92,7 +92,7 @@ function loadDetails(blogs){
 $("#blogId").val(blogs.blogId);
 $("#blogtitle").val(blogs.blogTitle);
 $("#blogcategoryId").val(blogs.categoryId);
-$("#blogcontent").val(blogs.blogContent);
+$("#blogcontent").val(blogs.blog);
 $("#blogurl").val(blogs.blogUrl);
 $("#blogStatus").val(blogs.blogStatus).trigger('change');
 var src = url + "blog/" + blogs.blogId + ".jpg";

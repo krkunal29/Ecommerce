@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-8">
                       <div class="form-group">
                           <label for="productDesc">Blog Content</label>
                           <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->

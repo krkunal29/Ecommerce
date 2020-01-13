@@ -5,7 +5,8 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT * FROM blogmaster bm LEFT JOIN blogcategory bg ON bm.categoryId = bg.categoryId";
+$query = "SELECT bm.blogId,bm.blogTitle,SUBSTR(bm.blogContent,1,100) as blogContent,bm.blogContent blog,bm.blogUrl,DATE_FORMAT(bm.createdAt,'%d %b,%Y') blogDate,bc.category 
+FROM blogmaster bm INNER JOIN blogcategory bc ON bm.categoryId = bc.categoryId";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {
@@ -16,9 +17,9 @@ if($jobQuery!=null)
 				{
 					$records[]=$academicResults;
                 }
-            $response = array('Message'=>"All Blogs Data fetched Successfully","Data"=>$records ,'Responsecode'=>200);
+            $response = array('Message'=>"All Blogs Data fetched Successfully","Data"=>$records ,'Responsecode'=>200); 
 		}else{
-            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200);
+            $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200); 
         }
 	}else{
         $response = array('Message'=>mysqli_error($conn),"Data"=>$records ,'Responsecode'=>403);

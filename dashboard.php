@@ -1,8 +1,6 @@
 <?php
  session_start();
-// if(isset($_SESSION['userId'])){
-     $userId = $_SESSION['userId'];
-    $roleId = $_SESSION['roleId'];
+if(isset($_SESSION['userId'])){
      ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -319,6 +317,11 @@
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="plugins/select2/dist/js/select2.min.js"></script>
+                <script>
+                var data = {
+                    userId:'<?php echo $_SESSION['userId'];?>'
+                };
+                </script>
                 <script src="jscode/apis.js"></script>
                 <script src="jscode/getalldashboardcount.js"></script>
 
@@ -332,12 +335,13 @@
                 <script src="dist/js/theme.min.js"></script>
                 <script src="js/widget-chart.js"></script> -->
                 <!-- <script src="jscode/blog.js"></script> -->
+               
 
     </body>
 
 </html>
 <?php
-// }else{
-//     header('Location:login.html');
-// }
+}else{
+    header('Location:index.php');
+}
 ?>

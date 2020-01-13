@@ -5,7 +5,6 @@
                             <div class="logo-img">
                                <img src="img/brand1.png" class="header-brand-img" alt="lavalite" width="100px">
                             </div>
-                            <!-- <span class="text">Ecommerce</span> -->
                         </a>
                         <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
                         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>
@@ -14,61 +13,62 @@
                     <div class="sidebar-content">
                         <div class="nav-container">
                             <nav id="main-menu-navigation" class="navigation-main">
-                                <div class="nav-lavel">Navigation</div>
+                                <div class="nav-lavel">Ecommerce</div>
                                 <div class="nav-item active">
-                                    <a href="dashboard.php"><i class="ik ik-menu"></i><span>Dashboard</span></a>
+                                    <a href="dashboard.php"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                </div>
+                                <?php
+                                if($_SESSION['roleId'] != 3){
+                                    ?>
+                                    <div class="nav-item active">
+                                    <a href="admin-dashboard.php"><i class="ik ik-layers"></i><span>Statastics</span></a>
+                                </div>
+                                     <div class="nav-item active">
+                                    <a href="reports.php"><i class="ik ik-box"></i><span>Reports</span></a>
                                 </div>
                                 <div class="nav-item active">
-                                    <a href="customers.php"><i class="ik ik-users"></i><span>Users</span></a>
+                                    <a href="customers.php"><i class="ik ik-user"></i><span>Customers</span></a>
                                 </div>
-                                <!-- <div class="nav-item">
-                                    <a href="vendors.php"><i class="ik ik-menu"></i><span>Add Vendor</span> <span class="badge badge-success">New</span></a>
+                                <?php 
+                                }
+                                ?>
+                                <div class="nav-item active">
+                                    <a href="Employees.php"><i class="ik ik-users"></i><span>Employees</span></a>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="products.php"><i class="ik ik-menu"></i><span>Add Product</span> <span class="badge badge-success">New</span></a>
-                                </div> -->
-                                <!-- <div class="nav-item">
-                                    <a href="customers.php"><i class="ik ik-menu"></i><span>Users</span> </a>
-                                </div> -->
-                                <div class="nav-item">
-                                    <a href="products.php"><i class="ik ik-shopping-cart"></i><span>Product/Services</span> </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="invoice.php"><i class="ik ik-shield"></i><span>Invoice</span> </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="maininvoice.php"><i class="ik ik-shield"></i><span>Invoice1</span> </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="tax.php"><i class="ik ik-tag"></i><span>Tax</span> </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="unit.php"><i class="ik ik-target"></i><span>Unit</span></a>
-                                </div>
-
-
-                                <div class="nav-item has-sub">
-                                    <a href="#"><i class="ik ik-box"></i><span>Category</span></a>
+                               
+                               
+                                <div class="nav-item has-sub active">
+                                    <a href="#"><i class="ik ik-box"></i><span>Product/Services</span></a>
                                     <div class="submenu-content">
-                                        <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
-                                        <a href="subcategory.php"><i class="ik ik-menu"></i><span> Sub Category</span> </a>
-                                        <a href="innersubcategory.php"><i class="ik ik-menu"></i><span> Inner Category</span> </a>
-                                        <a href="lastsubcategory.php"><i class="ik ik-menu"></i><span> Inner Level Category</span> </a>
+                                        <a href="products.php" class="menu-item active">Products</a>
+                                        <a href="tax.php" class="menu-item">Units</a>
+                                        <a href="unit.php" class="menu-item">Tax</a>
                                     </div>
                                 </div>
-                                <!-- <div class="nav-item">
-                                    <a href="category.php"><i class="ik ik-menu"></i><span>Category</span> </a>
+                                <div class="nav-item has-sub active">
+                                    <a href="#"><i class="ik ik-layers"></i><span>Website Blogs</span></a>
+                                    <div class="submenu-content">
+                                        <a href="blogcategory.php" class="menu-item active">Blog Category</a>
+                                        <a href="blog.php" class="menu-item">Blogs</a>
+                                    </div>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="subcategory.php"><i class="ik ik-menu"></i><span> Sub Category</span> </a>
-                                </div> -->
-                                <div class="nav-item">
-                                    <a href="blog.php"><i class="ik ik-edit"></i><span>Blog</span> </a>
+                                <div class="nav-item has-sub active">
+                                    <a href="#"><i class="ik ik-gitlab"></i><span>Sales</span></a>
+                                    <div class="submenu-content">
+                                        <a href="invoice.php" class="menu-item active">Working Sales</a>
+                                        <a href="maininvoice.php" class="menu-item">Main</a>
+                                    </div>
                                 </div>
-                                <div class="nav-item">
-                                    <a href="blogcategory.php"><i class="ik ik-edit-1"></i><span>Blog Category</span> </a>
+                                <div class="nav-item has-sub">
+                                    <a href="#"><i class="ik ik-package"></i><span>Category</span></a>
+                                    <div class="submenu-content">
+                                    <a href="category.php" class="menu-item active"><span>Category</span> </a>
+                                        <a href="subcategory.php" class="menu-item"><span> Sub Category</span> </a>
+                                        <a href="innersubcategory.php" class="menu-item"><span> Inner Category</span> </a>
+                                        <a href="lastsubcategory.php" class="menu-item"><span> Inner Level Category</span> </a>
+                                    </div>
                                 </div>
-
+                               
                             </nav>
                         </div>
                     </div>

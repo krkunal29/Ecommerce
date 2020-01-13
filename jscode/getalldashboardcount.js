@@ -32,12 +32,11 @@ const dashboardcount = () => {
 dashboardcount();
 
 const userinfo = () => {
-  var userId = $("#userId").val();
     $.ajax({
         url: url + 'dasboarduserinfo.php',
         type: 'POST',
         data :{
-         userId :userId
+         userId :data.userId
         },
         dataType: 'json',
         success: function(response) {
@@ -68,7 +67,6 @@ const userinfo = () => {
 userinfo();
 
 const weatheapi = () =>{
-  var userId = $("#userId").val();
   var cityId =$("#cityId").val();
   var stateId =$("#stateId").val();
   var countryId =$("#countryId").val();
@@ -77,7 +75,7 @@ const weatheapi = () =>{
       url: 'https://api.openweathermap.org/data/2.5/weather?q='+cityId+','+stateId+','+countryId+ '&APPID=42be6d3bf5a5b085daa9334c48be4eb2',
       type: 'POST',
       data :{
-       userId :userId
+       userId :data.userId
       },
       dataType: 'json',
       success: function(response) {

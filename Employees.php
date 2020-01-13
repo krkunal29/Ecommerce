@@ -11,7 +11,7 @@ if(isset($_SESSION['userId'])){
 
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-        <link href="plugins/bootstrap/dist/css/font.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -29,6 +29,9 @@ if(isset($_SESSION['userId'])){
     </head>
 
     <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
         <div class="wrapper">
             <?php include 'navbar.php';?>
 
@@ -42,7 +45,7 @@ if(isset($_SESSION['userId'])){
                                     <div class="page-header-title">
                                         <i class="ik ik-inbox bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Customers List</h5>
+                                            <h5>Employees</h5>
                                             <!-- <span>See all users with their roles</span> -->
                                         </div>
                                     </div>
@@ -54,9 +57,9 @@ if(isset($_SESSION['userId'])){
                                                 <a href="#"><i class="ik ik-home"></i></a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="#">Customers</a>
+                                                <a href="index.php">Home</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Customers</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Employees</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -70,13 +73,13 @@ if(isset($_SESSION['userId'])){
                                       <div class="col-md-12">
                                         <div class="row">
                                           <div class="col-sm-4">
-                                            <h3>Customer List</h3>
+                                            <h3>Employees List</h3>
                                           </div>
                                           <div class="col-sm-4">
 
                                           </div>
                                           <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addCustomer();" >New Customers</button>
+                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addCustomer();" >New Employee</button>
                                           </div>
                                         </div>
                                         </div>
@@ -126,15 +129,15 @@ if(isset($_SESSION['userId'])){
         <script src="js/datatables.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
+
         <script src="jscode/apis.js"></script>
-        <script src="jscode/getallroles.js"></script>
-        <script src="jscode/users.js"></script>
-        <script>
+        <script src="jscode/employee.js"></script>
+    <script>
     var data = {
         userId:<?php echo $_SESSION['userId'];?>,
         roleId:<?php echo $_SESSION['roleId'];?>
     };
-    loadUsers(2);
+    loadUsers(3);
     </script>
     </body>
 </html>

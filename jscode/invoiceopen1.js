@@ -6,7 +6,7 @@ function addopenInvoice() {
 
 const editinvoice = invoiceid => {
   $('.invoicelist').hide();
-  $('#newinvoice').load('add_newinvoice.php');
+  $('#newinvoice').load('edit_newinvoice.php');
   $.ajax({
       url: url + 'getinvoicedata.php',
       type: 'POST',
@@ -15,7 +15,7 @@ const editinvoice = invoiceid => {
       transactionId:invoiceid
       },
       success: function(response) {
-         console.log(response);
+         console.log("edit"+response);
          if (response.Responsecode == 200) {
            // console.log(response.Responsecode);
            const count = response.Data.length;

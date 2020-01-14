@@ -5,7 +5,7 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT tm.transactionId,ud.fname,ud.lname,um.emailId,um.contactNumber,tm.invDate, ROUND(sum(td.rate), 2) as rate from transaction_master tm LEFT JOIN user_master um ON um.userId = tm.userId LEFT JOIN user_details ud ON ud.userId =tm.userId LEFT JOIN transaction_details td On td.transaction_id = tm.transactionId GROUP by tm.transactionId ";
+$query = "SELECT tm.transactionId,ud.fname,ud.lname,um.emailId,um.contactNumber,tm.invDate, ROUND(sum(td.rate*td.quantity), 2) as rate from transaction_master tm LEFT JOIN user_master um ON um.userId = tm.userId LEFT JOIN user_details ud ON ud.userId =tm.userId LEFT JOIN transaction_details td On td.transaction_id = tm.transactionId GROUP by tm.transactionId ";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {

@@ -8,7 +8,7 @@ const customerUsers = () => {
           roleId:2 // For Customer
         },
         success: function(response) {
-
+            console.log(response);
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {

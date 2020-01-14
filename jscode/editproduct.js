@@ -1,6 +1,6 @@
 
 function loadDetails(product) {
-   console.log("ok"+product);
+   
     $('#productId').val(product.productId);
     $('#productName').val(product.productName);
 

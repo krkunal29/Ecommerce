@@ -41,8 +41,8 @@
                                     <a href="#"><i class="ik ik-box"></i><span>Product/Services</span></a>
                                     <div class="submenu-content">
                                         <a href="products.php" class="menu-item active">Products</a>
-                                        <a href="tax.php" class="menu-item">Units</a>
-                                        <a href="unit.php" class="menu-item">Tax</a>
+                                        <a href="tax.php" class="menu-item">Tax</a>
+                                        <a href="unit.php" class="menu-item">Unit</a>
                                         <div class="nav-item has-sub">
                                     <a href="#" class="menu-item"><span>Category</span></a>
                                     <div class="submenu-content">

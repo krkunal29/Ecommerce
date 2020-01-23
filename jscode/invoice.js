@@ -85,7 +85,7 @@ const editinvoice = invoiceid => {
           success: function(response) {
              console.log(response);
              if (response.Responsecode == 200) {
-               // console.log(response.Responsecode);
+              console.log(response.Data[0].userId);
                const count = response.Data.length;
                $("#customerName").val(response.Data[0].userId).trigger('change');
                $("#customeremail").val(response.Data[0].emailId);
@@ -139,7 +139,7 @@ const editinvoice = invoiceid => {
               }
               else
               {
-                     swal(response.Message);
+                     // swal(response.Message);
               }
 
           }

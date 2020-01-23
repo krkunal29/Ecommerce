@@ -155,6 +155,10 @@ if(isset($_SESSION['userId'])){
                 <script src="jscode/getalltax.js"></script>
                 <script src="jscode/getallcustomers.js"></script>
 
+                <script src="jscode/loadcustomer.js"></script>
+                <script src="jscode/loadtax.js"></script>
+                <script src="jscode/loadproducts.js"></script>
+
                 <script src="jscode/invoicetable.js"></script>
                 <script src="jscode/invoiceopen1.js"></script>
                 <!-- <script src="jscode/invoice.js"></script> -->

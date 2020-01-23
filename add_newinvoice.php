@@ -95,14 +95,14 @@
 
                       </thead>
                       <tbody id="invoicetaxtblbody">
-                        <tr>
+                        <!-- <tr>
                           <td style="width: 100%;">Tax name </td>
                           <td>1000</td>
                         </tr>
                         <tr>
                           <td style="width: 100%;">Tax name </td>
                           <td>1000</td>
-                        </tr>
+                        </tr> -->
                       </tbody>
 
                   </table>

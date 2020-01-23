@@ -8,7 +8,7 @@
               <div class="col-sm-4">
                 <div class="form-group">
                     <label for="productDesc">Customer Name</label>
-                  <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" onchange="changecustomername(this.value)">
+                  <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" >
 
                   </select>
                 </div>
@@ -123,7 +123,22 @@
     </div>
 </div>
 <script src="jscode/loadcustomer.js"></script>
-<script src="jscode/loadtax.js"></script>
+<script type="text/javascript">
+// function loadUsers()
+// {
+//
+// var html = '<option value="">Select Customer</option>';
+// for(let k of userList.keys()){
+//   let customerName = userList.get(k);
+//   html +='<option value="'+customerName.userId+'">'+customerName.fname+' '+customerName.lname+'</option>';
+// }
+// console.log(html);
+// $("#customerName").html(html);
+// $("#customerName").select2();
+// }
+loadUsers(); // load customer name
+</script>
+<!-- <script src="jscode/loadtax.js"></script>-->
 <script src="jscode/loadproducts.js"></script>
 <script type="text/javascript">
 $("#dropper-default").dateDropper({
@@ -131,6 +146,6 @@ $("#dropper-default").dateDropper({
     dropPrimaryColor: "#1abc9c",
     dropBorder: "1px solid #1abc9c"
 })
-loadUsers(); // load customer name
+
 </script>
 <!-- <script src="savecode/saveinvoice.js"></script> -->

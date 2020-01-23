@@ -7,7 +7,7 @@ if(isset($_SESSION['userId'])){
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Widget Statistic | ThemeKit - Admin Template</title>
+        <title>Kissan Agro |  Admin Template</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,15 @@ if(isset($_SESSION['userId'])){
         <link rel="stylesheet" href="plugins/chartist/dist/chartist.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+
     </head>
 
     <body>
@@ -73,8 +82,8 @@ if(isset($_SESSION['userId'])){
                                     <div class="card-body">
                                         <div class="row align-items-center mb-30">
                                             <div class="col">
-                                                <h6 class="mb-5 text-white">Total Profit</h6>
-                                                <h3 class="mb-0 fw-700 text-white">$1,783</h3>
+                                                <h6 class="mb-5 text-white">Total Sales</h6>
+                                                <h3 class="mb-0 fw-700 text-white" >&#8377;<span id="sales"></span></h3>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fa fa-money-bill-alt text-red f-18"></i>
@@ -122,7 +131,7 @@ if(isset($_SESSION['userId'])){
                                         <div class="row align-items-center mb-30">
                                             <div class="col">
                                                 <h6 class="mb-5 text-white">Product Sold</h6>
-                                                <h3 class="mb-0 fw-700 text-white">6,784</h3>
+                                                <h3 class="mb-0 fw-700 text-white" id="sold">6,784</h3>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-tags text-warning f-18"></i>
@@ -201,414 +210,36 @@ if(isset($_SESSION['userId'])){
                             <!-- page statustic chart end -->
 
                             <!-- Project statustic start -->
-                            <div class="col-xl-12">
+                            <div class="col-xl-6">
                                 <div class="card proj-progress-card">
                                     <div class="card-block">
-                                        <div class="row">
-                                            <div class="col-xl-3 col-md-6">
-                                                <h6>Published Project</h6>
-                                                <h5 class="mb-30 fw-700">532<span class="text-green ml-10">+1.69%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" style="width:25%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6">
-                                                <h6>Completed Task</h6>
-                                                <h5 class="mb-30 fw-700">4,569<span class="text-red ml-10">-0.5%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-blue" style="width:65%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6">
-                                                <h6>Successfull Task</h6>
-                                                <h5 class="mb-30 fw-700">89%<span class="text-green ml-10">+0.99%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-green" style="width:85%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6">
-                                                <h6>Ongoing Project</h6>
-                                                <h5 class="mb-30 fw-700">365<span class="text-green ml-10">+0.35%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-yellow" style="width:45%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <figure class="highcharts-figure">
+                <div id="container"></div>
+                        <p class="highcharts-description">
+        This pie chart shows how the chart legend can be used to provide
+        information about the individual slices.
+    </p>
+</figure>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Project statustic end -->
-
-                            <!-- social statusric start -->
-                            <div class="col-xl-4 col-md-12">
-                                <div class="card sos-st-card facebook">
+                            <div class="col-xl-6">
+                                <div class="card proj-progress-card">
                                     <div class="card-block">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h3 class="mb-0"><i class="fab fa-facebook-f"></i> 3.56k</h3>
-                                            </div>
-                                            <div class="col-auto">
-                                                <h5 class="mb-0">Likes</h5>
-                                            </div>
-                                            <div class="col-auto"><i class="fas fa-arrow-up text-green"></i></div>
-                                        </div>
+                                    <figure class="highcharts-figure">
+                                    <div id="Sales"></div>
+    <p class="highcharts-description">
+        Chart designed to show the difference between 0 and null in a 3D column
+        chart. A null point represents missing data, while 0 is a valid value.
+    </p>
+</figure>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card sos-st-card twitter">
-                                    <div class="card-block">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h3 class="mb-0"><i class="fab fa-twitter"></i> 3k</h3>
-                                            </div>
-                                            <div class="col-auto">
-                                                <h5 class="mb-0">Followers</h5>
-                                            </div>
-                                            <div class="col-auto"><i class="fas fa-arrow-up text-green"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card sos-st-card linkedin">
-                                    <div class="card-block">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h3 class="mb-0"><i class="fab fa-linkedin-in"></i> 2k</h3>
-                                            </div>
-                                            <div class="col-auto">
-                                                <h5 class="m-b-0">Connections</h5>
-                                            </div>
-                                            <div class="col-auto"><i class="fas fa-arrow-down text-red"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- social statusric end -->
-
-                            <!-- imprestion, goal, impect start -->
-                            <div class="col-xl-4 col-md-12">
-                                <div class="card comp-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="mb-25">Impressions</h6>
-                                                <h3 class="fw-700 text-blue">1,563</h3>
-                                                <p class="mb-0">May 23 - June 01 (2017)</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-eye bg-blue"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card comp-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="mb-25">Goal</h6>
-                                                <h3 class="fw-700 text-green">30,564</h3>
-                                                <p class="mb-0">May 23 - June 01 (2017)</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-bullseye bg-green"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card comp-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="mb-25">Impact</h6>
-                                                <h3 class="fw-700 text-yellow">42.6%</h3>
-                                                <p class="mb-0">May 23 - June 01 (2017)</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-hand-paper bg-yellow"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- imprestion, goal, impect end -->
-
-                            <!-- project-ticket start -->
-                            <div class="col-xl-4 col-md-12">
-                                <div class="card proj-t-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="far fa-calendar-check text-red f-30"></i>
-                                            </div>
-                                            <div class="col pl-0">
-                                                <h6 class="mb-5">Ticket Answered</h6>
-                                                <h6 class="mb-0 text-red">Live Update</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center text-center">
-                                            <div class="col">
-                                                <h6 class="mb-0">327</h6></div>
-                                            <div class="col"><i class="fas fa-exchange-alt text-red f-18"></i></div>
-                                            <div class="col">
-                                                <h6 class="mb-0">10 Days</h6></div>
-                                        </div>
-                                        <h6 class="pt-badge bg-red">53%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card proj-t-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="fas fa-paper-plane text-green f-30"></i>
-                                            </div>
-                                            <div class="col pl-0">
-                                                <h6 class="mb-5">Project Launched</h6>
-                                                <h6 class="mb-0 text-green">Live Update</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center text-center">
-                                            <div class="col">
-                                                <h6 class="mb-0">3 Year</h6></div>
-                                            <div class="col"><i class="fas fa-exchange-alt text-green f-18"></i></div>
-                                            <div class="col">
-                                                <h6 class="mb-0">623</h6></div>
-                                        </div>
-                                        <h6 class="pt-badge bg-green">76%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card proj-t-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="fas fa-lightbulb text-yellow f-30"></i>
-                                            </div>
-                                            <div class="col pl-0">
-                                                <h6 class="mb-5">Unique Innovation</h6>
-                                                <h6 class="mb-0 text-yellow">Live Update</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center text-center">
-                                            <div class="col">
-                                                <h6 class="mb-0">1 Month</h6></div>
-                                            <div class="col"><i class="fas fa-exchange-alt text-yellow f-18"></i></div>
-                                            <div class="col">
-                                                <h6 class="mb-0">248</h6></div>
-                                        </div>
-                                        <h6 class="pt-badge bg-yellow">73%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- project-ticket end -->
-
+                          
                            
-
-                            <!-- ticket, proj, clent start -->
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card ticket-card">
-                                    <div class="card-body">
-                                        <p class="mb-30 bg-red lbl-card"><i class="fas fa-folder-open"></i> Open Tickets</p>
-                                        <div class="text-center">
-                                            <h2 class="mb-0 d-inline-block text-red">128</h2>
-                                            <p class="mb-0 d-inline-block">Tickets</p>
-                                            <p class="mb-0 mt-15"><i class="fas fa-caret-down mr-10 f-18 text-red"></i>From Previous Month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card ticket-card">
-                                    <div class="card-body">
-                                        <p class="mb-30 bg-blue lbl-card"><i class="fas fa-file-archive"></i> Close Tickets</p>
-                                        <div class="text-center">
-                                            <h2 class="mb-0 d-inline-block text-blue">134</h2>
-                                            <p class="mb-0 d-inline-block">Tickets</p>
-                                            <p class="mb-0 mt-15"><i class="fas fa-caret-up mr-10 f-18 text-blue"></i>From Previous Month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card ticket-card">
-                                    <div class="card-body">
-                                        <p class="mb-30 bg-green lbl-card"><i class="fas fa-users"></i> New Clients</p>
-                                        <div class="text-center">
-                                            <h2 class="mb-0 d-inline-block text-green">307</h2>
-                                            <p class="mb-0 d-inline-block">Clients</p>
-                                            <p class="mb-0 mt-15"><i class="fas fa-caret-up mr-10 f-18 text-green"></i>From Previous Month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card ticket-card">
-                                    <div class="card-body">
-                                        <p class="mb-30 bg-warning lbl-card"><i class="fas fa-database"></i> New Orders</p>
-                                        <div class="text-center">
-                                            <h2 class="mb-0 d-inline-block text-warning">231</h2>
-                                            <p class="mb-0 d-inline-block">Orders</p>
-                                            <p class="mb-0 mt-15"><i class="fas fa-caret-up mr-10 f-18 text-warning"></i>From Previous Month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ticket, proj, clent end -->
-
-                            <!-- analytic card start -->
-                            <div class="col-xl-4 col-md-12">
-                                <div class="card analytic-card card-green">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="fas fa-shopping-cart text-green f-18 analytic-icon"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3 class="mb-5 text-white">15,678</h3>
-                                                <h6 class="mb-0 text-white">Total Sales</h6>
-                                            </div>
-                                        </div>
-                                        <p class="mb-0  text-white d-inline-block">Total Income : </p>
-                                        <h5 class=" text-white d-inline-block mb-0 ml-10">$2,451</h5>
-                                        <h6 class="mb-0 d-inline-block  text-white float-right"><i class="fas fa-caret-up mr-10 f-18"></i>10%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card analytic-card card-blue">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="fas fa-users text-blue f-18 analytic-icon"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3 class="mb-5 text-white">1,678</h3>
-                                                <h6 class="mb-0 text-white">Total Users</h6>
-                                            </div>
-                                        </div>
-                                        <p class="mb-0 text-white d-inline-block">Total Revenue : </p>
-                                        <h5 class="text-white d-inline-block mb-0 ml-10">$2,451</h5>
-                                        <h6 class="mb-0 d-inline-block text-white float-right"><i class="fas fa-caret-up mr-10 f-18"></i>30%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6">
-                                <div class="card analytic-card card-red">
-                                    <div class="card-body">
-                                        <div class="row align-items-center mb-30">
-                                            <div class="col-auto">
-                                                <i class="fas fa-file-code text-red f-18 analytic-icon"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3 class="mb-5 text-white">15,678</h3>
-                                                <h6 class="mb-0 text-white">Total Project</h6>
-                                            </div>
-                                        </div>
-                                        <p class="mb-0 d-inline-block text-white">Active Projects : </p>
-                                        <h5 class="text-white d-inline-block mb-0 ml-10">$2,451</h5>
-                                        <h6 class="mb-0 d-inline-block text-white float-right"><i class="fas fa-caret-down mr-10 f-18"></i>10%</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- project-ticket end -->
-
-                            <!-- analytic card start -->
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card social-res-card">
-                                    <div class="card-header">
-                                        <h5>Facebook Source</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-10">Page Profile</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-facebook" style="width:25%"></div>
-                                        </div>
-                                        <p class="m-b-10">Favorite</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-facebook" style="width:85%"></div>
-                                        </div>
-                                        <p class="mb-10">Like Story</p>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-facebook" style="width:65%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card social-res-card">
-                                    <div class="card-header">
-                                        <h5>Twitter Source</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-10">Wall Profile</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-twitter" style="width:85%"></div>
-                                        </div>
-                                        <p class="mb-10">Favorite</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-twitter" style="width:25%"></div>
-                                        </div>
-                                        <p class="mb-10">Like Tweets</p>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-twitter" style="width:65%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card social-res-card">
-                                    <div class="card-header">
-                                        <h5>Google+ Source</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-10">Profile</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-google" style="width:65%"></div>
-                                        </div>
-                                        <p class="mb-10">Connect</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-google" style="width:15%"></div>
-                                        </div>
-                                        <p class="mb-10">Like News</p>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-google" style="width:95%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card social-res-card">
-                                    <div class="card-header">
-                                        <h5>Linkedin Source</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="mb-10">Profile</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-linkedin" style="width:45%"></div>
-                                        </div>
-                                        <p class="mb-10">Connect</p>
-                                        <div class="progress mb-30">
-                                            <div class="progress-bar bg-linkedin" style="width:85%"></div>
-                                        </div>
-                                        <p class="mb-10">Like Posts</p>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-linkedin" style="width:35%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- project-ticket end -->
-
-                            <!-- peoduct statustic start -->
-                            <div class="col-xl-12">
+                           
+                               <div class="col-xl-12">
                                 <div class="card product-progress-card">
                                     <div class="card-block">
                                         <div class="row pp-main">
@@ -1078,6 +709,114 @@ if(isset($_SESSION['userId'])){
         <script src="plugins/chartist/dist/chartist.min.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/widget-statistic.js"></script>
+        <script src="jscode/apis.js"></script>
+        <script>
+            const loadData = () => {
+    $.ajax({
+        url: url + 'getAllSalesData.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            if (response.Data != null) {
+               $('#sales').html(response.Data.Sale);
+               $('#sold').html(response.Data.Quantity);
+            }
+        }
+    });
+};
+loadData();
+        // Build the chart
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Kissan Agro Sales-2020'  
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'This year',
+            y: 61.41,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Month',
+            y: 11.84
+        }, {
+            name: 'Week',
+            y: 10.85
+        }, {
+            name: 'Today',
+            y: 4.67
+        }]
+    }]
+});
+
+Highcharts.chart('Sales', {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            beta: 25,
+            depth: 70
+        }
+    },
+    title: {
+        text: 'Sales Chart'
+    },
+    subtitle: {
+        text: 'Notice the difference between a 0 value and a null point'
+    },
+    plotOptions: {
+        column: {
+            depth: 25
+        }
+    },
+    xAxis: {
+        categories: Highcharts.getOptions().lang.shortMonths,
+        labels: {
+            skew3d: true,
+            style: {
+                fontSize: '16px'
+            }
+        }
+    },
+    yAxis: {
+        title: {
+            text: null
+        }
+    },
+    series: [{
+        name: 'Sales',
+        data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
+    }]
+});
+        </script>
     </body>
 </html>
 <?php

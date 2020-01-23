@@ -32,9 +32,7 @@ if(isset($_SESSION['userId'])){
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <input type="hidden" id="roleId" value="<?php echo $roleId;?>"/>
-        <input type="hidden" id="userId" value="<?php echo $userId;?>"/>
-        <div class="wrapper">
+       <div class="wrapper">
             <?php include 'navbar.php';?>
             <div class="page-wrap">
                 <?php include 'sidebar.php';?>

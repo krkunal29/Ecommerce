@@ -66,8 +66,8 @@
                                 <div class="nav-item has-sub active">
                                     <a href="#"><i class="ik ik-gitlab"></i><span>Sales</span></a>
                                     <div class="submenu-content">
-                                        <a href="invoice.php" class="menu-item active">Working Sales</a>
-                                        <a href="maininvoice.php" class="menu-item">Main</a>
+                                        <!-- <a href="invoice.php" class="menu-item active">Working Sales</a> -->
+                                        <a href="maininvoice.php" class="menu-item active">Invoice</a>
                                     </div>
                                 </div>
                                

@@ -8,10 +8,16 @@
 
                 <div class="row">
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="productDesc">Slider Title</label>
-                            <input type="text" class="form-control" name="sliderTitle" id="sliderTitle" placeholder="Enter Slider Title" >
+                            <label for="sliderTitle">Banner Text</label>
+                            <input type="text" class="form-control" name="sliderTitle" id="sliderTitle" placeholder="Enter Banner Text" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="smallTitle">Banner sub Text</label>
+                            <input type="text" class="form-control" name="smallTitle" id="smallTitle" placeholder="Enter Banner sub Text" required>
                         </div>
                     </div>
                    
@@ -21,7 +27,7 @@
                   <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Brand Image</label>
-                          <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
+                          <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)" require>
                       </div>
                   </div>
                   <div class="col-md-4">

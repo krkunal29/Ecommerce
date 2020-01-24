@@ -72,7 +72,7 @@ if(isset($_SESSION['userId'])){
                                       <div class="col-md-12">
                                         <div class="row">
                                           <div class="col-sm-4">
-                                            <h3>Blog Zone</h3>
+                                            <h3>Slider Zone</h3>
                                           </div>
                                           <div class="col-sm-4">
 
@@ -92,7 +92,8 @@ if(isset($_SESSION['userId'])){
                                                 <tr>
 
                                                     <th>Banner</th>
-                                                      <th>Banner Title</th>
+                                                      <th>Banner Text</th>
+                                                      <th>Sub Text</th>
                                                     <th>Status</th>
                                                     <th class="nosort">&nbsp;</th>
                                                 </tr>

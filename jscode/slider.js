@@ -26,6 +26,7 @@ var showSlider = slider => {
         let slide = slider.get(k);
         tblData += '<tr><td><img src="apis/slider/'+k+'.jpg" alt="Slider image" class="rounded-circle img-40 align-top mr-15"></td>';
         tblData += '<td>' + slide.sliderTitle + '</td>';
+        tblData += '<td>' + slide.smallTitle + '</td>';
         var slideStatus ='';
         if(slide.isActive==0){
             slideStatus ='<span class="badge badge-danger">Inactive</span>';

@@ -6,11 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['sliderTitle']) && isset($_FILES["imgname"]["type"])) {
+if (isset($_POST['sliderTitle']) && isset($_FILES["imgname"]["type"]) && isset($_POST['smallTitle'])) {
 
     $sliderTitle   = mysqli_real_escape_string($conn, $sliderTitle);
-
-    $query    = "INSERT INTO slider(sliderTitle) VALUES('$sliderTitle')";
+    $smallTitle = mysqli_real_escape_string($conn,$smallTitle);
+    $query    = "INSERT INTO slider(sliderTitle,smallTitle) VALUES('$sliderTitle','$smallTitle')";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery == 1) {
         $last_id = mysqli_insert_id($conn);

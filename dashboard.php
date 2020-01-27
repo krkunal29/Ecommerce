@@ -1,345 +1,408 @@
 <?php
- session_start();
+session_start();
 if(isset($_SESSION['userId'])){
      ?>
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <?php include "metatag.php"; ?>
-
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <title>Kissan Agro |  Admin Template</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
+        
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
-          <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-        <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
-        <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">
-        <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <link rel="stylesheet" href="plugins/weather-icons/css/weather-icons.min.css">
+        <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="plugins/chartist/dist/chartist.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+
     </head>
 
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-       <div class="wrapper">
-            <?php include 'navbar.php';?>
+
+        <div class="wrapper">
+        <?php include 'navbar.php';?>
             <div class="page-wrap">
-                <?php include 'sidebar.php';?>
+               <?php include 'sidebar.php';?>
                 <div class="main-content">
                     <div class="container-fluid">
-                      <div class="page-header">
-                          <div class="row align-items-end">
-                              <div class="col-lg-8">
-                                  <div class="page-header-title">
-                                      <i class="ik ik-inbox bg-blue"></i>
-                                      <div class="d-inline">
-                                          <h5>Dashboard</h5>
-                                          <!-- <span>See all users with their roles</span> -->
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-4">
-                                  <nav class="breadcrumb-container" aria-label="breadcrumb">
-                                      <ol class="breadcrumb">
-                                          <li class="breadcrumb-item">
-                                              <a href="#"><i class="ik ik-home"></i></a>
-                                          </li>
-                                          <li class="breadcrumb-item">
-                                              <a href="#">Dashboard</a>
-                                          </li>
-                                          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                                      </ol>
-                                  </nav>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-red st-cir-card text-white">
-                                <div class="card-block">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div id="status-round-1" class="chart-shadow st-cir-chart" style="width:80px;height:80px">
-                                                <h5>
-                                                  <span id="hblogsp"></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <h3 class=" fw-700 mb-5"><span id="tblogsp"></span></h3>
-                                            <h6 class="mb-0 ">Total Blog</h6>
+                        <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-layers bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5>Sale Statistic</h5>
+                                           
                                         </div>
                                     </div>
-                                    <span class="st-bt-lbl"><span id="blogsp"></span></span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="#"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Sale</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">Sale Statistic</li>
+                                        </ol>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-blue st-cir-card text-white">
-                                <div class="card-block">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div id="status-round-2" class="chart-shadow st-cir-chart" style="width:80px;height:80px">
-                                                <h5><span id="hproductsp"></span></h5>
+                        <div class="row">
+                             <!-- product profit start -->
+                             <div class="col-xl-3 col-md-6">
+                                <div class="card prod-p-card card-red">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col">
+                                                <h6 class="mb-5 text-white">Total Sales</h6>
+                                                <h3 class="mb-0 fw-700 text-white" >&#8377;<span id="sales"></span></h3>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fa fa-money-bill-alt text-red f-18"></i>
                                             </div>
                                         </div>
-                                        <div class="col text-center">
-                                            <h3 class="fw-700 mb-5"><span id="tproductsp"></span></h3>
-                                            <h6 class="mb-0">Total Product</h6>
-                                        </div>
+                                        <!-- <p class="mb-0 text-white"><span class="label label-danger mr-10">+11%</span>From Previous Month</p> -->
                                     </div>
-                                    <span class="st-bt-lbl"><span id="productsp"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card prod-p-card card-blue">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col">
+                                                <h6 class="mb-5 text-white">Total Orders</h6>
+                                                <h3 class="mb-0 fw-700 text-white"><span id="totalInv"></span></h3>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-database text-blue f-18"></i>
+                                            </div>
+                                        </div>
+                                        <!-- <p class="mb-0 text-white"><span class="label label-primary mr-10">+12%</span>From Previous Month</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card prod-p-card card-green">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col">
+                                                <h6 class="mb-5 text-white">Average Price</h6>
+                                                <h3 class="mb-0 fw-700 text-white">$6,780</h3>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign text-green f-18"></i>
+                                            </div>
+                                        </div>
+                                        <!-- <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card prod-p-card card-yellow">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col">
+                                                <h6 class="mb-5 text-white">Product Sold</h6>
+                                                <h3 class="mb-0 fw-700 text-white" id="sold">6,784</h3>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-tags text-warning f-18"></i>
+                                            </div>
+                                        </div>
+                                        <!-- <p class="mb-0 text-white"><span class="label label-warning mr-10">+52%</span>From Previous Month</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product profit end -->
+                            <!-- page statustic chart start -->
+                          
+                            
+                            
+                            <!-- page statustic chart end -->
+
+                            <!-- Project statustic start -->
+                            <div class="col-xl-6">
+                                <div class="card proj-progress-card">
+                                    <div class="card-block">
+                                    <figure class="highcharts-figure">
+                <div id="container"></div>
+                       
+</figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card proj-progress-card">
+                                    <div class="card-block">
+                                    <figure class="highcharts-figure">
+                                    <div id="Sales"></div>
+    
+</figure>
+                                    </div>
+                                </div>
+                            </div>
+                          
+        
+                <footer class="footer">
+                    <div class="w-100 clearfix">
+                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 Kissan Agro . All Rights Reserved.</span>
+                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://markedia.com/" class="text-dark" target="_blank">Markedia</a></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        
+        
+        
+
+        <div class="modal fade apps-modal" id="appsModal" tabindex="-1" role="dialog" aria-labelledby="appsModalLabel" aria-hidden="true" data-backdrop="false">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ik ik-x-circle"></i></button>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="quick-search">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 ml-auto mr-auto">
+                                    <div class="input-wrap">
+                                        <input type="text" id="quick-search" class="form-control" placeholder="Search..." />
+                                        <i class="ik ik-search"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-green st-cir-card text-white">
-                                <div class="card-block">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div id="status-round-3" class="chart-shadow st-cir-chart" style="width:80px;height:80px">
-                                                <h5><span id="husercountsp"></span></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <h3 class="fw-700 mb-5"><span id="tusercountsp"></span></h3>
-                                            <h6 class="mb-0">User Count</h6>
-                                        </div>
-                                    </div>
-                                    <span class="st-bt-lbl"><span id="usercountsp"></span></span>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="container">
+                            <div class="apps-wrap">
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-mail"></i><span>Message</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-users"></i><span>Accounts</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-shopping-cart"></i><span>Sales</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-briefcase"></i><span>Purchase</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-server"></i><span>Menus</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-clipboard"></i><span>Pages</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-message-square"></i><span>Chats</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-map-pin"></i><span>Contacts</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-box"></i><span>Blocks</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-calendar"></i><span>Events</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-bell"></i><span>Notifications</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-pie-chart"></i><span>Reports</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-layers"></i><span>Tasks</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-edit"></i><span>Blogs</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
+                                </div>
+                                <div class="app-item">
+                                    <a href="#"><i class="ik ik-more-horizontal"></i><span>More</span></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card card-yellow st-cir-card text-white">
-                                <div class="card-block">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div id="status-round-4" class="chart-shadow st-cir-chart" style="width:80px;height:80px">
-                                                <h5><span id="hcategorycountsp"></span></h5>
-                                            </div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <h3 class="fw-700 mb-5"><span id="tcategorycountsp"></span></h3>
-                                            <h6 class="mb-0">Category</h6>
-                                        </div>
-                                    </div>
-                                    <span class="st-bt-lbl"><span id="categorycountsp"></span></span>
-                                </div>
-                            </div>
-                        </div>
-
-                      </div>
-                      <div class="row clearfix">
-                          <div class="col-lg-3 col-md-6 col-sm-12">
-                              <div class="widget bg-primary">
-                                  <div class="widget-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div class="state">
-                                              <h6>Sub Blog Category</h6>
-                                              <h2><span id="subblogcountsp"></span></h2>
-                                          </div>
-                                          <div class="icon">
-                                              <i class="ik ik-box"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-6 col-sm-12">
-                              <div class="widget bg-success">
-                                  <div class="widget-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div class="state">
-                                              <h6>Sub Category</h6>
-                                              <h2><span id="subcategorycountsp"></span></h2>
-                                          </div>
-                                          <div class="icon">
-                                              <i class="ik ik-shopping-cart"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-6 col-sm-12">
-                              <div class="widget bg-warning">
-                                  <div class="widget-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div class="state">
-                                              <h6>Total Tax</h6>
-                                              <h2><span id="taxcountsp"></span></h2>
-                                          </div>
-                                          <div class="icon">
-                                              <i class="ik ik-inbox"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-6 col-sm-12">
-                              <div class="widget bg-danger">
-                                  <div class="widget-body">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                          <div class="state">
-                                              <h6>Total Unit </h6>
-                                              <h2><span id="unitcountsp"></span></h2>
-                                          </div>
-                                          <div class="icon">
-                                              <i class="ik ik-users"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-                              <div class="card">
-
-                                  <div class="card-body">
-                                      <div class="text-center">
-                                          <img src="img/user.jpg" id="previmg1" class="rounded-circle" width="150" />
-                                          <h4 class="mt-20 mb-0"><span id="spanname"></span></h4>
-
-                                      </div>
-                                  </div>
-                                  <hr class="mb-0">
-                                  <div class="card-body">
-                                      <small class="text-muted d-block">Email address </small>
-                                      <h6 id="userE"><span id="spanemail"></span></h6>
-                                      <small class="text-muted d-block pt-10">Phone</small>
-                                      <h6 id="userP"><span id="spanphone"></span></h6>
-                                      <small class="text-muted d-block pt-10">City</small>
-                                      <h6 id="userA"><span id="spancity"></span></h6>
-                                      <small class="text-muted d-block pt-10">State</small>
-                                      <h6 id="userA"><span id="spanstate"></span></h6>
-                                      <small class="text-muted d-block pt-10">Country</small>
-                                      <h6 id="userA"><span id="spancountry"></span></h6>
-                                      <small class="text-muted d-block pt-10">Address</small>
-                                      <h6 id="userA"><span id="spanaddress"></span></h6>
-                                      <input type="hidden" id="cityId"/>
-                                      <input type="hidden" id="stateId"/>
-                                      <input type="hidden" id="countryId"/>
-                                  </div>
-
-                              </div>
-                          </div>
-                          <!-- <div class="col-md-4">
-                              <div class="card">
-                                  <div class="card-body">
-                                      <div id="datepickerwidget"></div>
-                                  </div>
-                              </div>
-                          </div> -->
-                          <div class="col-md-6">
-                              <div class="card">
-                                  <div class="card-body">
-                                      <div class="d-flex">
-                                          <h4 class="card-title">Weather Report</h4>
-                                          <!-- <select class="form-control w-25 ml-auto">
-                                              <option selected="">Today</option>
-                                              <option value="1">Weekly</option>
-                                          </select> -->
-                                    </div>
-                                      <div class="d-flex align-items-center flex-row mt-10">
-                                          <div class="p-2 f-50 text-info"><i class="wi wi-day-showers"></i> <span><span id="currenttemp"></span><sup>°</sup></span></div>
-                                          <div class="p-2">
-                                          <h3 class="mb-0"><?php echo date("d/m/Y"); ?></h3><small><?php echo date("l"); ?>, <span id="tempcityname"></span></small></div>
-                                      </div>
-                                      <table class="table table-borderless">
-                                          <tbody>
-                                            <tr>
-                                                <td>Weather Conditon</td>
-                                                <td class="font-medium"> <span id="tempweathercond"></span> </td>
-                                            </tr>
-                                              <tr>
-                                                  <td>Wind</td>
-                                                  <td class="font-medium">ESE <span id="tempwindname"></span> mph</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>Humidity</td>
-                                                  <td class="font-medium"><span id="temphumidityname"></span>%</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>Pressure</td>
-                                                  <td class="font-medium"><span id="temppressurename"></span> in</td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                      <hr>
-                                      <ul class="list-unstyled row text-center city-weather-days mb-0">
-                                          <li class="col"><i class="wi wi-day-sunny mr-5"></i><span>Max Temp</span><h3><span id="tempcitymaxname"></span><sup>°</sup></h3></li>
-                                          <li class="col"><i class="wi wi-day-cloudy mr-5"></i><span>Min Temp</span><h3><span id="tempcityminname"></span><sup>°</sup></h3></li>
-
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-
-                        <?php include "footer.php"; ?>
                     </div>
                 </div>
-              </div>
             </div>
+        </div>
+        
+        <script src="js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+        <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
+        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+        <script src="plugins/screenfull/dist/screenfull.js"></script>
+        <script src="plugins/owl.carousel/dist/owl.carousel.min.js"></script>
+        <script src="plugins/chartist/dist/chartist.min.js"></script>
+        <script src="dist/js/theme.min.js"></script>
+        <script src="js/widget-statistic.js"></script>
+        <script src="jscode/apis.js"></script>
+        <script>
+            const loadData = () => {
+    $.ajax({
+        url: url + 'getAllSalesData.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Data != null) {
+               $('#sales').html(response.Data.Sale);
+               $('#sold').html(response.Data.Quantity);
+               $('#totalInv').html(response.Data.inv);
+            }
+        }
+    });
+};
+var Sale = [];
+const loadSale = () => {
+    $.ajax({
+        url: url + 'getSaleData.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Data != null) {
+                var n = response.Data.length;
+                for(var i=0;i<n;i++){
+                    Sale.push(parseFloat(response.Data[i].sale));
+                }
+            }
+            load_sales(Sale);
+        }
+    });
+};
+loadData();
+loadSale();
+        // Build the chart
+function load_sales(saleData){
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Kissan Agro Sales-2020'  
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'This year',
+            y: 61.41,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Month',
+            y: 11.84
+        }, {
+            name: 'Week',
+            y: 10.85
+        }, {
+            name: 'Today',
+            y: 4.67
+        }]
+    }]
+});
 
-
-
-               <?php include "dashboardmodal.php"; ?>
-
-                <script src="js/jquery.min.js"></script>
-                <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-
-                <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-                <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-                <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-                <script src="plugins/screenfull/dist/screenfull.js"></script>
-                <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
-                <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-                <script src="dist/js/theme.min.js"></script>
-                <!-- <script src="js/datatables.js"></script> -->
-                <script src="plugins/moment/moment.js"></script>
-                <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
-                <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
-                <script src="js/layouts.js"></script>
-                <script src="plugins/select2/dist/js/select2.min.js"></script>
-                <script>
-                var data = {
-                    userId:'<?php echo $_SESSION['userId'];?>'
-                };
-                </script>
-                <script src="jscode/apis.js"></script>
-                <script src="jscode/getalldashboardcount.js"></script>
-
-                <!-- <script src="plugins/amcharts3/amcharts/amcharts.js"></script>
-                <script src="plugins/amcharts3/amcharts/gauge.js"></script>
-                <script src="plugins/amcharts3/amcharts/serial.js"></script>
-                <script src="plugins/amcharts3/amcharts/themes/light.js"></script>
-                <script src="plugins/amcharts3/amcharts/pie.js"></script>
-                <script src="plugins/ammap3/ammap/ammap.js"></script>
-                <script src="plugins/ammap3/ammap/maps/js/usaLow.js"></script>
-                <script src="dist/js/theme.min.js"></script>
-                <script src="js/widget-chart.js"></script> -->
-                <!-- <script src="jscode/blog.js"></script> -->
-               
-
+Highcharts.chart('Sales', {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            beta: 25,
+            depth: 70
+        }
+    },
+    title: {
+        text: 'Sales Chart'
+    },
+    subtitle: {
+        text: 'Notice the difference between a 0 value and a null point'
+    },
+    plotOptions: {
+        column: {
+            depth: 25
+        }
+    },
+    xAxis: {
+        categories: Highcharts.getOptions().lang.shortMonths,
+        labels: {
+            skew3d: true,
+            style: {
+                fontSize: '16px'
+            }
+        }
+    },
+    yAxis: {
+        title: {
+            text: null
+        }
+    },
+    series: [{
+        name: 'Sales',
+        data: saleData
+    }]
+});
+}
+        </script>
     </body>
-
 </html>
 <?php
-}else{
+}
+else{
     header('Location:index.php');
 }
 ?>

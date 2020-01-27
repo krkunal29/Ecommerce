@@ -6,7 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-$sql      = "SELECT SUM(Quantity) Quantity,sum(rate*Quantity) Sale FROM transaction_details";
+$sql      = "SELECT SUM(Quantity) Quantity,SUM(Sale) Sale,SUM(inv) inv FROM(
+    SELECT SUM(Quantity) Quantity,sum(rate*Quantity) Sale,0 inv FROM transaction_details
+    UNION
+    SELECT 0 Quantity,0 Sale, COUNT(tm.transactionId) inv FROM transaction_master tm
+        ) as T";
 
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {

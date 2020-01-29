@@ -3,7 +3,7 @@ $('#customerform').on('submit', function(e) {
   var returnVal = $("#customerform").valid();
   if (returnVal) {
       $.ajax({
-      url: url + 'addCustomer.php',
+      url: url + 'addUser.php',
       type: 'POST',
       data:new FormData(this),
       cache: false,

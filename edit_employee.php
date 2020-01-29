@@ -235,4 +235,4 @@
 
 </script>
 <script src="jscode/fetchCustomerInvoice.js"></script>
-<script src="savecode/edit_customer.js" charset="utf-8"></script>
+<script src="savecode/edit_employee.js" charset="utf-8"></script>

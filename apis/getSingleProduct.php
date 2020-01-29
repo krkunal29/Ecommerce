@@ -7,14 +7,18 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['productId'])) {
-    $query      = "SELECT pm.productName,pm.description,pd.salePrice,pd.displayPrice,pd.Quantity,cm.category FROM product_master pm LEFT JOIN productdetails pd ON pm.productId = pd.productId LEFT JOIN category_master cm ON cm.categoryId = pm.categoryId
+    $query      = "SELECT prI.imageId, pm.productName,pm.description,pd.salePrice,pd.displayPrice,pd.Quantity,cm.category
+     FROM product_master pm 
+    LEFT JOIN productdetails pd ON pm.productId = pd.productId LEFT JOIN category_master cm ON cm.categoryId = pm.categoryId
+    LEFT JOIN productimages prI ON prI.productId = pm.productId
     WHERE pm.productId =  $productId";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
-            $academicResults = mysqli_fetch_assoc($jobQuery);
-            $records         = $academicResults;
+           while($academicResults = mysqli_fetch_assoc($jobQuery)){
+            $records[]       = $academicResults;
+           }
             $response        = array(
                 'Message' => "All Product Data fetched Successfully",
                 "Data" => $records,

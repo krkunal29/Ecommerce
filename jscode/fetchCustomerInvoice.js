@@ -9,7 +9,6 @@ var loadInvoice = () => {
         },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             var tblData = '';
             if (response.Data != null) {
                 const count = response.Data.length;

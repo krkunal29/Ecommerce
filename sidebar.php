@@ -26,17 +26,16 @@
                                      <div class="nav-item active">
                                     <a href="reports.php"><i class="ik ik-box"></i><span>Reports</span></a>
                                 </div>
+                               
                                 <div class="nav-item active">
-                                    <a href="customers.php"><i class="ik ik-user"></i><span>Customers</span></a>
+                                    <a href="Employees.php"><i class="ik ik-users"></i><span>Employees</span></a>
                                 </div>
                                 <?php 
                                 }
                                 ?>
                                 <div class="nav-item active">
-                                    <a href="Employees.php"><i class="ik ik-users"></i><span>Employees</span></a>
+                                    <a href="customers.php"><i class="ik ik-user"></i><span>Customers</span></a>
                                 </div>
-                               
-                               
                                 <div class="nav-item has-sub active">
                                     <a href="#"><i class="ik ik-box"></i><span>Product/Services</span></a>
                                     <div class="submenu-content">

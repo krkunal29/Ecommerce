@@ -3,15 +3,14 @@ var details = {};
 var userList = new Map();
 const loadUsers = (roleId) => {
     $.ajax({
-        url: url + 'getAllusers.php',
+        url: url + 'getCustomers.php',
         type: 'POST',
-        data:{roleId:roleId},
         dataType: 'json',
         success: function(response) {
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    userList.set(response.Data[i].userId, response.Data[i]);
+                    userList.set(response.Data[i].customerId, response.Data[i]);
                 }
             showUsers(userList);
             }
@@ -25,19 +24,12 @@ const showUsers = userList => {
     var tblData = '';
     for (let k of userList.keys()) {
         let users = userList.get(k);
-        var label = null;
-        // var bdate = moment(users.birthDate).format("dddd, MMMM Do YYYY");
-        if(users.isActive == '1'){
-        label = '<td> <label class="badge badge-primary">active</label></td>';
-        }else{
-            label = '<td> <label class="badge badge-danger">inactive</label></td>';
-        }
-        tblData += '<tr><td><img src="' + url + 'user/' + users.userId + '.jpg" class="table-user-thumb" alt="Image"></td>';
-        tblData += '<td>'+users.fname+' '+users.lname+'</td>';
+       
+        tblData += '<tr><td><img src="' + url + 'customer/' + users.customerId + '.jpg" class="table-user-thumb" alt="Image"></td>';
+        tblData += '<td>'+users.custName+'</td>';
         tblData += '<td>'+users.contactNumber+'</td>';
-        tblData += '<td>'+users.emailId+'</td>';
-        tblData += '<td>'+users.contactAddress+'</td>';
-        tblData += label;
+        tblData += '<td>'+users.stateName+' '+users.custCity+'</td>';
+        tblData += '<td>'+users.refferalCode+'</td>';
         tblData += '<td><a href="#" onclick="editUsers('+(k)+')"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!" onclick="removeUser('+(k)+')"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>';
         tblData += '</tr>';
     }
@@ -58,7 +50,6 @@ const showUsers = userList => {
 
 
 const editUsers = userId => {
-    // console.log(userId);
     userId = userId.toString();
     if (userList.has(userId)) {
         $('.customerlist').hide();
@@ -78,29 +69,25 @@ const removeUser = userId => {
         var listDelete = $('.list-delete');
             swal({
                     title: "Are you sure?",
-                    text: "Do you really want to Inactive this user ?",
+                    text: "Do you really want to remove this user ?",
                     icon: "warning",
-                    buttons: ["Cancel", "Inactive Now"],
+                    buttons: ["Cancel", "Delete Now"],
                     dangerMode: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
                         $.ajax({
-                            url: url + 'inactiveUser.php',
+                            url: url + 'removeCustomer.php',
                             type: 'POST',
                             data: { userId: userId },
                             dataType: 'json',
                             success: function(response) {
                                 if (response.Responsecode == 200) {
-                                    if (user.isActive == '0') {
-                                        user.isActive = '1';
-                                    } else {
-                                        user.isActive = '0';
-                                    }
-                                    userList.set(userId, user);
+                                   
+                                    userList.delete(userId);
                                     showUsers(userList);
                                     swal({
-                                        title: "In active",
+                                        title: "Removed Successfully",
                                         text: response.Message,
                                         icon: "success",
                                     });
@@ -109,7 +96,7 @@ const removeUser = userId => {
                             }
                         })
                     } else {
-                        swal("User Not In Activated!");
+                        swal("User is safe!");
                     }
                 });
 

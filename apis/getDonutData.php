@@ -9,30 +9,21 @@ extract($_POST);
 if(isset($_POST['roleId']) && isset($_POST['userId'])){
     $sql = '';
     if($roleId == 1){
-$sql      = "SELECT SUM(Quantity) Quantity,SUM(Sale) Sale,SUM(inv) inv FROM(
-    SELECT SUM(Quantity) Quantity,sum(rate*Quantity) Sale,0 inv FROM transaction_details
-    UNION
-    SELECT 0 Quantity,0 Sale, COUNT(tm.transactionId) inv FROM transaction_master tm
-        ) as T";
+        $sql      = "SELECT cm.category,pm.categoryId,SUM(td.rate*td.Quantity) point FROM category_master cm  LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId 
+LEFT JOIN transaction_details td ON td.productId = pm.productId GROUP BY cm.categoryId";
     }else{
-        $sql = "SELECT SUM(Quantity) Quantity,SUM(Sale) Sale,SUM(inv) inv FROM(
-            SELECT SUM(td.Quantity) Quantity,sum(td.rate*td.Quantity) Sale,0 inv 
-            FROM transaction_details td INNER JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.userId = $userId
-            UNION
-            SELECT 0 Quantity,0 Sale, COUNT(tm.transactionId) inv FROM transaction_master tm WHERE tm.userId = $userId
-                ) as T";
+        $sql      = "SELECT cm.category,pm.categoryId,SUM(td.rate*td.Quantity) point FROM category_master cm LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId LEFT JOIN transaction_details td ON td.productId = pm.productId 
+        LEFT JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.userId = $userId GROUP BY cm.categoryId ";
     }
-
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
-        $academicResults = mysqli_fetch_assoc($jobQuery);
-            $records = $academicResults;
-        
-
+        while($academicResults = mysqli_fetch_assoc($jobQuery)){
+            $records[] = $academicResults;
+        }  
         $response = array(
-            'Message' => "All Users Data Fetched successfully",
+            'Message' => "All Donuts Data Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
@@ -52,8 +43,7 @@ if ($jobQuery != null) {
 }
 }else{
     $response = array(
-        'Message' => 'Parameter Missing',
-        "Data" => $records,
+        'Message' => 'Parameter missing',
         'Responsecode' => 407
     );
 }

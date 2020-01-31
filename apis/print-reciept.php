@@ -9,14 +9,14 @@ use Dompdf\Dompdf;
 extract($_GET);
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
-$TransactionId = isset($_GET['transactionId']) ? $_GET['transactionId']:'NULL'; 
+$TransactionId = isset($_GET['transactionId']) ? $_GET['transactionId']:'NULL';
 $custState = null;
 function customer_details($tId){
     include '../connection.php';
     $output = '';
     $sql = "SELECT cm.custName,cm.contactNumber,cm.billingAddress,cm.pincode,st.name stateName,ct.name cityName,
     cm.custState,DATE_FORMAT(tm.invDate,'%d,%b %Y') invDate,tm.transactionId
-    FROM customer_master cm LEFT JOIN states st ON st.id = cm.custState LEFT JOIN cities ct ON ct.id = cm.custCity 
+    FROM customer_master cm LEFT JOIN states st ON st.id = cm.custState LEFT JOIN cities ct ON ct.id = cm.custCity
     LEFT JOIN transaction_master tm ON tm.customer_Id = cm.customerId WHERE tm.customer_Id = $tId";
     $academicQuery = mysqli_query($conn, $sql);
     if ($academicQuery != null) {
@@ -38,7 +38,7 @@ function customer_details($tId){
            $output .='<p class="mb-1"><span class="text-muted">Date: </span>'. $academicResults['invDate'].'</p>';
            $output .='<p class="mb-1"><span class="text-muted">DC No: </span> 250</p>';
            $output .='</div></div>';
-            
+
         }
     }
     return $output;
@@ -48,8 +48,8 @@ function invoice_details($tId){
     include '../connection.php';
     $output = '';
     $sql = "SELECT tmm.remark,td.Quantity,td.rate,td.t_description,tmm.discount,tmm.totalcost,tm.Tax,pm.HSN,DATE_FORMAT(pm.expiryDate,'%d %b %Y') expiryDate,pm.description,pm.productName FROM transaction_details td
-    INNER JOIN product_master pm ON pm.productId = td.productId 
-    INNER JOIN taxmaster tm ON tm.TaxId = td.taxId 
+    INNER JOIN product_master pm ON pm.productId = td.productId
+    INNER JOIN taxmaster tm ON tm.TaxId = td.taxId
     INNER JOIN transaction_master tmm ON tmm.transactionId = td.transaction_id
     WHERE td.transaction_id = $tId";
     $academicQuery = mysqli_query($conn, $sql);
@@ -69,28 +69,28 @@ function invoice_details($tId){
             $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:5%">Rate</th>';
             $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Tax</th>';
             $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Amount</th>';
-            
+
             if($countrycode==$custState){
                 $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">CGST</th>';
                 $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">SGST</th>';
             }
             else{
-                $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:20%">IGST</th>'; 
+                $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:20%">IGST</th>';
             }
-            
+
             $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Total</th>';
             $output .='        </tr>';
             $output .='    </thead>';
             $output .='    <tbody>';
             $totalsum =0;// without tax added
-            $amounttot=0; 
+            $amounttot=0;
             $finaltotal =0; // with tax added
             $discount =0;
             $totalcost =0;
-            while($academicResults = mysqli_fetch_assoc($academicQuery)){            
+            while($academicResults = mysqli_fetch_assoc($academicQuery)){
                 $calculatetax =0;
                 $finalamount =0;
-                
+
                 $output .=' <tr>';
                 $output .='       <td >'.$academicResults['productName'].'</td>';
                 // $output .='        <td>'.$academicResults['description'].'</td>';
@@ -113,15 +113,15 @@ function invoice_details($tId){
                 else{
                     $output .='        <td rowspan="2">'.($calculatetax).'</td>';
                 }
-                
+
                 $output .='        <td rowspan="2">'.$finalamount.'</td>';
                 $output .='</tr>';
                 $output .='<tr>';
                 $output .='       <td style=""><small><font size="8px;" >('.$academicResults['expiryDate'].')</font></small></td>';
                 $output .='</tr>';
                 $remark = $academicResults['remark'];
-           
-                
+
+
             }
                 $output .='</tbody>';
                 if($countrycode==$custState){
@@ -160,7 +160,7 @@ function invoice_details($tId){
                     $output .='    <td colspan="2">GRAND TOTAL</td>';
                     $output .='    <td>'.number_format($totalcost,2).'</td>';
                     $output .='</tr>';
-                    $output .='</tfoot>';    
+                    $output .='</tfoot>';
                 }
                 $output .='</table>';
         }
@@ -190,16 +190,16 @@ $html = '<link rel="stylesheet" href="style.css">
 
                     <hr class="my-5">
                     '.customer_details($TransactionId).'
-                    
+
                     <hr class="my-5">
                     <div class="row p-5">
                         <div class="col-xs-12">
                         '.invoice_details($TransactionId).'
-                            
-                           
+
+
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

@@ -1,10 +1,10 @@
-var uinvoiceId = null; //for updation
-var details = {};
+
 
 var TableData;
 
-function saveorder(){
+function editorder(){
   // console.log("ok");
+  //console.log("uInvoice"+uinvoiceId);
   var loginId = data.userId;
   // console.log("sessionId"+loginId);
   var customerName=$("#customerName").val(); // Customer Id
@@ -17,6 +17,7 @@ function saveorder(){
   TableData = storeTblValues();
 
   var postdata = {
+    uinvoiceId:uinvoiceId,
     t_type:'Invoice',
     userId:loginId,
     customerId:customerName,
@@ -30,14 +31,15 @@ function saveorder(){
   postdata = JSON.stringify(postdata);
   // console.log(postdata);
   $.ajax({
-  url: url + 'addInvoice.php',
+  url: url + 'editInvoice.php',
   type: 'POST',
   data:{postdata:postdata},
   dataType: 'json',
   success: function(response) {
-  // console.log(response);
+
   if (response.Responsecode == 200) {
           swal(response.Message);
+          invoiceList.delete(uinvoiceId.toString());
           invoiceList.set(response.Data.transactionId, response.Data);
           // goback();
           $('#newinvoice').empty();

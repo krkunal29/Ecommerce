@@ -1,7 +1,7 @@
-const data = {
-    userId: $('#userId').val(),
-    roleId: $('#roleId').val()
-};
+// const data = {
+//     userId: $('#userId').val(),
+//     roleId: $('#roleId').val()
+// };
 // var userId = null; //for updation
 // var details = {};
 
@@ -16,8 +16,8 @@ const showinvoicetable = invoiceList => {
         tblData +="<tr>";
         tblData +="<td>"+invoicecategory.transactionId+"</td>";
 
-        tblData +="<td>"+invoicecategory.fname+" "+invoicecategory.lname+"</td>";
-        tblData +="<td>"+invoicecategory.emailId+"</td>";
+        tblData +="<td>"+invoicecategory.custName+"</td>";
+        // tblData +="<td>"+invoicecategory.emailId+"</td>";
         tblData +="<td>"+invoicecategory.contactNumber+"</td>";
         tblData +="<td>"+invoicecategory.invDate+"</td>";
         tblData +="<td>"+invoicecategory.rate+"</td>";
@@ -48,7 +48,7 @@ const invoiceListFun = () => {
         type: 'POST',
         dataType: 'json',
         success: function(response) {
-          // console.log(response);
+           // console.log(response);
             if (response.Data != null) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {

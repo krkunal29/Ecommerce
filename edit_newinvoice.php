@@ -109,11 +109,87 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="productDesc">Total Amount</label>
+                    <input type="text" class="form-control" id="totalamtinvoice" value="0" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="productDesc">Discount</label>
+                    <input type="text" class="form-control" id="totaldiscount" value="0" onchange="addDiscount();"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+
+                    <!-- <div class="content">
+
+                    </div> -->
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                            <button type="button" class="btn btn-success" onclick="walletdisp();">Wallet Balance
+                            </button>
+                            <span class="badge" id="walletbal" style="float:right;font-weight:bold;"></span>
+                            </h4>
+                          </div>
+                          <input type="hidden" id="walletId" value="0"/>
+                          <div id="walletdisp" class="" style="display:none">
+
+                            <label for="productDesc"></label>
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" id="walletbalance" value="0"/>
+                              </div>
+                              <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary" onclick="walletapply();">Apply</button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="productDesc">Final Amount</label>
+                    <input type="text" class="form-control" id="finalamtinvoice" value="0" readonly/>
+                </div>
+              </div>
+            </div>
             </div>
             <div class="row">
               <div class="col-sm-4" style="padding-left:40px;">
                         <div class="form-group" >
-                  <button type="button" class="btn btn-primary" onclick="saveorder();">Save changes</button>
+                  <button type="button" class="btn btn-primary" onclick="editorder();">Save changes</button>
                 <button type="button" class="btn btn-secondary" onclick="goback();">Close</button>
 
               </div>
@@ -148,4 +224,4 @@ $("#dropper-default").dateDropper({
 })
 
 </script>
-<!-- <script src="savecode/saveinvoice.js"></script> -->
+<script src="savecode/editinvoice.js"></script>

@@ -1,8 +1,8 @@
-<div class="row">
-
+  <div class="row">
     <div class="card">
         <div class="card-header">
-            <h3>Add New Invoice</h3></div>
+        <h3>Add New Invoice</h3>
+        </div>
         <div class="card-body">
             <div class="row">
               <div class="col-sm-4">
@@ -84,11 +84,11 @@
                   <textarea class="form-control" id="orderremark" placeholder="Enter Order Remark" rows="2"></textarea>
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-2">
                 <div class="form-group">
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="form-group">
                   <table id="invoicetaxtbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 250px; display:block;">
                       <thead>
@@ -96,10 +96,14 @@
                       </thead>
                       <tbody id="invoicetaxtblbody">
                         <!-- <tr>
-                          <td style="width: 100%;">Tax name </td>
-                          <td>1000</td>
-                        </tr>
-                        <tr>
+                          <td style="width: 50%;">Tax name </td>
+                          <td style="width: 10%;">CGST</td>
+                          <td style="width: 10%;">SGST</td>
+                          <td style="width: 10%;">Amount</td>
+                          <td style="width: 10%;">Tax </td>
+                          <td style="width: 10%;">After Amount</td>
+                        </tr> -->
+                        <!-- <tr>
                           <td style="width: 100%;">Tax name </td>
                           <td>1000</td>
                         </tr> -->
@@ -109,22 +113,95 @@
                 </div>
               </div>
             </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <label for="productDesc">Total Amount</label>
+                      <input type="text" class="form-control" id="totalamtinvoice" value="0" readonly/>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <label for="productDesc">Discount</label>
+                      <input type="text" class="form-control" id="totaldiscount" value="0" onchange="addDiscount();"/>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+
+                      <!-- <div class="content">
+
+                      </div> -->
+                      <div class="panel-group">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                              <button type="button" class="btn btn-success" onclick="walletdisp();">Wallet Balance
+                              </button>
+                              <span class="badge" id="walletbal" style="float:right;font-weight:bold;"></span>
+                              </h4>
+                            </div>
+                            <input type="hidden" id="walletId" value="0"/>
+                            <div id="walletdisp" class="" style="display:none">
+
+                              <label for="productDesc"></label>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="walletbalance" value="0"/>
+                                </div>
+                                <div class="col-sm-6">
+                                  <button type="button" class="btn btn-primary" onclick="walletapply();">Apply</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <label for="productDesc">Final Amount</label><span id="walmsg" style="float:right;color:red;"></span>
+                      <input type="text" class="form-control" id="finalamtinvoice" value="0" readonly/>
+                      <input type="hidden" id="hiddenfinalamt"/>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-4" style="padding-left:40px;">
-                        <div class="form-group" >
-                  <button type="button" class="btn btn-primary" onclick="saveorder();">Save changes</button>
+                <div class="form-group" >
+                <button type="button" class="btn btn-primary" onclick="saveorder();">Save Changes</button>
                 <button type="button" class="btn btn-secondary" onclick="goback();">Close</button>
-
+                </div>
               </div>
-              </div>
-          </div>
+            </div>
         </div>
     </div>
 </div>
-<script src="jscode/loadcustomer.js"></script>
-<script src="jscode/loadtax.js"></script>
-<script src="jscode/loadproducts.js"></script>
 <script type="text/javascript">
 $("#dropper-default").dateDropper({
     dropWidth: 200,
@@ -133,4 +210,8 @@ $("#dropper-default").dateDropper({
 })
 loadUsers(); // load customer name
 </script>
+
+<script src="jscode/loadcustomer.js"></script>
+<script src="jscode/loadtax.js"></script>
+<script src="jscode/loadproducts.js"></script>
 <script src="savecode/saveinvoice.js"></script>

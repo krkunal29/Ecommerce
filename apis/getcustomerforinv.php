@@ -5,11 +5,7 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT tm.transactionId,cm.custName,cm.contactNumber,tm.invDate, ROUND(sum(td.rate*td.quantity), 2) as rate1,
-tm.totalcost as rate from transaction_master tm
-LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id
-LEFT JOIN transaction_details td On td.transaction_id = tm.transactionId
-GROUP by tm.transactionId ";
+$query = "SELECT * FROM customer_master cm LEFT JOIN wallet_master wm on cm.customerId=wm.userId";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {
@@ -20,7 +16,7 @@ if($jobQuery!=null)
 				{
 					$records[]=$academicResults;
                 }
-            $response = array('Message'=>"All invoice Data fetched Successfully","Data"=>$records ,'Responsecode'=>200);
+            $response = array('Message'=>"All Customer Data fetched Successfully","Data"=>$records ,'Responsecode'=>200);
 		}else{
             $response = array('Message'=>"Please Add data first","Data"=>$records ,'Responsecode'=>200);
         }

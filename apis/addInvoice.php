@@ -13,11 +13,13 @@ if (isset($_POST['postdata'])) {
 
     $type                 = $someArray['t_type'];
     $userId               = $someArray["userId"];
+    $customerId           = $someArray["customerId"];
     $invDate              = $someArray["invDate"];
     $discount             = $someArray["discount"];
     $remark               = $someArray["remark"];
     $transaction_products = $someArray["products"];
-    $sql                  = "INSERT INTO transaction_master(t_type, userId,invDate,discount,remark) VALUES ('$type','$userId','$invDate','$discount','$remark')";
+    $totalcost            = $someArray["totalcost"];
+    $sql                  = "INSERT INTO transaction_master(t_type, userId,customer_Id,invDate,discount,remark,totalcost) VALUES ('$type','$userId','$customerId','$invDate','$discount','$remark','$totalcost')";
     $query                = mysqli_query($conn, $sql);
     if ($query == 1) {
         $last_id = mysqli_insert_id($conn);
@@ -32,6 +34,18 @@ if (isset($_POST['postdata'])) {
             $query        = mysqli_query($conn, "INSERT INTO transaction_details(transaction_id, productId,taxId,Quantity,rate,t_description) values ($tId,$productid,$taxid,$quantity,$rate,'$description')");
             $rowsAffected = mysqli_affected_rows($conn);
             if ($rowsAffected == 1) {
+              
+               $query = "SELECT tm.transactionId,cm.custName,cm.contactNumber,tm.invDate, ROUND(sum(td.rate*td.quantity), 2) as rate1,
+               tm.totalcost as rate from transaction_master tm
+               LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id
+               LEFT JOIN transaction_details td On td.transaction_id = tm.transactionId
+               WHERE tm.transactionId =$tId
+               GROUP by tm.transactionId ";
+               $jobQuery = mysqli_query($conn,$query);
+               if($jobQuery!=null){
+                 $academicResults = mysqli_fetch_assoc($jobQuery);
+                 $records =$academicResults;
+               }
                 $response = array(
                     'Message' => "Transaction saved successfully",
                     "Data" => $records,

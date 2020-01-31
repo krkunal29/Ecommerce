@@ -106,7 +106,7 @@ if(isset($_SESSION['userId'])){
                                                     <!-- <th>Transaction Type</th> -->
                                                     <th>Customer Name</th>
                                                     <th>Contact Number</th>
-                                                    <th>Email</th>
+                                                    <!-- <th>Email</th> -->
                                                     <th>Inv Date</th>
                                                     <th>Inv Amount</th>
                                                    <th class="nosort">&nbsp;</th>
@@ -149,6 +149,13 @@ if(isset($_SESSION['userId'])){
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
 
                 <script src="js/layouts.js"></script>
+                <script type="text/javascript">
+                  var data= {
+                    userId:<?php echo $_SESSION['userId']; ?>,
+                    roleId:<?php echo $_SESSION['roleId']; ?>
+                  };
+                 // console.log("User ID"+data.userId);
+                </script>
                 <script src="jscode/apis.js"></script>
                 <script src="jscode/undefinedfunction.js"></script>
                 <script src="jscode/getallproducts.js"></script>

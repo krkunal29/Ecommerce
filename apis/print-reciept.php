@@ -2,14 +2,14 @@
 /* include autoloader */
 require_once 'dompdf/autoload.inc.php';
 include '../connection.php';
-
+include 'currency.php';
 /* reference the Dompdf namespace */
 use Dompdf\Dompdf;
 
-
+extract($_GET);
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
-$TransactionId = 1;
+$TransactionId = isset($_GET['transactionId']) ? $_GET['transactionId']:'NULL'; 
 $custState = null;
 function customer_details($tId){
     include '../connection.php';
@@ -47,7 +47,7 @@ function customer_details($tId){
 function invoice_details($tId){
     include '../connection.php';
     $output = '';
-    $sql = "SELECT td.Quantity,td.rate,td.t_description,tmm.discount,tmm.totalcost,tm.Tax,pm.HSN,DATE_FORMAT(pm.expiryDate,'%d %b %Y') expiryDate,pm.description,pm.productName FROM transaction_details td
+    $sql = "SELECT tmm.remark,td.Quantity,td.rate,td.t_description,tmm.discount,tmm.totalcost,tm.Tax,pm.HSN,DATE_FORMAT(pm.expiryDate,'%d %b %Y') expiryDate,pm.description,pm.productName FROM transaction_details td
     INNER JOIN product_master pm ON pm.productId = td.productId 
     INNER JOIN taxmaster tm ON tm.TaxId = td.taxId 
     INNER JOIN transaction_master tmm ON tmm.transactionId = td.transaction_id
@@ -56,7 +56,7 @@ function invoice_details($tId){
     if ($academicQuery != null) {
         global $custState;
         // $output .='<pre>'.$custState.'</pre>';
-        $countrycode =22;
+        $countrycode =21;
         $academicAffected = mysqli_num_rows($academicQuery);
         if ($academicAffected > 0) {
             $output .='<table class="table table-bordered">';
@@ -117,30 +117,51 @@ function invoice_details($tId){
                 $output .='        <td rowspan="2">'.$finalamount.'</td>';
                 $output .='</tr>';
                 $output .='<tr>';
-                $output .='       <td style="text-align:right"><small><font size="8px;" >('.$academicResults['expiryDate'].')</font></small></td>';
+                $output .='       <td style=""><small><font size="8px;" >('.$academicResults['expiryDate'].')</font></small></td>';
                 $output .='</tr>';
-                
+                $remark = $academicResults['remark'];
            
                 
             }
                 $output .='</tbody>';
+                if($countrycode==$custState){
                 $output .='<tfoot>';
                 $output .='<tr>';
-                $output .='    <td colspan="6"></td>';
+                $output .='    <td colspan="6">Notes:</td>';
                 $output .='    <td colspan="2">SUBTOTAL</td>';
-                $output .='    <td>'.$finaltotal.'</td>';
+                $output .='    <td>'.number_format($finaltotal,2).'</td>';
                 $output .='</tr>';
                 $output .='<tr>';
-                $output .='    <td colspan="6"></td>';
+                $output .='    <td colspan="6"><font size="10px;" >'.$remark.'</font></td>';
                 $output .='    <td colspan="2">Discount</td>';
-                $output .='    <td>'.$discount.'</td>';
+                $output .='    <td>'.number_format($discount,2).'</td>';
                 $output .='</tr>';
                 $output .='<tr>';
                 $output .='    <td colspan="6"></td>';
                 $output .='    <td colspan="2">GRAND TOTAL</td>';
-                $output .='    <td>'.$totalcost.'</td>';
+                $output .='    <td>'.number_format($totalcost,2).'</td>';
                 $output .='</tr>';
                 $output .='</tfoot>';
+                }
+                else{
+                    $output .='<tfoot>';
+                    $output .='<tr>';
+                    $output .='    <td colspan="5">Notes:</td>';
+                    $output .='    <td colspan="2">SUBTOTAL</td>';
+                    $output .='    <td>'.number_format($finaltotal,2).'</td>';
+                    $output .='</tr>';
+                    $output .='<tr>';
+                    $output .='    <td colspan="5"><font size="10px;" >'.$remark.'</font></td>';
+                    $output .='    <td colspan="2">Discount</td>';
+                    $output .='    <td>'.number_format($discount,2).'</td>';
+                    $output .='</tr>';
+                    $output .='<tr>';
+                    $output .='    <td colspan="5">'.convertToIndianCurrency($totalcost).'</td>';
+                    $output .='    <td colspan="2">GRAND TOTAL</td>';
+                    $output .='    <td>'.number_format($totalcost,2).'</td>';
+                    $output .='</tr>';
+                    $output .='</tfoot>';    
+                }
                 $output .='</table>';
         }
     }

@@ -116,7 +116,6 @@ var products = productList.get(productId);
 $("#productHSN"+rowId).val(products.HSN);
 $("#Rate"+rowId).val(products.salePrice);
 qtyratecalculator(rowId);
-
 }
 var rowid =0;
 var rowid1 =0;

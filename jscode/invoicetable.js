@@ -23,7 +23,7 @@ const showinvoicetable = invoiceList => {
         tblData +="<td>"+invoicecategory.rate+"</td>";
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editinvoice(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';
-        // tblData += '<a href="#" class="list-delete" onclick="removeblogcategory(' + (k) + ')"><i class="ik ik-trash-2"></i></a>';
+        tblData += '<a href="#" class="list-delete" onclick="downloadPdf(' + (k) + ')"><i class="ik ik-edit"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('.InvoicetblData').html(tblData);
@@ -60,3 +60,7 @@ const invoiceListFun = () => {
     });
 }
 invoiceListFun();
+function downloadPdf(tid){
+    var link = url+'print-reciept.php?transactionId='+tid;
+    window.open(link,'_blank');
+}

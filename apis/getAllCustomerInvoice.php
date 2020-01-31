@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 if (isset($_POST['userId'])) {
 $sql   = "SELECT tm.transactionId,tm.invDate,tm.discount,tm.remark,SUM(td.rate) AS total,tm.t_type
-FROM transaction_master tm INNER JOIN transaction_details td ON td.transaction_id = tm.transactionId WHERE tm.userId = $userId";
+FROM transaction_master tm INNER JOIN transaction_details td ON td.transaction_id = tm.transactionId WHERE tm.customer_Id = $userId";
     $query = mysqli_query($conn, $sql);
     if ($query != null) {
         $academicAffected = mysqli_num_rows($query);

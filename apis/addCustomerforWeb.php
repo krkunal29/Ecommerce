@@ -15,7 +15,8 @@ if (isset($_POST['fname']) && isset($_POST['contactNumber'])) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $userId       = $conn->insert_id;
-     
+        $query = "INSERT INTO wallet_master(userId,wallet_amount,wallet_status) VALUES($userId,0,'1')";
+        mysqli_query($conn,$query);
         $response = array(
             'Message' => "Welcome to kissan agro now you can login using your contact number",
             'Responsecode' => 200

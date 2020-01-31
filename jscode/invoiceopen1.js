@@ -23,8 +23,17 @@ const editinvoice = invoiceid => {
            // console.log(response.Responsecode);
            const count = response.Data.length;
            editarray = response.Data;
+
+           // console.log(response.Data[0]);
+           $('#customerName').val(editarray[0].customer_Id); // Select the option with a value of '1'
+           let customerName = userList.get(editarray[0].customer_Id);
+           // console.log(customerName);
+           $('#customerName1').val(customerName.custName);
+           $("#walletbal").html(customerName.wallet_amount);
+           $("#walletbalance").val(customerName.wallet_amount);
+
            $("#customeremail").val(response.Data[0].emailId);
-           $("#cutomeraddress").val(response.Data[0].contactAddress);
+           $("#cutomeraddress").val(customerName.billingAddress);
            $("#orderremark").val(response.Data[0].remark);
            $("#dropper-default").val(response.Data[0].invDate);
            rowid =0;
@@ -79,9 +88,10 @@ const editinvoice = invoiceid => {
 
          rowid1 =0;
          for(var i=0;i<count1;i++){
-         rowid1+=1;
-                 // console.log(editarray[i].productId);
-           $("#customerName").val(editarray[0].userId).trigger('change'); // customer name set here
+           rowid1+=1;
+
+           // $("#customerName").val(2).trigger('change.select2');
+           // $("#customerName").val(editarray[0].customer_Id).trigger('change'); // customer name set here
            $("#ProductId"+rowid1).val(editarray[i].productId).trigger('change');
            $("#productHSN"+rowid1).val(editarray[i].t_description);
            $("#TaxId"+rowid1).val(editarray[i].taxId).trigger('change');

@@ -29,7 +29,7 @@ if (isset($_POST['custName']) && isset($_POST['contactNumber'])&& isset($_POST['
       VALUES('$custName','$contactNumber','$alternateContact','$alternateContact1','$peek','$billingAddress',
      '$shippingAddress', $custState,$custCity,'$pincode','$water','$refferalCode')";
     $query = mysqli_query($conn, $sql);
-    
+
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $userId       = $conn->insert_id;
@@ -39,6 +39,8 @@ if (isset($_POST['custName']) && isset($_POST['contactNumber'])&& isset($_POST['
             $targetPath = "customer/". $userId.".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
           }
+          $query = "INSERT INTO wallet_master(userId,wallet_amount,wallet_status) VALUES($userId,0,'1')";
+          mysqli_query($conn,$query);
           $sql   = "SELECT cm.custState,cm.custCity city,cm.customerId,cm.custName,cm.contactNumber,cm.alternateContact,
           cm.alternateContact1,cm.peek,cm.billingAddress,cm.shippingAddress,st.name stateName,ct.name custCity,cm.pincode,cm.water,cm.refferalCode
            FROM customer_master cm LEFT JOIN states st ON st.id = cm.custState LEFT JOIN cities ct ON ct.id = cm.custCity  WHERE cm.customerId=$userId";

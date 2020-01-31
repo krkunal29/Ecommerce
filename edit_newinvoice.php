@@ -8,9 +8,11 @@
               <div class="col-sm-4">
                 <div class="form-group">
                     <label for="productDesc">Customer Name</label>
-                  <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" >
+                  <!-- <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" >
 
-                  </select>
+                  </select> -->
+                  <input type="hidden" name="customerName" value="">
+                  <input class="form-control" id="customerName1" placeholder="Enter Customer Name " type="text" readonly>
                 </div>
               </div>
               <div class="col-sm-4">

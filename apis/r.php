@@ -1,7 +1,7 @@
 <?php
 /* include autoloader */
 require_once 'dompdf/autoload.inc.php';
-
+include '../connection.php';
 
 /* reference the Dompdf namespace */
 use Dompdf\Dompdf;
@@ -9,8 +9,143 @@ use Dompdf\Dompdf;
 
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
+$TransactionId = 1;
+$custState = null;
+function customer_details($tId){
+    include '../connection.php';
+    $output = '';
+    $sql = "SELECT cm.custName,cm.contactNumber,cm.billingAddress,cm.pincode,st.name stateName,ct.name cityName,
+    cm.custState,DATE_FORMAT(tm.invDate,'%d,%b %Y') invDate,tm.transactionId
+    FROM customer_master cm LEFT JOIN states st ON st.id = cm.custState LEFT JOIN cities ct ON ct.id = cm.custCity 
+    LEFT JOIN transaction_master tm ON tm.customer_Id = cm.customerId WHERE tm.customer_Id = $tId";
+    $academicQuery = mysqli_query($conn, $sql);
+    if ($academicQuery != null) {
+        $academicAffected = mysqli_num_rows($academicQuery);
+        if ($academicAffected > 0) {
+           $academicResults = mysqli_fetch_assoc($academicQuery);
+           global $custState;
+           $custState =  $academicResults['custState'];
+           $output .='<div class="row pb-5 p-5">';
+           $output .='<div class="col-xs-6">';
+           $output .='<p class="font-weight-bold mb-4">Client Information</p>';
+           $output .='<p class="mb-1">'. $academicResults['custName'].'</p>';
+           $output .='<p>'. $academicResults['billingAddress'].'</p>';
+           $output .='<p class="mb-1">'. $academicResults['stateName'].','. $academicResults['cityName'].'</p>';
+           $output .='<p class="mb-1">'. $academicResults['pincode'].'</p> </div>';
+           $output .='<div class="col-xs-6">';
+           $output .='<p class="font-weight-bold mb-4">Invoice Details</p>';
+           $output .='<p class="mb-1"><span class="text-muted">Invoice Number: </span> '. $academicResults['transactionId'].'</p>';
+           $output .='<p class="mb-1"><span class="text-muted">Date: </span>'. $academicResults['invDate'].'</p>';
+           $output .='<p class="mb-1"><span class="text-muted">DC No: </span> 250</p>';
+           $output .='</div></div>';
+            
+        }
+    }
+    return $output;
+}
 
-
+function invoice_details($tId){
+    include '../connection.php';
+    $output = '';
+    $sql = "SELECT td.Quantity,td.rate,td.t_description,tmm.discount,tmm.totalcost,tm.Tax,pm.HSN,DATE_FORMAT(pm.expiryDate,'%d %b %Y') expiryDate,pm.description,pm.productName FROM transaction_details td
+    INNER JOIN product_master pm ON pm.productId = td.productId 
+    INNER JOIN taxmaster tm ON tm.TaxId = td.taxId 
+    INNER JOIN transaction_master tmm ON tmm.transactionId = td.transaction_id
+    WHERE td.transaction_id = $tId";
+    $academicQuery = mysqli_query($conn, $sql);
+    if ($academicQuery != null) {
+        global $custState;
+        // $output .='<pre>'.$custState.'</pre>';
+        $countrycode =22;
+        $academicAffected = mysqli_num_rows($academicQuery);
+        if ($academicAffected > 0) {
+            $output .='<table class="table table-bordered">';
+            $output .='   <thead>';
+            $output .='       <tr>';
+            $output .='            <th class="border-0 text-uppercase small " style="width:30%">Product Name</th>';
+            // $output .='        <th class="border-0 text-uppercase small font-weight-bold">Description</th>';
+            $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">HSN</th>';
+            $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:5%">Qty</th>';
+            $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:5%">Rate</th>';
+            $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Tax</th>';
+            $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Amount</th>';
+            
+            if($countrycode==$custState){
+                $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">CGST</th>';
+                $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">SGST</th>';
+            }
+            else{
+                $output .='            <th class="border-0 text-uppercase small font-weight-bold" style="width:20%">IGST</th>'; 
+            }
+            
+            $output .='           <th class="border-0 text-uppercase small font-weight-bold" style="width:10%">Total</th>';
+            $output .='        </tr>';
+            $output .='    </thead>';
+            $output .='    <tbody>';
+            $totalsum =0;// without tax added
+            $amounttot=0; 
+            $finaltotal =0; // with tax added
+            $discount =0;
+            $totalcost =0;
+            while($academicResults = mysqli_fetch_assoc($academicQuery)){            
+                $calculatetax =0;
+                $finalamount =0;
+                
+                $output .=' <tr>';
+                $output .='       <td >'.$academicResults['productName'].'</td>';
+                // $output .='        <td>'.$academicResults['description'].'</td>';
+                $output .='        <td rowspan="2">'.$academicResults['HSN'].'</td>';
+                $output .='        <td rowspan="2">'.$academicResults['Quantity'].'</td>';
+                $output .='        <td rowspan="2">'.$academicResults['rate'].'</td>';
+                $output .='        <td rowspan="2">'.$academicResults['Tax'].'</td>';
+                $output .='        <td rowspan="2">'.$academicResults['Quantity']*$academicResults['rate'].'</td>';
+                $discount=$academicResults['discount'];
+                $totalcost =$academicResults['totalcost'];
+                $amounttot = $academicResults['Quantity']*$academicResults['rate'];
+                $totalsum = $totalsum + $amounttot;
+                $calculatetax = $amounttot*($academicResults['Tax']/100);
+                $finalamount =$calculatetax +$amounttot;
+                $finaltotal = $finaltotal +$finalamount;
+                if($countrycode==$custState){
+                    $output .='        <td rowspan="2">'.($calculatetax/2).'</td>';
+                    $output .='        <td rowspan="2">'.($calculatetax/2).'</td>';
+                }
+                else{
+                    $output .='        <td rowspan="2">'.($calculatetax).'</td>';
+                }
+                
+                $output .='        <td rowspan="2">'.$finalamount.'</td>';
+                $output .='</tr>';
+                $output .='<tr>';
+                $output .='       <td style="text-align:right"><small><font size="8px;" >('.$academicResults['expiryDate'].')</font></small></td>';
+                $output .='</tr>';
+                
+           
+                
+            }
+                $output .='</tbody>';
+                $output .='<tfoot>';
+                $output .='<tr>';
+                $output .='    <td colspan="6"></td>';
+                $output .='    <td colspan="2">SUBTOTAL</td>';
+                $output .='    <td>'.$finaltotal.'</td>';
+                $output .='</tr>';
+                $output .='<tr>';
+                $output .='    <td colspan="6"></td>';
+                $output .='    <td colspan="2">Discount</td>';
+                $output .='    <td>'.$discount.'</td>';
+                $output .='</tr>';
+                $output .='<tr>';
+                $output .='    <td colspan="6"></td>';
+                $output .='    <td colspan="2">GRAND TOTAL</td>';
+                $output .='    <td>'.$totalcost.'</td>';
+                $output .='</tr>';
+                $output .='</tfoot>';
+                $output .='</table>';
+        }
+    }
+    return $output;
+}
 $html = '<link rel="stylesheet" href="style.css">
 <div class="container">
 
@@ -33,74 +168,13 @@ $html = '<link rel="stylesheet" href="style.css">
                     </div>
 
                     <hr class="my-5">
-
-                    <div class="row pb-5 p-5">
-                        <div class="col-xs-6">
-                            <p class="font-weight-bold mb-4">Client Information</p>
-                            <p class="mb-1">John Doe, Mrs Emma Downson</p>
-                            <p>Acme Inc</p>
-                            <p class="mb-1">Berlin, Germany</p>
-                            <p class="mb-1">6781 45P</p>
-                        </div>
-
-                        <div class="col-xs-6">
-                            <p class="font-weight-bold mb-4">Invoice Details</p>
-                            <p class="mb-1"><span class="text-muted">Invoice Number: </span> 1425782</p>
-                            <p class="mb-1"><span class="text-muted">Date: </span> 27 October 2020</p>
-                            <p class="mb-1"><span class="text-muted">DC No: </span> 250</p>
-                        </div>
-                    </div>
+                    '.customer_details($TransactionId).'
+                    
                     <hr class="my-5">
                     <div class="row p-5">
                         <div class="col-xs-12">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                    <th class="border-0 text-uppercase small font-weight-bold">Description</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">HSN</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Rate</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Amount</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">GST</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">CGST</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">SGST</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Thumsup</td>
-                                        <td>125</td>
-                                        <td>2</td>
-                                        <td>12.00</td>
-                                        <td>$321</td>
-                                        <td>$3452</td>
-                                        <td>12.00</td>
-                                        <td>$321</td>
-                                        <td>$3452</td>
-                                    </tr>
-                                   
-                                   
-    							
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="6"></td>
-                                    <td colspan="2">SUBTOTAL</td>
-                                    <td>$5,200.00</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6"></td>
-                                    <td colspan="2">TAX 25%</td>
-                                    <td>$1,300.00</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6"></td>
-                                    <td colspan="2">GRAND TOTAL</td>
-                                    <td>$6,500.00</td>
-                                </tr>
-                            </tfoot>
-                            </table>
+                        '.invoice_details($TransactionId).'
+                            
                            
                         </div>
                     </div>
@@ -111,10 +185,7 @@ $html = '<link rel="stylesheet" href="style.css">
     </div>
 </div>';
 
-
 $dompdf->loadHtml($html);
-
-
 /* Render the HTML as PDF */
 $dompdf->render();
 

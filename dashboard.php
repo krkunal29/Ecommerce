@@ -275,7 +275,6 @@ if(isset($_SESSION['userId'])){
         userId:<?php echo $_SESSION['userId'];?>,
         roleId:<?php echo $_SESSION['roleId'];?>
     };
-   
     </script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/dashboard.js"></script>

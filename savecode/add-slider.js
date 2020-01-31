@@ -10,16 +10,17 @@ $('#blogform').on('submit', function(e) {
         dataType: 'json',
         success: function(response) {
           if (response.Responsecode == 200) {
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                Button: false,
+                timer: 1500
+            });
                 slider.set(response.Data.Id,response.Data);
-                showSlider(blogList);
                 goback();
-                swal({
-                  position: 'top-end',
-                  icon: 'success',
-                  title: response.Message,
-                  Button: false,
-                  timer: 1500
-              });
+                showSlider(slider);
+               
             } else {
                 swal({
                     position: 'top-end',

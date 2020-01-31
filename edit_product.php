@@ -151,6 +151,17 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h3>Add product images</h3></div>
+        <div class="card-body">
+            <form action="apis/uploadProduct.php" class="dropzone" id="myAwesomeDropzone">
+                <input type="hidden" id="pic_productId" name="pic_productId" />
+            </form>
+        </div>
+    </div>
+</div>
 <script src="jscode/loadtaxproduct.js"></script>
 <script src="jscode/loadunit.js"></script>
 <script src="jscode/loadcategory.js"></script>
@@ -162,6 +173,6 @@
 <script src="jscode/getlastSubCategoryfunction.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
-
 <script src="jscode/product_validation.js"></script>
 <script src="jscode/editproduct.js"> </script>
+<script src="jscode/dropzoneProduct.js"></script>

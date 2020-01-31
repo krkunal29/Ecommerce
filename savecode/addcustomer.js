@@ -3,7 +3,7 @@ $('#customerform').on('submit', function(e) {
   var returnVal = $("#customerform").valid();
   if (returnVal) {
       $.ajax({
-      url: url + 'addUser.php',
+      url: url + 'addCustomer.php',
       type: 'POST',
       data:new FormData(this),
       cache: false,
@@ -13,7 +13,7 @@ $('#customerform').on('submit', function(e) {
       success: function(response) {
           // console.log(response);
           if (response.Responsecode == 200) {
-            userList.set(response.Data.userId, response.Data);
+            userList.set(response.Data.customerId, response.Data);
               showUsers(userList);
               goback();
               swal({

@@ -118,7 +118,7 @@ const removeUser = userId => {
 
 function addCustomer() {
     $('.customerlist').hide();
-    $('#newcustomer').load('add_customer.php');
+    $('#newcustomer').load('add_customer1.php');
 }
 
 function goback() {

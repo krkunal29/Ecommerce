@@ -20,7 +20,7 @@ fdata.append('sliderId',sliderId);
                 timer: 1500
             });
                 slider.set(response.Data.Id,response.Data);
-                showSlider(blogList);
+                showSlider(slider);
                 goback();
                
             } else {

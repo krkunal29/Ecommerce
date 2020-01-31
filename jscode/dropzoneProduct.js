@@ -3,8 +3,8 @@ $(".dropzone").dropzone({
     init: function() {
         thisDropzone = this;
         var link = url + 'getImages.php';
-        $.get('apis/getImages.php', {
-            productId: uproductId
+        $.get(link, {
+            productId: details.productId
         }, function(response) {
             $.each(response.Data, function(key, value) {
 
@@ -12,11 +12,10 @@ $(".dropzone").dropzone({
                     name: value.name,
                     size: value.size
                 };
+                thisDropzone.emit("addedfile", mockFile);
+                thisDropzone.createThumbnailFromUrl(mockFile, "apis/upload/productImages/" + value.name);
 
-                thisDropzone.options.addedfile.call(thisDropzone, mockFile);
-
-                thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "apis/upload/" + value.name);
-
+               
             });
 
         });
@@ -26,11 +25,11 @@ $(".dropzone").dropzone({
         var name = file.name;
         $.ajax({
             type: 'POST',
-            url: url + 'upload.php',
+            url: url + 'uploadProduct.php',
             data: {
                 name: name,
                 request: 2,
-                productId: uproductId
+                pic_productId: uproductId
             },
             sucess: function(data) {
                 console.log('success: ' + data);

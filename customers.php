@@ -24,6 +24,8 @@ if(isset($_SESSION['userId'])){
         <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="dist/css/dropzone.css">
         <link rel="stylesheet" href="dist/css/style.css">
+        <link rel="stylesheet" href="dist/css/jquery-ui.css">
+        <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
 
     </head>
@@ -86,12 +88,11 @@ if(isset($_SESSION['userId'])){
                                             <table class="table table-hover mb-0" id="users">
                                                 <thead>
                                                     <tr>
-                                                        <th>Brand</th>
+                                                        <th>Profile</th>
                                                         <th>Customer</th>
                                                         <th>Contact Number</th>
-                                                        <th>Email</th>
                                                         <th>Address</th>
-                                                        <th>Status</th>
+                                                        <th>Refferal code</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
@@ -112,6 +113,7 @@ if(isset($_SESSION['userId'])){
     </div>
 
       <script src="js/jquery.min.js"></script>
+      <script src="js/jquery-ui.min.js"></script>
         <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script type="text/javascript" src="js/dropzone.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
@@ -124,18 +126,23 @@ if(isset($_SESSION['userId'])){
         <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/datatables.js"></script>
+        <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/getallroles.js"></script>
-        <script src="jscode/users.js"></script>
+        <script src="jscode/cities.js"></script>
+        <script src="jscode/customers.js"></script>
+       
         <script>
     var data = {
         userId:<?php echo $_SESSION['userId'];?>,
         roleId:<?php echo $_SESSION['roleId'];?>
     };
-    loadUsers(2);
+    loadUsers();
+   
     </script>
+    
     </body>
 </html>
 <?php

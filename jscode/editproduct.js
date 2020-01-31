@@ -1,9 +1,9 @@
 
 function loadDetails(product) {
-   
+    
     $('#productId').val(product.productId);
     $('#productName').val(product.productName);
-
+    $('#pic_productId').val(product.productId);
      $('#categoryId').val(product.categoryId).trigger('change');
     $('#salePrice').val(product.salePrice);
     $('#displayPrice').val(product.displayPrice);

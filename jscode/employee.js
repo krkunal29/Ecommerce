@@ -26,7 +26,7 @@ const showUsers = userList => {
     for (let k of userList.keys()) {
         let users = userList.get(k);
         var label = null;
-        if(users.isActive == '1'){
+        if(users.isActive == '1' || users.isActive == 1){
         label = '<td> <label class="badge badge-primary">active</label></td>';
         }else{
             label = '<td> <label class="badge badge-danger">inactive</label></td>';
@@ -57,6 +57,7 @@ const showUsers = userList => {
 
 
 const editUsers = userId => {
+    $('#newcustomer').empty();
     userId = userId.toString();
     if (userList.has(userId)) {
         $('.customerlist').hide();
@@ -115,6 +116,7 @@ const removeUser = userId => {
 }
 
 function addCustomer() {
+    $('#newcustomer').empty();
     $('.customerlist').hide();
     $('#newcustomer').load('add_employee.php');
 }

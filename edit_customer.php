@@ -16,8 +16,6 @@
             </div>
             <hr class="mb-0">
             <div class="card-body">
-                <small class="text-muted d-block">Email address </small>
-                <h6 id="userE"><span id="spanemail"></span></h6>
                 <small class="text-muted d-block pt-10">Phone</small>
                 <h6 id="userP"><span id="spanphone"></span></h6>
                 <small class="text-muted d-block pt-10">Address</small>
@@ -29,6 +27,7 @@
     </div>
     <div class="col-lg-8 col-md-7">
         <div class="card">
+       
             <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-setting-tab" data-toggle="pill" href="#userdetail" role="tab" aria-controls="pills-setting" aria-selected="false">User Details</a>
@@ -98,150 +97,139 @@
                 </div>
                 <div class="tab-pane fade show active" id="userdetail" role="tabpanel" aria-labelledby="pills-setting-tab">
                     <div class="card-body">
-                        <form class="form-horizontal" id="customerform" method="POST">
+                    <form class="forms-sample" id="customerform" method="POST">
+                <input type="hidden" name="roleId" value="2" id="roleId" />
+                <input type="hidden" id="usercusId" name="userId">
+                <div class="row">
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="hidden" name="userId" id="usercusId" />
-                                    <input type="hidden" name="roleId" value="2" />
-                                </div>
-                                <div class="col-md-4" style="text-align: center;" style="display:none;">
-                                    <div class="form-group">
-                                        <img id="prevImage" name="prevImage" src="" style="display:none;" class="img-circle" alt="No Image" width="100" height="100" />
-                                    </div>
-                                </div>
-                                <div class="col-md-4"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="fname">First Name</label>
-                                        <input type="text" placeholder="Enter First Name" class="form-control" name="fname" id="fname">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="mname">Middle Name</label>
-                                        <input type="text" placeholder="Enter Middle Name" class="form-control" name="mname" id="mname">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="lname">Last Name</label>
-                                        <input type="text" placeholder="Enter Last Name" class="form-control" name="lname" id="lname">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="useremail">Email</label>
-                                        <input type="email" placeholder="Enter Email" class="form-control" id="emailaddress" name="emailId">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="userphone">Phone No</label>
-                                        <input type="text" placeholder="Enter Mobileno" id="cnumber" name="contactNumber" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="pincode">Pincode</label>
-                                        <input type="text" placeholder="125689" class="form-control" name="pincode" id="pincode">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">Customer Name</label>
+                            <input type="text" class="form-control" id="custName" name="custName" placeholder="Enter Full Name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">Contact Number</label>
+                            <input type="text" class="form-control" id="cnumber" name="contactNumber" placeholder="Enter Contact Number">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+        <label for="cnumber1">Alternate contact number </label>
+        <input type="text" class="form-control" id="cnumber1" name="alternateContact" placeholder="Enter Contact number">
+    </div>
+                    </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="productDesc">City</label>
-                                        <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="productDesc">State</label>
-                                        <input type="text" class="form-control" id="state" name="state" placeholder="Enter State">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="productDesc">Country</label>
-                                        <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country">
-                                    </div>
-                                </div>
+                </div>
+                <div class="row">
 
-                            </div>
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="cnumber2">Alternate second Contact Number</label>
+        <input type="text" class="form-control" id="cnumber2" name="alternateContact1" placeholder="Enter Alternate Contact Number">
+    </div>
+</div>
+<div class="col-md-8">
+<div class="form-group">
+        <label for="peek">Peek</label>
+        <input type="text" class="form-control" id="peek" name="peek">
+    </div>
+</div>
 
-                            <h5>Farm Details</h5>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="productDesc">Tehsil</label>
-                                        <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
-                                        <input type="text" class="form-control" id="Tehsil" placeholder="Enter Customer Tehsil" name="tehsil" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="productDesc">Peek</label>
-                                        <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
-                                        <input type="text" class="form-control" id="Peek" placeholder="Enter Customer Peek" name="peek" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="productDesc">Hector</label>
-                                        <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
-                                        <input type="number" class="form-control" id="Hector" placeholder="Enter Customer Hector" name="hectre" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6" style="margin-top:23px;">
-                                    <label for="productDesc">Water Status</label>
-                                    <div class="form-group">
 
-                                        <div class="radio-inline">
+</div>
+                <div class="row">
 
-                                            <input name="water" checked="checked" type="radio" value="1" id="water1">
-                                            <i class="helper"></i>Available
 
-                                            <input name="water" type="radio" value="0" id="water0">
-                                            <i class="helper"></i>UnAvailable
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="state">State</label>
+        <select name="custState" id="state" style="width:100%;" class="form-control" onchange="loadCities(this.value)"></select>
+        <!-- <input type="text" class="form-control" id="state" name="state" placeholder="Enter State"> -->
+    </div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+        <label for="city">City</label>
+        <select name="custCity" id="city" style="width:100%;" class="form-control"></select>
+        <!-- <input type="text" class="form-control" id="city" name="city" placeholder="Enter City"> -->
+    </div>
+    
+</div>
+<div class="col-md-4">
+<div class="form-group">
+                            <label for="productDesc">Pincode</label>
+                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
+                        </div>
+</div>
 
-                                        </div>
+</div>
+              
+                
+                <h5>Billing Address</h5>
+                <hr>
 
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="productDesc">Billing Address</label>
+                            <textarea class="form-control" id="billingAddress" placeholder="Enter Customer Address" name="billingAddress" rows="2"></textarea>
+                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                <label for="userAddressFirst">Contact Address </label>
-                                <textarea id="customeraddress" placeholder="Enter Customer Address" name="contactAddress" rows="2" class="form-control"></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="productDesc">Brand Image</label>
-                                        <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="output">Brand Image view</label>
-                                        <img src="" alt="" id="output" width="110px" height="110px">
-                                    </div>
-                                </div>
+                    <div class="col-md-4" style="margin-top: 23px;">
+                        <label for="productDesc">Water Status</label>
+                        <div class="form-group">
+
+                            <div class="radio-inline">
+
+                                <input name="water" checked="checked" type="radio" value="1">
+                                <i class="helper"></i>Available
+
+                                <input name="water" type="radio" value="0">
+                                <i class="helper"></i>UnAvailable
 
                             </div>
 
-                            <button class="btn btn-success" type="submit">Update Profile</button>
-                            <button class="btn btn-light" type="button" onclick="goback()">Cancel</button>
-                        </form>
+                        </div>
+                    </div>
+
+                </div>
+                <h5>Shipping Address</h5>
+                <input name="billAddress"  type="checkbox">
+                                <i class="helper"></i>Same as Billing address 
+                <hr>
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="productDesc">Shipping Address</label>
+                            <textarea class="form-control" id="shippingAddress" placeholder="Enter Customer Address" name="shippingAddress" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                   
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="productDesc">Brand Image</label>
+                            <input type="file" name="imgname" id="imgname" class="form-control" accept="image/*" onchange="loadFile(event)">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="output">Brand Image view</label>
+                            <img src="" alt="" id="output" width="110px" height="110px">
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Update Details</button>
+                <button class="btn btn-light" type="button" onclick="goback()">Cancel</button>
+            </form>
                     </div>
                 </div>
             </div>
@@ -253,33 +241,83 @@
 
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/loadFile.js"></script>
-<script src="jscode/user_validation.js"></script>
+<script src="jscode/customer_validation.js"></script>
 <script src="jscode/Wallet.js"></script>
 <script>
+ $('#peek').tagsinput({
+        'autocomplete': {
+            source: ['Hello','Hi','Peek','Us']
+        }
+    });
+
+    $('input[type="checkbox"]').click(function(){
+
+if($(this).prop("checked") == true){
+var shp =  $('#billingAddress').val();
+   $('#shippingAddress').val(shp);
+
+}
+
+else if($(this).prop("checked") == false){
+
+    $('#shippingAddress').val('');
+
+}
+
+});
+loadStates();
+
+function loadStates() {
+    var dropdownList = '<option></option>';
+    for (let k of states.keys()) {
+        var state = states.get(k);
+        
+            dropdownList += '<option value="' + state.id + '">' + state.name + '</option>';
+    }
+    $('#state').html(dropdownList);
+    $("#state").select2({
+        placeholder: 'Select State',
+        allowClear: true
+    });
+}
+
+function loadCities(stateId) {
+    var dropdownList = '<option></option>';
+    for (let k of cities.keys()) {
+        var city = cities.get(k);
+        if (city.state_id == stateId)
+            dropdownList += '<option value="' + city.id + '">' + city.name + '</option>';
+    }
+    $('#city').html(dropdownList);
+    $("#city").select2({
+        placeholder: 'Select City',
+        allowClear: true
+        // dropdownParent: $('#fullwindowModal')
+    });
+}
+</script>
+<script>
     function loadcusDetails(customer) {
+        console.log(customer);
         $('#urefferCode').html(customer.refferalCode);
         $("#usercusId").val(userIdu);
-        $("#spanemail").html(customer.emailId);
         $("#spanphone").html(customer.contactNumber);
-        $("#spanaddress").html(customer.contactAddress);
-        $("#userTypeId").val(customer.roleId).trigger('change');
-        $('#uexe').html(customer.fname + ' ' + customer.lname);
-        $("#fname").val(customer.fname);
-        $("#mname").val(customer.mname);
-        $("#lname").val(customer.lname);
-        $("#city").val(customer.city);
-        $("#state").val(customer.state);
-        $("#country").val(customer.country);
-        $("#Tehsil").val(customer.tehsil);
-        $("#Peek").val(customer.peek);
-        $("#Hector").val(customer.hectre);
+        $("#spanaddress").html(customer.billingAddress);
+        $('#uexe').html(customer.custName);
+        $("#custName").val(customer.custName);
+        $("#state").val(customer.custState).trigger('change');
+       
+      
+        $("#peek").importTags(customer.peek);
         $("#water" + customer.water).prop('checked', true);
         $("#cnumber").val(customer.contactNumber);
-        $("#emailaddress").val(customer.emailId);
+        $("#cnumber1").val(customer.alternateContact);
+        $("#cnumber2").val(customer.alternateContact1);
+        $("#city").val(customer.city).trigger('change');
         $("#pincode").val(customer.pincode);
-        $("#customeraddress").val(customer.contactAddress);
-        $("#password").val(customer.upassword);
-        var src = url + "user/" + userIdu + ".jpg";
+        $("#shippingAddress").val(customer.shippingAddress);
+        $("#billingAddress").val(customer.billingAddress);
+        var src = url + "customer/" + userIdu + ".jpg";
         $('#prevImage').attr("src", src);
         $('#previmg1').attr("src", src);
     }

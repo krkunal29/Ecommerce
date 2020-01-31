@@ -107,4 +107,4 @@
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/user_validation.js"></script>
 <script src="jscode/loadFile.js"></script>
-<script src="savecode/addcustomer.js"></script>
+<script src="savecode/addEmployee.js"></script>

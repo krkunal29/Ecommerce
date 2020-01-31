@@ -53,7 +53,7 @@ const userinfo = () => {
                 $("#cityId").val(response.Data.city);
                 $("#stateId").val(response.Data.state);
                 $("#countryId").val(response.Data.country);
-                var src = url + "user/" +userId + ".jpg";
+                var src = url + "user/" +data.userId + ".jpg";
                 // $('#prevImage').attr("src", src);
                 $('#previmg1').attr("src", src);
 
@@ -70,7 +70,7 @@ const weatheapi = () =>{
   var cityId =$("#cityId").val();
   var stateId =$("#stateId").val();
   var countryId =$("#countryId").val();
-  // console.log(cityId);
+  console.log(cityId);
   $.ajax({
       url: 'https://api.openweathermap.org/data/2.5/weather?q='+cityId+','+stateId+','+countryId+ '&APPID=42be6d3bf5a5b085daa9334c48be4eb2',
       type: 'POST',
@@ -79,7 +79,7 @@ const weatheapi = () =>{
       },
       dataType: 'json',
       success: function(response) {
-         // console.log(response);
+         console.log(response);
           if (response.cod == 200) {
                // console.log(response.name);
                 $("#currenttemp").html((parseFloat(response.main.temp)-274.00).toFixed(2));

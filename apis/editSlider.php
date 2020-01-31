@@ -6,9 +6,10 @@ mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
 extract($_POST);
-if(isset($_POST['sliderId']) && isset($_POST['sliderTitle'])  && isset($_FILES["imgname"]["type"])){
+if(isset($_POST['sliderId']) && isset($_POST['sliderTitle'])  && isset($_FILES["imgname"]["type"]) && isset($_POST['smallTitle'])){
 
     $sliderTitle = mysqli_real_escape_string($conn,$sliderTitle);
+    $smallTitle = mysqli_real_escape_string($conn,$smallTitle);
    
     if(isset($_FILES["imgname"]["type"])){
         $imgname = $_FILES["imgname"]["name"];
@@ -16,7 +17,7 @@ if(isset($_POST['sliderId']) && isset($_POST['sliderTitle'])  && isset($_FILES["
         $targetPath = "slider/".$sliderId.".jpg"; // Target path where file is to be stored
         move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
       }
-    $query = "UPDATE slider SET sliderTitle='$sliderTitle' WHERE Id = $sliderId";
+    $query = "UPDATE slider SET sliderTitle='$sliderTitle',smallTitle='$smallTitle' WHERE Id = $sliderId";
     $jobQuery = mysqli_query($conn,$query);
     $rowsAffected=mysqli_affected_rows($conn);
 

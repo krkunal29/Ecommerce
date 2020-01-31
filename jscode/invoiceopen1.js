@@ -24,7 +24,7 @@ const editinvoice = invoiceid => {
            const count = response.Data.length;
            editarray = response.Data;
 
-           // console.log(response.Data[0]);
+          // console.log("customer Id"+editarray[0].customer_Id);
            $('#customerName').val(editarray[0].customer_Id); // Select the option with a value of '1'
            let customerName = userList.get(editarray[0].customer_Id);
            // console.log(customerName);
@@ -113,16 +113,19 @@ function changecustomername(customerId){
 // }
 // console.log(userList);
 let customerName = userList.get(customerId);
-console.log(customerName);
+// console.log(customerName);
 // $("#customeremail").val(customerName.emailId);
 $("#walletbal").html(customerName.wallet_amount);
 $("#walletbalance").val(customerName.wallet_amount);
 $("#cutomeraddress").val(customerName.billingAddress);
+
 }
 
 function changeproduct(productId,rowId){
 var products = productList.get(productId);
 // console.log(products);
+
+$("#TaxId"+rowId).val(products.TaxId).trigger('change');
 $("#productHSN"+rowId).val(products.HSN);
 $("#Rate"+rowId).val(products.salePrice);
 qtyratecalculator(rowId);

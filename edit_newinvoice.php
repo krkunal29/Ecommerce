@@ -11,7 +11,7 @@
                   <!-- <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" >
 
                   </select> -->
-                  <input type="hidden" name="customerName" value="">
+                  <input type="hidden" id="customerName" value="">
                   <input class="form-control" id="customerName1" placeholder="Enter Customer Name " type="text" readonly>
                 </div>
               </div>
@@ -86,11 +86,11 @@
                   <textarea class="form-control" id="orderremark" placeholder="Enter Order Remark" rows="2"></textarea>
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-2">
                 <div class="form-group">
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-6">
                 <div class="form-group">
                   <table id="invoicetaxtbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 250px; display:block;">
                       <thead>

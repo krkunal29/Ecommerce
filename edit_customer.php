@@ -27,7 +27,7 @@
     </div>
     <div class="col-lg-8 col-md-7">
         <div class="card">
-       
+
             <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-setting-tab" data-toggle="pill" href="#userdetail" role="tab" aria-controls="pills-setting" aria-selected="false">User Details</a>
@@ -46,14 +46,14 @@
                     <div class="card-body">
                     <div class="row">
                                                     <div class="col-md-3 col-6"> <strong>Wallet Balance</strong>
-                                                       
+
                                                     </div>
                                                     <div class="col-md-3 col-6" > <strong id="wBalance">0.00 Rs</strong>
-                                                       
+
                                                     </div>
-                                                   
-                                                    
-                                                   
+
+
+
                                                 </div>
                                                 <hr>
                         <table class="table" id="walletTable">
@@ -69,7 +69,7 @@
                                 </tr>
                             </thead>
                             <tbody class="walletData">
-                               
+
                             </tbody>
                         </table>
                     </div>
@@ -155,7 +155,7 @@
         <select name="custCity" id="city" style="width:100%;" class="form-control"></select>
         <!-- <input type="text" class="form-control" id="city" name="city" placeholder="Enter City"> -->
     </div>
-    
+
 </div>
 <div class="col-md-4">
 <div class="form-group">
@@ -165,8 +165,8 @@
 </div>
 
 </div>
-              
-                
+
+
                 <h5>Billing Address</h5>
                 <hr>
 
@@ -198,9 +198,9 @@
                 </div>
                 <h5>Shipping Address</h5>
                 <input name="billAddress"  type="checkbox">
-                                <i class="helper"></i>Same as Billing address 
+                                <i class="helper"></i>Same as Billing address
                 <hr>
-               
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -209,9 +209,9 @@
                         </div>
                     </div>
 
-                   
+
                 </div>
-               
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -271,7 +271,7 @@ function loadStates() {
     var dropdownList = '<option></option>';
     for (let k of states.keys()) {
         var state = states.get(k);
-        
+
             dropdownList += '<option value="' + state.id + '">' + state.name + '</option>';
     }
     $('#state').html(dropdownList);
@@ -298,7 +298,6 @@ function loadCities(stateId) {
 </script>
 <script>
     function loadcusDetails(customer) {
-        console.log(customer);
         $('#urefferCode').html(customer.refferalCode);
         $("#usercusId").val(userIdu);
         $("#spanphone").html(customer.contactNumber);
@@ -306,8 +305,8 @@ function loadCities(stateId) {
         $('#uexe').html(customer.custName);
         $("#custName").val(customer.custName);
         $("#state").val(customer.custState).trigger('change');
-       
-      
+
+
         $("#peek").importTags(customer.peek);
         $("#water" + customer.water).prop('checked', true);
         $("#cnumber").val(customer.contactNumber);

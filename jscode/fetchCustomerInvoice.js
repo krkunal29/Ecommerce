@@ -18,7 +18,7 @@ var loadInvoice = () => {
                     tblData += '<td>' + response.Data[i].invDate + '</td>';
                     tblData += '<td>' + response.Data[i].discount + '</td><td>';
                     tblData += response.Data[i].total + '</td>';
-                    tblData += '<td><a href="#" onclick="checkInvoice(' + (response.Data[i].transactionId) + ')"><i class="ik ik-edit f-16 mr-15 text-green"></i></a></td>';
+                    tblData += '<td><a href="#" onclick="checkInvoice(' + (response.Data[i].transactionId) + ')" placeholder="Download pdf"><i class="ik ik-edit f-16 mr-15 text-green"></i></a></td>';
                     tblData += '</tr>';
                 }
             }
@@ -44,5 +44,6 @@ var loadInvoice = () => {
 loadInvoice();
 
 function checkInvoice(tId) {
-    console.log(tId);
+  var link = url + 'print-reciept.php?transactionId='+tId;
+  window.open(link,'_blank');
 }

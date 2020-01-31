@@ -24,7 +24,7 @@ const showUsers = userList => {
     var tblData = '';
     for (let k of userList.keys()) {
         let users = userList.get(k);
-       
+
         tblData += '<tr><td><img src="' + url + 'customer/' + users.customerId + '.jpg" class="table-user-thumb" alt="Image"></td>';
         tblData += '<td>'+users.custName+'</td>';
         tblData += '<td>'+users.contactNumber+'</td>';
@@ -83,7 +83,7 @@ const removeUser = userId => {
                             dataType: 'json',
                             success: function(response) {
                                 if (response.Responsecode == 200) {
-                                   
+
                                     userList.delete(userId);
                                     showUsers(userList);
                                     swal({
@@ -91,7 +91,7 @@ const removeUser = userId => {
                                         text: response.Message,
                                         icon: "success",
                                     });
-                                   
+
                                 }
                             }
                         })
@@ -104,6 +104,7 @@ const removeUser = userId => {
 }
 
 function addCustomer() {
+    $('#newcustomer').empty();
     $('.customerlist').hide();
     $('#newcustomer').load('add_customer1.php');
 }

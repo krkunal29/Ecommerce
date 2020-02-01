@@ -13,7 +13,8 @@ $TransactionId = isset($_GET['transactionId']) ? $_GET['transactionId']:'NULL';
 $custState = null;
 function customer_details($tId){
     include '../connection.php';
-    mysqli_set_charset($conn,'utf8');
+     mysqli_set_charset($conn,'utf8');
+    $result = mysqli_query($conn,"SET NAMES utf8");
     $output = '';
     $sql = "SELECT cm.custName,cm.contactNumber,cm.billingAddress,cm.pincode,st.name stateName,ct.name cityName,
     cm.custState,DATE_FORMAT(tm.invDate,'%d,%b %Y') invDate,tm.transactionId
@@ -48,6 +49,7 @@ function customer_details($tId){
 function invoice_details($tId){
     include '../connection.php';
     mysqli_set_charset($conn,'utf8');
+      $result = mysqli_query($conn,"SET NAMES utf8");
     $output = '';
     $sql = "SELECT tmm.remark,td.Quantity,td.rate,td.t_description,tmm.discount,tmm.totalcost,tm.Tax,pm.HSN,DATE_FORMAT(pm.expiryDate,'%d %b %Y') expiryDate,pm.description,pm.productName FROM transaction_details td
     INNER JOIN product_master pm ON pm.productId = td.productId

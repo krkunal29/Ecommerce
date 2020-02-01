@@ -12,6 +12,7 @@ const loadTaxs = () => {
                     taxList.set(response.Data[i].TaxId, response.Data[i]);
                 }
                 showTaxs(taxList);
+                
             }
         }
     });

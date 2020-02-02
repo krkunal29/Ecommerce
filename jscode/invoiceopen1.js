@@ -123,14 +123,18 @@ $("#cutomeraddress").val(customerName.billingAddress);
 }
 
 function changeproduct(productId,rowId){
-var products = productList.get(productId);
- // console.log(products);
+    var products;
+if(productList.has(productId)){
+    products = productList.get(productId);
+    $("#productHSN"+rowId).val(products.HSN);
 
-
-$("#productHSN"+rowId).val(products.HSN);
 $("#Rate"+rowId).val(products.salePrice);
 $("#Total"+rowId).val(1*products.salePrice);
 $("#TaxId"+rowId).val(products.TaxId).trigger('change');
+}
+
+
+
 // qtyratecalculator(rowId);
 }
 var rowid =0;

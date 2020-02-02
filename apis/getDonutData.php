@@ -9,12 +9,16 @@ extract($_POST);
 if(isset($_POST['roleId']) && isset($_POST['userId'])){
     $sql = '';
     if($roleId == 1){
-        $sql      = "SELECT cm.category,pm.categoryId,SUM(td.rate*td.Quantity) point FROM category_master cm  LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId 
+        $sql      = "SELECT cm.category,pm.categoryId,COALESCE(SUM(td.rate*td.Quantity),0) point FROM category_master cm  LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId 
 LEFT JOIN transaction_details td ON td.productId = pm.productId GROUP BY cm.categoryId";
     }else{
-        $sql      = "SELECT cm.category,pm.categoryId,SUM(td.rate*td.Quantity) point FROM category_master cm LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId LEFT JOIN transaction_details td ON td.productId = pm.productId 
-        LEFT JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.userId = $userId GROUP BY cm.categoryId ";
+        $sql      = "SELECT cm.category,pm.categoryId,COALESCE(SUM(td.rate*td.Quantity),0) point FROM category_master cm LEFT JOIN product_master pm ON pm.categoryId = cm.categoryId LEFT JOIN transaction_details td ON td.productId = pm.productId 
+        LEFT JOIN transaction_master tm ON tm.transactionId = td.transaction_id 
+        WHERE tm.userId = $userId 
+        GROUP BY cm.categoryId ";
+        // WHERE tm.userId = $userId 
     }
+// echo $sql;
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

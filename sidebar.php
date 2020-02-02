@@ -26,11 +26,11 @@
                                      <div class="nav-item active">
                                     <a href="reports.php"><i class="ik ik-box"></i><span>Reports</span></a>
                                 </div>
-                               
+
                                 <div class="nav-item active">
                                     <a href="Employees.php"><i class="ik ik-users"></i><span>Employees</span></a>
                                 </div>
-                                <?php 
+                                <?php
                                 }
                                 ?>
                                 <div class="nav-item active">
@@ -51,7 +51,7 @@
                                         <a href="lastsubcategory.php" class="menu-item"><span> Inner Level Category</span> </a>
                                     </div>
                                     </div>
-                                   
+
                                 </div>
                                 </div>
                                 <div class="nav-item has-sub active">
@@ -69,8 +69,8 @@
                                         <a href="maininvoice.php" class="menu-item active">Invoice</a>
                                     </div>
                                 </div>
-                               
-                               
+
+
                             </nav>
                         </div>
                     </div>

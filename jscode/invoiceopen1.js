@@ -14,6 +14,7 @@ const editinvoice = invoiceid => {
       url: url + 'getinvoicedata.php',
       type: 'POST',
       dataType: 'json',
+      async:false,
       data :{
       transactionId:invoiceid
       },
@@ -123,7 +124,7 @@ $("#cutomeraddress").val(customerName.billingAddress);
 
 function changeproduct(productId,rowId){
 var products = productList.get(productId);
- console.log(products);
+ // console.log(products);
 
 
 $("#productHSN"+rowId).val(products.HSN);
@@ -327,9 +328,9 @@ function walletdisp(){
 
 function walletapply(){
 var walletbal =parseFloat($("#walletbal").text());
-console.log("wallettextbal"+walletbal);
+// console.log("wallettextbal"+walletbal);
 var walletbalance =parseFloat($("#walletbalance").val());
-console.log("walletbalance"+walletbalance);
+// console.log("walletbalance"+walletbalance);
     var finalamtinvoice = parseFloat($("#finalamtinvoice").val());
     if(walletbal>=walletbalance){
        if(finalamtinvoice>=walletbalance){
@@ -339,7 +340,7 @@ console.log("walletbalance"+walletbalance);
        $("#walletId").val(1);
        }
        else{
-         swal("Need Final Amount More Input Feild");
+         swal("Need Final Amount More Than Input Amount");
          $("#walmsg").html("");
          $("#walletId").val(0);
        }

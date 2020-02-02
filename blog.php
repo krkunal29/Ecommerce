@@ -13,7 +13,7 @@ if(isset($_SESSION['userId'])){
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
+                <link rel="stylesheet" href="loader.css">
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -109,7 +109,7 @@ if(isset($_SESSION['userId'])){
                             </div>
                         </div>
 
-
+                          <div id="loader"></div>
                         <?php include "footer.php"; ?>
                     </div>
                 </div>
@@ -120,6 +120,7 @@ if(isset($_SESSION['userId'])){
                <?php include "dashboardmodal.php"; ?>
 
                 <script src="js/jquery.min.js"></script>
+                <script src="jscode/loader.js"></script>
                 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 
                 <script src="plugins/popper.js/dist/umd/popper.min.js"></script>

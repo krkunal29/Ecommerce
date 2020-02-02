@@ -11,7 +11,7 @@
         <div class="card-body">
             <form class="forms-sample" id="customerform" method="POST">
                 <div class="row">
-<input type="hidden" name="roleId" value="3">
+                  <input type="hidden" name="roleId" value="3">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="productDesc">First Name</label>
@@ -54,7 +54,7 @@
                     </div>
 
                 </div>
-               
+
                 <div class="row">
 
                     <div class="col-md-4">
@@ -77,6 +77,7 @@
                     </div>
 
                 </div>
+
                 <div class="row">
                 <div class="col-md-4">
                       <div class="form-group">
@@ -105,6 +106,7 @@
     </div>
 </div>
 <script src="js/jquery.validate.js"></script>
+
 <script src="jscode/user_validation.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="savecode/addEmployee.js"></script>

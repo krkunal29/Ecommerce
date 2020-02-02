@@ -11,6 +11,15 @@ if (isset($_POST['custName']) && isset($_POST['contactNumber'])&& isset($_POST['
 
     $alternateContact     = isset($_POST['alternateContact']) ? $_POST['alternateContact'] : 'NULL';
     $alternateContact1   = isset($_POST['alternateContact1']) ? $_POST['alternateContact1'] : 'NULL';
+    $refferalCustomer = "NULL";
+    $walletbalance = 0;
+    if(isset($_POST['customerName']))  // Refferal customer code
+    {
+      $refferalCustomer = $customerName;
+      $walletbalance =100;
+      $query = "UPDATE wallet_master set wallet_amount=wallet_amount+$walletbalance WHERE userId=$refferalCustomer";
+      mysqli_query($conn,$query);
+    }
 
     $peek     = isset($_POST['peek']) ? $_POST['peek'] : 'NULL';
     $custState     = isset($_POST['custState']) ? $_POST['custState'] : 'NULL';
@@ -39,7 +48,7 @@ if (isset($_POST['custName']) && isset($_POST['contactNumber'])&& isset($_POST['
             $targetPath = "customer/". $userId.".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
           }
-          $query = "INSERT INTO wallet_master(userId,wallet_amount,wallet_status) VALUES($userId,0,'1')";
+          $query = "INSERT INTO wallet_master(userId,wallet_amount,refer_userId,wallet_status) VALUES($userId,'$walletbalance','$refferalCustomer','1')";
           mysqli_query($conn,$query);
           $sql   = "SELECT cm.custState,cm.custCity city,cm.customerId,cm.custName,cm.contactNumber,cm.alternateContact,
           cm.alternateContact1,cm.peek,cm.billingAddress,cm.shippingAddress,st.name stateName,ct.name custCity,cm.pincode,cm.water,cm.refferalCode

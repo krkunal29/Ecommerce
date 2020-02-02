@@ -1,7 +1,7 @@
 var userIdu = null; //for updation
 var details = {};
 var userList = new Map();
-const loadUsers = (roleId) => {
+var loadUsers = (roleId) => {
     $.ajax({
         url: url + 'getAllusers.php',
         type: 'POST',
@@ -19,7 +19,7 @@ const loadUsers = (roleId) => {
     });
 }
 
-const showUsers = userList => {
+var showUsers = userList => {
     $('#users').dataTable().fnDestroy();
     $('.usersData').empty();
     var tblData = '';
@@ -56,7 +56,7 @@ const showUsers = userList => {
 }
 
 
-const editUsers = userId => {
+var editUsers = userId => {
     $('#newcustomer').empty();
     userId = userId.toString();
     if (userList.has(userId)) {
@@ -70,7 +70,7 @@ const editUsers = userId => {
     }
 }
 
-const removeUser = userId => {
+var removeUser = userId => {
     userId = userId.toString();
     if (userList.has(userId)) {
         var user = userList.get(userId);
@@ -103,7 +103,7 @@ const removeUser = userId => {
                                         text: response.Message,
                                         icon: "success",
                                     });
-                                   
+
                                 }
                             }
                         })

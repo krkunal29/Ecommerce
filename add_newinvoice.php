@@ -173,7 +173,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                      <label for="productDesc">Final Amount</label><span id="walmsg" style="float:right;color:red;"></span>
+                      <label for="productDesc">Final Amount</label><span id="walmsg" style="float:right;color:green;"></span>
                       <input type="text" class="form-control" id="finalamtinvoice" value="0" readonly/>
                       <input type="hidden" id="hiddenfinalamt"/>
                   </div>

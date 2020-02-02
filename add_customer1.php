@@ -66,7 +66,7 @@
         <select name="custCity" id="city" style="width:100%;" class="form-control"></select>
         <!-- <input type="text" class="form-control" id="city" name="city" placeholder="Enter City"> -->
     </div>
-    
+
 </div>
 <div class="col-md-4">
 <div class="form-group">
@@ -76,8 +76,21 @@
 </div>
 
 </div>
-              
-                
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="productDesc">Customer Name</label>
+            <select class="form-control select2" id="customerName" name="customerName" style="width:100%;" >
+            </select>
+        </div>
+    </div>
+
+
+</div>
+
+
                 <h5>Billing Address</h5>
                 <hr>
 
@@ -109,9 +122,9 @@
                 </div>
                 <h5>Shipping Address</h5>
                 <input name="billAddress"  type="checkbox" value="1">
-                                <i class="helper"></i>Same as Billing address 
+                                <i class="helper"></i>Same as Billing address
                 <hr>
-               
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -120,9 +133,9 @@
                         </div>
                     </div>
 
-                   
+
                 </div>
-               
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -172,7 +185,7 @@ function loadStates() {
     var dropdownList = '<option></option>';
     for (let k of states.keys()) {
         var state = states.get(k);
-        
+
             dropdownList += '<option value="' + state.id + '">' + state.name + '</option>';
     }
     $('#state').html(dropdownList);
@@ -197,6 +210,7 @@ function loadCities(stateId) {
 }
 </script>
 <script src="js/jquery.validate.js"></script>
+<script src="jscode/loadcustemployee.js"></script>
 <script src="jscode/customer_validation.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="savecode/addcustomer.js"></script>

@@ -7,8 +7,8 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['userId'])) {
-$sql   = "SELECT wm.wallet_amount,wt.tid,wt.t_type,wt.amount,wt.t_desc,wt.createdAt 
-FROM wallet_master wm INNER JOIN wallet_transaction wt ON wm.userId = wt.userId WHERE wm.userId  = $userId";
+$sql   = "SELECT wm.wallet_amount,wt.tid,wt.t_type,wt.amount,wt.t_desc,wt.createdAt
+FROM wallet_master wm LEFT JOIN wallet_transaction wt ON wm.userId = wt.userId WHERE wm.userId  = $userId";
     $query = mysqli_query($conn, $sql);
     if ($query != null) {
         $academicAffected = mysqli_num_rows($query);

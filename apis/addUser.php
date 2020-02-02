@@ -23,7 +23,7 @@ if (isset($_POST['roleId']) && isset($_POST['contactNumber'])&& isset($_POST['st
     $country          = mysqli_real_escape_string($conn, $country);
     $sql   = "INSERT INTO  user_master(roleId,emailId,contactNumber,upassword) VALUES($roleId,'$emailId','$contactNumber','12345')";
     $query = mysqli_query($conn, $sql);
-    
+
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $refferalCode = random_strings(6);

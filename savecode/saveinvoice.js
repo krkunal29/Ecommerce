@@ -15,7 +15,14 @@ function saveorder(){
   var totaldiscount = $("#totaldiscount").val();
   var finalamtinvoice = $("#finalamtinvoice").val();
   TableData = storeTblValues();
+  var walletid = $("#walletId").val();
+  var walletbal = $("#walletbalance").val();
+  if(walletid=="1"){
 
+  }
+  else{
+    walletbal =0;
+  }
   var postdata = {
     t_type:'Invoice',
     userId:loginId,
@@ -32,7 +39,7 @@ function saveorder(){
   $.ajax({
   url: url + 'addInvoice.php',
   type: 'POST',
-  data:{postdata:postdata},
+  data:{postdata:postdata,walletbalance:walletbal},
   dataType: 'json',
   success: function(response) {
   // console.log(response);

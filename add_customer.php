@@ -80,6 +80,7 @@
                     </div>
 
                 </div>
+
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
@@ -151,6 +152,7 @@
     </div>
 </div>
 <script src="js/jquery.validate.js"></script>
+
 <script src="jscode/user_validation.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="savecode/addcustomer.js"></script>

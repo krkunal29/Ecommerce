@@ -102,11 +102,12 @@ const removeBlog = sliderId => {
         success:function(response){
 
           if(response.Responsecode==200){
-            //   if(slide.isActive==0){
-            //     slider.set()
-            //   }else{
-
-            //   }
+              if(slide.isActive==0){
+                slide.isActive = 1
+              }else{
+                slide.isActive = 0;
+              }
+              slider.set(sliderId, slide);
             showSlider(slider);
             swal({
                 title: msg3,

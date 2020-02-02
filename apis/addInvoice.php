@@ -19,11 +19,21 @@ if (isset($_POST['postdata'])) {
     $remark               = $someArray["remark"];
     $transaction_products = $someArray["products"];
     $totalcost            = $someArray["totalcost"];
+    if(isset($_POST['walletbalance'])){
+      $totalcost = $walletbalance;
+    }
     $sql                  = "INSERT INTO transaction_master(t_type, userId,customer_Id,invDate,discount,remark,totalcost) VALUES ('$type','$userId','$customerId','$invDate','$discount','$remark','$totalcost')";
     $query                = mysqli_query($conn, $sql);
     if ($query == 1) {
         $last_id = mysqli_insert_id($conn);
         $tId     = strval($last_id);
+        if(isset($_POST['walletbalance'])){
+          $query = "UPDATE wallet_master set wallet_amount=wallet_amount-$walletbalance WHERE userId=$customerId";
+          mysqli_query($conn,$query);
+          $desc ="Against this trasaction Id"+$tId;
+          $query1 = "INSERT INTO wallet_transaction(userId, t_type, amount, t_desc) VALUES ('$customerId','Debit','$walletbalance','$desc')";
+          mysqli_query($conn,$query1);
+        }
         foreach ($transaction_products as $key => $value) {
 
             $productid    = $transaction_products[$key]['productId'];
@@ -34,7 +44,7 @@ if (isset($_POST['postdata'])) {
             $query        = mysqli_query($conn, "INSERT INTO transaction_details(transaction_id, productId,taxId,Quantity,rate,t_description) values ($tId,$productid,$taxid,$quantity,$rate,'$description')");
             $rowsAffected = mysqli_affected_rows($conn);
             if ($rowsAffected == 1) {
-              
+
                $query = "SELECT tm.transactionId,cm.custName,cm.contactNumber,tm.invDate, ROUND(sum(td.rate*td.quantity), 2) as rate1,
                tm.totalcost as rate from transaction_master tm
                LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id

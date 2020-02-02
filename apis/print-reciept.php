@@ -60,7 +60,7 @@ function invoice_details($tId){
     if ($academicQuery != null) {
         global $custState;
         // $output .='<pre>'.$custState.'</pre>';
-        $countrycode =21;
+        $countrycode =22;
         $academicAffected = mysqli_num_rows($academicQuery);
         if ($academicAffected > 0) {
             $output .='<table class="table table-bordered">';

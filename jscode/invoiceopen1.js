@@ -123,12 +123,14 @@ $("#cutomeraddress").val(customerName.billingAddress);
 
 function changeproduct(productId,rowId){
 var products = productList.get(productId);
-// console.log(products);
+ console.log(products);
 
-$("#TaxId"+rowId).val(products.TaxId).trigger('change');
+
 $("#productHSN"+rowId).val(products.HSN);
 $("#Rate"+rowId).val(products.salePrice);
-qtyratecalculator(rowId);
+$("#Total"+rowId).val(1*products.salePrice);
+$("#TaxId"+rowId).val(products.TaxId).trigger('change');
+// qtyratecalculator(rowId);
 }
 var rowid =0;
 var rowid1 =0;
@@ -193,8 +195,9 @@ function qtyratecalculator(id){
   }
   else{
     $("#Total"+id).val(parseFloat(qty)*parseFloat(rate));
-    // var tablelength =  $('#invoicebody tr'). length;
-    // console.log("tablelength"+tablelength);
+    // var tablelength =  $('#invoicetaxtblbody tr'). length;
+    // console.log("tablelength"+(tablelength+1));
+
     // This function for calculate table length
   // console.log("before"+taxtbl);
    $("#invoicetaxtblbody").empty(); //clear table boday
@@ -208,6 +211,8 @@ function qtyratecalculator(id){
    taxtbl+=" <td style='width: 10%;'>After Amount</td>";
    taxtbl+="</tr>";
    // console.log("after"+taxtbl);
+    var tempvar =0;
+    // console.log("tablelength"+rowid);
     for(var j=1;j<=rowid;j++){
         var totalamt = parseFloat($("#Total"+j).val());
         // console.log(totalamt);
@@ -230,22 +235,24 @@ function qtyratecalculator(id){
 
              if(totalexists){
              totalamt =totalamt +totalexists;
+             // console.log("Total Amount"+totalamt);
              }
              else
              {
                taxtbl+="<tr id='row"+taxId+"'>";
                taxtbl+="<td style='width: 100%;'><span id='same"+taxId+"'></span></td>";
-               taxtbl+="<td><span id='value"+taxId+"'></span</td>";
-               taxtbl+="<td><span id='value1"+taxId+"'></span</td>";
-               taxtbl+="<td><span id='taxamtrow"+taxId+"'></span</td>";
-               taxtbl+="<td><span id='taxrow"+taxId+"'></span</td>";
-               taxtbl+="<td><span id='taxafterrow"+taxId+"'></span</td>";
+               taxtbl+="<td><span id='value"+taxId+"'></span></td>";
+               taxtbl+="<td><span id='value1"+taxId+"'></span></td>";
+               taxtbl+="<td><span id='taxamtrow"+taxId+"'></span></td>";
+               taxtbl+="<td><span id='taxrow"+taxId+"'></span></td>";
+               taxtbl+="<td><span id='taxafterrow"+taxId+"'></span></td>";
                taxtbl+="</tr>";
                // console.log("Total else"+totalexists);
                $("#invoicetaxtblbody").append(taxtbl);
                taxtbl ="";  // For remove the extra row
              }
              var taxvalue =  parseFloat(taxname.Tax);  // To Get Exact Tax Value
+
              // var halftax = (taxvalue)/2;               // To Get Half Tax value
              var taxamount = (totalamt*(taxvalue/100));  // To Get Tax Amount
              var halftaxamount = taxamount/2;         // To Get Half Tax Amount
@@ -259,58 +266,45 @@ function qtyratecalculator(id){
              $("#taxamtrow"+taxId).html(""+totalamt.toFixed(2));
              $("#taxrow"+taxId).html(""+taxamount.toFixed(2));
              $("#taxafterrow"+taxId).html(""+fullmainvalue.toFixed(2));
-             var invoicetax = $("#taxafterrow"+taxId).html();
-             // console.log("invoicetax"+invoicetax);
-             totalamtinvoice = totalamtinvoice+parseFloat(invoicetax);
-             $("#totalamtinvoice").val(totalamtinvoice);
-             addDiscount();
+             // $('#invoicetaxtblbody tr').find('td span').each(function(i, el) {
+             //     // var inputEl = $(el).children().get();
+             //     // console.log(inputEl);
+             // })
+
+             // var invoicetax = $("#taxafterrow"+taxId).html();
+             //
+             // totalamtinvoice = totalamtinvoice+parseFloat(invoicetax);
+
+
            }
            else   // Different state
            {
               console.log("else value");
-              // if(totalexists){
-              // totalamt =totalamt +totalexists;
-              // }
-              // else
-              // {
-              //   taxtbl+="<tr id='row"+taxId+"'>";
-              //   taxtbl+="<td style='width: 100%;'><span id='same"+taxId+"'></span></td>";
-              //   taxtbl+="<td><span id='value"+taxId+"'></span</td>";
-              //   taxtbl+="<td><span id='taxamtrow"+taxId+"'></span</td>";
-              //   taxtbl+="<td><span id='taxrow"+taxId+"'></span</td>";
-              //   taxtbl+="<td><span id='taxafterrow"+taxId+"'></span</td>";
-              //   taxtbl+="</tr>";
-              //   // console.log("Total else"+totalexists);
-              //   $("#invoicetaxtblbody").append(taxtbl);
-              //   taxtbl ="";  // For remove the extra row
-              // }
-              // var taxvalue =  parseFloat(taxname.Tax);  // To Get Exact Tax Value
-              // // var halftax = (taxvalue)/2;               // To Get Half Tax value
-              // var taxamount = (totalamt*(taxvalue/100));  // To Get Tax Amount
-              // var halftaxamount = taxamount/2;         // To Get Half Tax Amount
-              // var fullmainvalue = (totalamt+taxamount);   // To Get  Main Amount
-              // var mainvalue = (totalamt+taxamount)/2;   // To Get Half Main Amount
-              //
-              // $("#same"+taxId).html(""+taxname.Taxname +"<font color='red' style='float:right;'>"+taxvalue +"</font>");
-              // $("#value"+taxId).html(""+halftaxamount.toFixed(2));
-              //
-              // $("#taxamtrow"+taxId).html(""+totalamt.toFixed(2));
-              // $("#taxrow"+taxId).html(""+taxamount.toFixed(2));
-              // $("#taxafterrow"+taxId).html(""+fullmainvalue.toFixed(2));
-              // var invoicetax = $("#taxafterrow"+taxId).html();
-              // // console.log("invoicetax"+invoicetax);
-              // totalamtinvoice = totalamtinvoice+parseFloat(invoicetax);
-              // $("#totalamtinvoice").val(totalamtinvoice);
-              // addDiscount();
+
            }
         }
         else{
           console.log("Table row absent"+j);
         }
 
-
+     tempvar+=1;
     }
+    // console.log(tempvar);
+    if(tempvar==rowid){
+    var valid = true;
+    $('#invoicetaxtblbody tr').each(function(index, me){
+    if (index < $('#invoicetaxtblbody tr').length && valid && index >= 1)
+     {
 
+       var inputEl = $(this).find("td span").eq(5).html();
+       // console.log(inputEl);
+       totalamtinvoice = totalamtinvoice+parseFloat(inputEl);
+
+       $("#totalamtinvoice").val(totalamtinvoice);
+       addDiscount();
+     }
+    });
+    }
 
 
   }
@@ -336,7 +330,7 @@ var walletbal =parseFloat($("#walletbal").text());
 console.log("wallettextbal"+walletbal);
 var walletbalance =parseFloat($("#walletbalance").val());
 console.log("walletbalance"+walletbalance);
-var finalamtinvoice = parseFloat($("#finalamtinvoice").val());
+    var finalamtinvoice = parseFloat($("#finalamtinvoice").val());
     if(walletbal>=walletbalance){
        if(finalamtinvoice>=walletbalance){
        var value = finalamtinvoice-walletbalance;

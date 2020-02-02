@@ -95,18 +95,7 @@
 
                       </thead>
                       <tbody id="invoicetaxtblbody">
-                        <!-- <tr>
-                          <td style="width: 50%;">Tax name </td>
-                          <td style="width: 10%;">CGST</td>
-                          <td style="width: 10%;">SGST</td>
-                          <td style="width: 10%;">Amount</td>
-                          <td style="width: 10%;">Tax </td>
-                          <td style="width: 10%;">After Amount</td>
-                        </tr> -->
-                        <!-- <tr>
-                          <td style="width: 100%;">Tax name </td>
-                          <td>1000</td>
-                        </tr> -->
+
                       </tbody>
 
                   </table>

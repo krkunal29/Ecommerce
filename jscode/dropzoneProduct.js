@@ -6,17 +6,20 @@ $(".dropzone").dropzone({
         $.get(link, {
             productId: details.productId
         }, function(response) {
-            $.each(response.Data, function(key, value) {
+            if(response.Data!=null){
+              $.each(response.Data, function(key, value) {
 
-                var mockFile = {
-                    name: value.name,
-                    size: value.size
-                };
-                thisDropzone.emit("addedfile", mockFile);
-                thisDropzone.createThumbnailFromUrl(mockFile, "apis/upload/productImages/" + value.name);
+                  var mockFile = {
+                      name: value.name,
+                      size: value.size
+                  };
+                  thisDropzone.emit("addedfile", mockFile);
+                  thisDropzone.createThumbnailFromUrl(mockFile, "apis/upload/productImages/" + value.name);
 
-               
-            });
+
+              });
+            }
+
 
         });
     },

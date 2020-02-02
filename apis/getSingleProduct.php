@@ -10,7 +10,7 @@ if (isset($_POST['productId'])) {
     $query      = "SELECT prI.imageId, pm.productName,pm.description,pd.salePrice,pd.displayPrice,pd.Quantity,cm.category
      FROM product_master pm 
     LEFT JOIN productdetails pd ON pm.productId = pd.productId LEFT JOIN category_master cm ON cm.categoryId = pm.categoryId
-    LEFT JOIN productimages prI ON prI.productId = pm.productId
+    LEFT JOIN productImages prI ON prI.productId = pm.productId
     WHERE pm.productId =  $productId";
     $jobQuery = mysqli_query($conn, $query);
     if ($jobQuery != null) {

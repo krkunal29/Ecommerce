@@ -4,7 +4,6 @@
     }
 </style>
 <div class="row">
-
     <div class="card">
         <div class="card-header">
             <h3>Add New Customer</h3></div>

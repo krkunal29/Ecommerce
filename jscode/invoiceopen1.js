@@ -14,6 +14,7 @@ const editinvoice = invoiceid => {
       url: url + 'getinvoicedata.php',
       type: 'POST',
       dataType: 'json',
+      async:false,
       data :{
       transactionId:invoiceid
       },
@@ -122,14 +123,21 @@ $("#cutomeraddress").val(customerName.billingAddress);
 }
 
 function changeproduct(productId,rowId){
-var products = productList.get(productId);
- console.log(products);
-
-
-$("#productHSN"+rowId).val(products.HSN);
+    var products;
+if(productList.has(productId)){
+    products = productList.get(productId);
+    $("#productHSN"+rowId).val(products.HSN);
 $("#Rate"+rowId).val(products.salePrice);
 $("#Total"+rowId).val(1*products.salePrice);
 $("#TaxId"+rowId).val(products.TaxId).trigger('change');
+}
+
+//  console.log(products);
+
+
+
+
+
 // qtyratecalculator(rowId);
 }
 var rowid =0;

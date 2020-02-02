@@ -24,7 +24,7 @@ if (isset($_GET['productId'])) {
                 'Data' => $records,
                 'Responsecode' => 200
             );
-            
+
         } else {
             $response = array(
                 'Message' => "No Record Found",
@@ -32,6 +32,12 @@ if (isset($_GET['productId'])) {
                 'Responsecode' => 300
             );
         }
+    }else {
+      $response = array(
+          'Message' => mysqli_error($conn)."No Record Found",
+          'Data' => $records,
+          'Responsecode' => 300
+      );
     }
 } else {
     $response = array(
@@ -42,4 +48,4 @@ if (isset($_GET['productId'])) {
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?> 
+?>

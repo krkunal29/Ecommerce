@@ -6,33 +6,35 @@ function showReport() {
         uptoDate: $('#uptoDate').val(),
         userId:$('#userId').val()
     };
-    console.log(data);
     $.ajax({
         url: url + 'getAllReports.php',
         type: 'POST',
         data: data,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             var tblData = '';
+            var total = 0,
+            inTotal = 0,
+            amount = 0;
             if (response.Data != null) {
                 var count = response.Data.length;
-                var total = null,
-                    inTotal = null,
-                    amount = null;
                 for (var i = 0; i < count; i++) {
-                    total = parseFloat(response.Data[i].amount) - parseFloat(response.Data[i].discount);
-                    inTotal += parseFloat(response.Data[i].amount) - parseFloat(response.Data[i].discount);
-
-                    amount += parseFloat(response.Data[i].amount);
+                    var slideStatus ='-';
+                    if(response.Data[i].isReturn==1){
+                        slideStatus ='<span class="badge badge-danger">Returned</span>';
+                    }else{
+                        total = parseFloat(response.Data[i].amount) - parseFloat(response.Data[i].discount);
+                        inTotal += parseFloat(response.Data[i].amount) - parseFloat(response.Data[i].discount);
+                        amount += parseFloat(response.Data[i].amount);
+                    }
                     tblData += '<tr><td>' + response.Data[i].transactionId + '</td>';
                     tblData += '<td>' + response.Data[i].invDate + '</td>';
-                    tblData += '<td>' + response.Data[i].fname + ' ' + response.Data[i].lname + '</td>';
+                    tblData += '<td>' + response.Data[i].c_name + '</td>';
                     tblData += '<td>' + parseFloat(response.Data[i].amount).toFixed(2).toLocaleString('en-IN') + '</td>';
                     tblData += '<td>' + parseFloat(response.Data[i].discount).toFixed(2).toLocaleString('en-IN') + '</td>';
                     tblData += '<td>' + parseFloat(total).toFixed(2).toLocaleString('en-IN') + '</td>';
-                    tblData += '<td>' + response.Data[i].c_name + ' ' + response.Data[i].c_lname + '</td></tr>';
-
+                    tblData += '<td>'+slideStatus+'</td>';
+                    tblData += '<td>' + response.Data[i].fname +' ' + response.Data[i].lname +  '</td></tr>';
                 }
             }
             $('.customerlist').show();

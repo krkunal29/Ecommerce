@@ -5,7 +5,7 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT bm.blogId,bm.blogTitle,SUBSTR(bm.blogContent,1,100) as blogContent,bm.blogContent blog,bm.blogUrl,DATE_FORMAT(bm.createdAt,'%d %b,%Y') blogDate,bc.category 
+$query = "SELECT bc.categoryId,bm.blogId,bm.blogTitle,SUBSTR(bm.blogContent,1,100) as blogContent,bm.blogContent blog,bm.blogUrl,DATE_FORMAT(bm.createdAt,'%d %b,%Y') blogDate,bc.category 
 FROM blogmaster bm INNER JOIN blogcategory bc ON bm.categoryId = bc.categoryId";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)

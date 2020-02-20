@@ -30,7 +30,7 @@ if (isset($_POST['postdata'])) {
         if(isset($_POST['walletbalance'])){
           $query = "UPDATE wallet_master set wallet_amount=wallet_amount-$walletbalance WHERE userId=$customerId";
           mysqli_query($conn,$query);
-          $desc ="Against this trasaction Id"+$tId;
+          $desc ="Against this trasaction Id ".$tId;
           $query1 = "INSERT INTO wallet_transaction(userId, t_type, amount, t_desc) VALUES ('$customerId','Debit','$walletbalance','$desc')";
           mysqli_query($conn,$query1);
         }

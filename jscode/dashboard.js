@@ -1,19 +1,89 @@
  var loadData = () => {
     $.ajax({
-        url: url + 'getAllSalesData.php',
+        url: url + 'month.php',
         type: 'POST',
         dataType: 'json',
         data:{roleId:data.roleId,userId:data.userId},
         success: function(response) {
             console.log(response);
             if (response.Data != null) {
-               $('#sales').html(response.Data.Sale);
-               $('#sold').html(response.Data.Quantity);
-               $('#totalInv').html(response.Data.inv);
+               $('#saleMonth').html(response.Data.Sale);
+               $('#soldMonth').html(response.Data.Quantity);
+               $('#invMonth').html(response.Data.inv);
             }
         }
     });
 };
+var loadData_year = () => {
+    $.ajax({
+        url: url + 'year.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{roleId:data.roleId,userId:data.userId},
+        success: function(response) {
+            console.log(response);
+            if (response.Data != null) {
+               $('#saleYear').html(response.Data.Sale);
+               $('#soldYear').html(response.Data.Quantity);
+               $('#invYear').html(response.Data.inv);
+            }
+        }
+    });
+};
+loadData_year();
+var loadData_today = () => {
+    $.ajax({
+        url: url + 'today.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{roleId:data.roleId,userId:data.userId},
+        success: function(response) {
+            console.log(response);
+            if (response.Data != null) {
+               $('#saleToday').html(response.Data.Sale);
+               $('#soldToday').html(response.Data.Quantity);
+               $('#invToday').html(response.Data.inv);
+            }
+        }
+    });
+};
+loadData_today();
+var loadData_yesterday = () => {
+    $.ajax({
+        url: url + 'yesterday.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{roleId:data.roleId,userId:data.userId},
+        success: function(response) {
+            console.log(response);
+            if (response.Data != null) {
+               $('#saleYest').html(response.Data.Sale);
+               $('#soldYest').html(response.Data.Quantity);
+               $('#invYest').html(response.Data.inv);
+            }
+        }
+    });
+};
+loadData_yesterday();
+var loadData_return = () => {
+    $.ajax({
+        url: url + 'return.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{roleId:data.roleId,userId:data.userId},
+        success: function(response) {
+            console.log(response);
+            if (response.Data != null) {
+               $('#returnToday').html(response.Data.today);
+               $('#returnYester').html(response.Data.yester);
+               $('#returnMon').html(response.Data.mon);
+               $('#returnYer').html(response.Data.yer);
+            }
+        }
+    });
+};
+loadData_return();
+
 var Sale = [];
 const loadSale = () => {
     $.ajax({

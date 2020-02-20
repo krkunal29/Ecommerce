@@ -7,12 +7,12 @@ if(!isset($_SESSION['userId'])){
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Login | Radiology - Admin Template</title>
+        <title>Login | Kissan agro</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon"  />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -26,10 +26,6 @@ if(!isset($_SESSION['userId'])){
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
         <div class="auth-wrapper">
             <div class="container-fluid h-100">
                 <div class="row flex-row h-100 bg-white">
@@ -41,12 +37,12 @@ if(!isset($_SESSION['userId'])){
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
-                                <a href="index.php"><img src="img/brand1.png" alt=""></a>
+                                <a href="index.php"><img src="img/brand2.png" alt="" width="20%" height="30%" style="width:186%;"></a>
                             </div>
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
                                 Please Enter Correct Email Id  or password
                             </div>
-                            <h3>Sign In to Markedia</h3>
+                            <h3>Sign In to Kissan agro</h3>
                             <p>Happy to see you again!</p>
                             <form id="signin">
                                 <div class="form-group">

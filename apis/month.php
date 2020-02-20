@@ -9,18 +9,13 @@ extract($_POST);
 if(isset($_POST['roleId']) && isset($_POST['userId'])){
     $sql = '';
     if($roleId == 1){
-$sql      = "SELECT SUM(Quantity) Quantity,SUM(Sale) Sale,SUM(inv) inv FROM(
-    SELECT SUM(Quantity) Quantity,sum(rate*Quantity) Sale,0 inv FROM transaction_details
-    UNION
-    SELECT 0 Quantity,0 Sale, COUNT(tm.transactionId) inv FROM transaction_master tm
-        ) as T";
+$sql      = "SELECT SUM(td.Quantity) Quantity,sum(td.rate*td.Quantity) Sale,COUNT(tm.transactionId) inv 
+FROM transaction_details td INNER JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.isReturn = 0 AND
+MONTH(tm.invDate) = MONTH(CURRENT_DATE())";
     }else{
-        $sql = "SELECT SUM(Quantity) Quantity,SUM(Sale) Sale,SUM(inv) inv FROM(
-            SELECT SUM(td.Quantity) Quantity,sum(td.rate*td.Quantity) Sale,0 inv 
-            FROM transaction_details td INNER JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.userId = $userId
-            UNION
-            SELECT 0 Quantity,0 Sale, COUNT(tm.transactionId) inv FROM transaction_master tm WHERE tm.userId = $userId
-                ) as T";
+        $sql = "SELECT SUM(td.Quantity) Quantity,sum(td.rate*td.Quantity) Sale,COUNT(tm.transactionId) inv 
+        FROM transaction_details td INNER JOIN transaction_master tm ON tm.transactionId = td.transaction_id WHERE tm.isReturn = 0 AND
+        MONTH(tm.invDate) = MONTH(CURRENT_DATE()) AND tm.userId = $userId";
     }
 
 $jobQuery = mysqli_query($conn, $sql);

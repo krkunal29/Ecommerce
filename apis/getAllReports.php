@@ -7,15 +7,15 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['fromDate']) && isset($_POST['uptoDate'])) {
-    $sql = "SELECT tm.transactionId,tm.t_type,DATE_FORMAT(tm.invDate,'%d,%M %Y') invDate,tm.discount,tm.remark,tm.createdBy,tm.createdAt,SUM(td.Quantity * td.rate) AS amount,COALESCE(ud.fname,'') AS c_name,COALESCE(ud.lname,'') AS c_lname,
-COALESCE(ut.fname,'') fname,coalesce(ut.lname,'') lname
-FROM transaction_master tm INNER JOIN transaction_details td ON tm.transactionId = td.transaction_id LEFT JOIN user_details ud ON ud.userId = tm.createdBy LEFT JOIN user_details ut ON ut.userId = tm.userId 
-WHERE tm.invDate BETWEEN '$fromDate' AND '$uptoDate' GROUP BY tm.transactionId";
+    $sql = "SELECT tm.isReturn,tm.transactionId,tm.t_type,DATE_FORMAT(tm.invDate,'%d,%M %Y') invDate,tm.discount,tm.remark,tm.userId,tm.createdAt,SUM(td.Quantity * td.rate) AS amount,COALESCE(cm.custName,'') AS c_name,COALESCE(ut.fname,'') fname,coalesce(ut.lname,'') lname 
+    FROM transaction_master tm INNER JOIN transaction_details td ON tm.transactionId = td.transaction_id LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id 
+    LEFT JOIN user_details ut ON ut.userId = tm.userId WHERE tm.invDate BETWEEN '$fromDate' AND '$uptoDate'  GROUP BY tm.transactionId";
     if (!empty($_POST['userId'])) {
-        $sql = "SELECT tm.transactionId,tm.t_type,DATE_FORMAT(tm.invDate,'%d,%M %Y') invDate,tm.discount,tm.remark,tm.createdBy,tm.createdAt,SUM(td.Quantity * td.rate) AS amount,COALESCE(ud.fname,'') AS c_name,COALESCE(ud.lname,'') AS c_lname,
-    COALESCE(ut.fname,'') fname,coalesce(ut.lname,'') lname
-    FROM transaction_master tm INNER JOIN transaction_details td ON tm.transactionId = td.transaction_id LEFT JOIN user_details ud ON ud.userId = tm.createdBy LEFT JOIN user_details ut ON ut.userId = tm.userId 
-    WHERE tm.invDate BETWEEN '$fromDate' AND '$uptoDate' AND tm.createdBy = $userId GROUP BY tm.transactionId";
+        $sql = "SELECT tm.isReturn,tm.transactionId,tm.t_type,DATE_FORMAT(tm.invDate,'%d,%M %Y') invDate,tm.discount,tm.remark,tm.userId,tm.createdAt,SUM(td.Quantity * td.rate) AS amount,COALESCE(cm.custName,'') AS c_name,COALESCE(ut.fname,'') fname,coalesce(ut.lname,'') lname 
+        FROM transaction_master tm INNER JOIN transaction_details td ON tm.transactionId = td.transaction_id 
+        LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id 
+        LEFT JOIN user_details ut ON ut.userId = tm.userId 
+        WHERE tm.invDate BETWEEN '$fromDate' AND '$uptoDate' AND tm.userId = $userId  GROUP BY tm.transactionId";
         
     }
     $jobQuery = mysqli_query($conn, $sql);

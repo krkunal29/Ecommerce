@@ -77,7 +77,7 @@ if(isset($_SESSION['userId'])){
                         </div>
                         <div class="row">
                              <!-- product profit start -->
-                             <div class="col-xl-3 col-md-6">
+                             <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card prod-p-card card-red">
                                     <div class="card-body">
                                         <div class="row align-items-center mb-30">
@@ -89,11 +89,10 @@ if(isset($_SESSION['userId'])){
                                                 <i class="fa fa-money-bill-alt text-red f-18"></i>
                                             </div>
                                         </div>
-                                        <!-- <p class="mb-0 text-white"><span class="label label-danger mr-10">+11%</span>From Previous Month</p> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
+                            </div> -->
+                            <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card prod-p-card card-blue">
                                     <div class="card-body">
                                         <div class="row align-items-center mb-30">
@@ -105,11 +104,10 @@ if(isset($_SESSION['userId'])){
                                                 <i class="fas fa-database text-blue f-18"></i>
                                             </div>
                                         </div>
-                                        <!-- <p class="mb-0 text-white"><span class="label label-primary mr-10">+12%</span>From Previous Month</p> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
+                            </div> -->
+                            <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card prod-p-card card-green">
                                     <div class="card-body">
                                         <div class="row align-items-center mb-30">
@@ -121,11 +119,10 @@ if(isset($_SESSION['userId'])){
                                                 <i class="fas fa-dollar-sign text-green f-18"></i>
                                             </div>
                                         </div>
-                                        <!-- <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month</p> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
+                            </div> -->
+                            <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card prod-p-card card-yellow">
                                     <div class="card-body">
                                         <div class="row align-items-center mb-30">
@@ -137,18 +134,117 @@ if(isset($_SESSION['userId'])){
                                                 <i class="fas fa-tags text-warning f-18"></i>
                                             </div>
                                         </div>
-                                        <!-- <p class="mb-0 text-white"><span class="label label-warning mr-10">+52%</span>From Previous Month</p> -->
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-xl-3 col-md-12">
+                                <div class="card analytic-card card-green">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col-auto">
+                                                <i class="fas fa-shopping-cart text-green f-18 analytic-icon"></i>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h3 class="mb-5 text-white" id="saleToday"></h3>
+                                                <h6 class="mb-0 text-white">Total Sales today</h6>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0  text-white d-inline-block">Orders : </p>
+                                        <h5 class=" text-white d-inline-block mb-0 ml-10" id="invToday"></h5>
+                                        <h6 class="mb-0 d-inline-block  text-white float-right">Return:<span id="returnToday"></span></h6>
                                     </div>
                                 </div>
                             </div>
-                            <!-- product profit end -->
-                            <!-- page statustic chart start -->
-                          
-                            
-                            
-                            <!-- page statustic chart end -->
-
-                            <!-- Project statustic start -->
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card analytic-card card-blue">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col-auto">
+                                                <i class="fas fa-users text-blue f-18 analytic-icon"></i>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h3 class="mb-5 text-white" id="saleYest"></h3>
+                                                <h6 class="mb-0 text-white">Total Sales yesterday</h6>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0 text-white d-inline-block">Orders : </p>
+                                        <h5 class="text-white d-inline-block mb-0 ml-10" id="invYest"></h5>
+                                        <h6 class="mb-0 d-inline-block text-white float-right">Return:<span id="returnYester"></span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card analytic-card card-red">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col-auto">
+                                                <i class="fas fa-file-code text-red f-18 analytic-icon"></i>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h3 class="mb-5 text-white" id="saleMonth"></h3>
+                                                <h6 class="mb-0 text-white">Total Sale Month</h6>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0 d-inline-block text-white">Orders : </p>
+                                        <h5 class="text-white d-inline-block mb-0 ml-10" id="invMonth"></h5>
+                                        <h6 class="mb-0 d-inline-block text-white float-right">Return:<span id="returnMon"></span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card analytic-card card-yellow">
+                                    <div class="card-body">
+                                        <div class="row align-items-center mb-30">
+                                            <div class="col-auto">
+                                                <i class="fas fa-file-code text-red f-18 analytic-icon"></i>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h3 class="mb-5 text-white" id="saleYear"></h3>
+                                                <h6 class="mb-0 text-white">Total Sale Year</h6>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0 d-inline-block text-white">Orders : </p>
+                                        <h5 class="text-white d-inline-block mb-0 ml-10" id="invYear"></h5>
+                                        <h6 class="mb-0 d-inline-block text-white float-right">Return:<span id="returnYer">10</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="card proj-progress-card">
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-xl-3 col-md-6">
+                                                <h6>Product Sold</h6>
+                                                <h5 class="mb-30 fw-700">Today<span class="text-green ml-10" id="soldToday"></span></h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-red" style="width:25%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-md-6">
+                                                <h6>Product Sold</h6>
+                                                <h5 class="mb-30 fw-700">Yesterday<span class="text-red ml-10" id="soldYest"></span></h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-blue" style="width:65%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-md-6">
+                                                <h6>Product Sold</h6>
+                                                <h5 class="mb-30 fw-700">Month<span class="text-green ml-10" id="soldMonth"></span></h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-green" style="width:85%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-md-6">
+                                                <h6>Product Sold</h6>
+                                                <h5 class="mb-30 fw-700">Year<span class="text-green ml-10" id="soldYear"></span></h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-yellow" style="width:45%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-xl-6">
                                 <div class="card proj-progress-card">
                                     <div class="card-block">

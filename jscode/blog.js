@@ -21,7 +21,7 @@ const loadblogs = () => {
             }
         }
     });
-}
+};
 
 
 const showblog = blogList => {
@@ -61,7 +61,7 @@ const showblog = blogList => {
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
-}
+};
 loadblogs();
 
 const editBlog = blogId => {
@@ -75,7 +75,7 @@ const editBlog = blogId => {
     } else {
         alert('something goes wrong');
     }
-}
+};
 
 const removeBlog = blogId => {
     blogId = blogId.toString();
@@ -121,7 +121,7 @@ const removeBlog = blogId => {
 });
 
 }
-}
+};
 
 function addBlog() {
     $('.bloglist').hide();

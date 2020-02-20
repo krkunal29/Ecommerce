@@ -125,12 +125,24 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="description">Product Description</label>
                             <textarea class="form-control" id="description" name="description" rows="2"></textarea>
-                        </div>
+                        </div> -->
                     </div>
 </div>
+<div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                    <label for="description">Product Description</label>
+                                    </div>
+                                    <div class="card-body">
+                                        <textarea class="form-control html-editor" rows="5" id="description" name="description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -176,3 +188,9 @@
 <script src="jscode/product_validation.js"></script>
 <script src="jscode/editproduct.js"> </script>
 <script src="jscode/dropzoneProduct.js"></script>
+<script>
+ $('.html-editor').summernote({
+      height: 300,
+      tabsize: 2
+    });
+</script>

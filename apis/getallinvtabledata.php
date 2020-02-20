@@ -5,7 +5,8 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT tm.transactionId,cm.custName,cm.contactNumber,DATE_FORMAT(tm.invDate,'%d %b %Y') invDate, ROUND(sum(td.rate*td.quantity), 2) as rate1,
+$query = "SELECT tm.transactionId,cm.custName,cm.contactNumber,DATE_FORMAT(tm.invDate,'%d %b %Y') invDate,tm.isReturn,
+ ROUND(sum(td.rate*td.quantity), 2) as rate1,
 tm.totalcost as rate from transaction_master tm
 LEFT JOIN customer_master cm ON cm.customerId = tm.customer_Id
 LEFT JOIN transaction_details td On td.transaction_id = tm.transactionId

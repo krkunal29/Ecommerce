@@ -124,6 +124,7 @@ if(isset($_SESSION['userId'])){
                                                                 <th>Invoice Amount</th>
                                                                 <th>Discount</th>
                                                                 <th>Total</th>
+                                                                <th>Status</th>
                                                                 <th>Created By</th>
                                                             </tr>
                                                         </thead>

@@ -14,9 +14,15 @@ if (isset($_POST['contactNumber'])) {
         if ($academicAffected >0) {
             $academicResults = mysqli_fetch_assoc($jobQuery);
                 $records = $academicResults;
-                $response = array('Message' => "Login Successfully", "Data" => $records, 'Responsecode' => 200);
+                $otp = rand(100000,999999);
+                $msg = "नमस्कार! ".$otp." हा आपला संकेतशब्द आहे.याची वैधता तीन मिनिट एवढी आहे.";
+                $msg = urlencode($msg);
+                $url = "http://sms24x7.prygma.com/vendorsms/pushsms.aspx?user=kisanagro&password=123456&msisdn=$contactNumber&sid=KISAAN&msg=$msg&fl=0%20&gwid=2&dc=8";
+                $json = file_get_contents($url);
+$json_data = json_decode($json, true);
+                $response = array('Message' => "Login Successfully", "Data" => $records,'otpResponse'=>$json_data,'otp'=>$otp, 'Responsecode' => 200);
             }else{
-                $response = array('Message' => "No user present/ Invalid contact number or password", "Data" => $records, 'Responsecode' => 402);
+                $response = array('Message' => "No user present/ Invalid contact number", "Data" => $records, 'Responsecode' => 402);
             }
         } else {
             $response = array('Message' => "No user present/ Invalid contact number or password", "Data" => $records, 'Responsecode' => 401);

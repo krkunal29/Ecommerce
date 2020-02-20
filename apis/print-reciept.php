@@ -11,6 +11,26 @@ extract($_GET);
 $dompdf = new Dompdf();
 $TransactionId = isset($_GET['transactionId']) ? $_GET['transactionId']:'NULL';
 $custState = null;
+function headerDetails(){
+    include '../connection.php';
+     mysqli_set_charset($conn,'utf8');
+    $result = mysqli_query($conn,"SET NAMES utf8");
+    $output = '';
+    $sql = "SELECT * FROM firmdetails";
+    $academicQuery = mysqli_query($conn, $sql);
+    if ($academicQuery != null) {
+        $academicAffected = mysqli_num_rows($academicQuery);
+        if ($academicAffected > 0) {
+           $academicResults = mysqli_fetch_assoc($academicQuery);
+           $output .='<div class="col-xs-8">';
+           $output .='<h2>'.$academicResults['firm'].'</h2>';
+           $output .='<p class="font-weight-bold mb-1">'.$academicResults['dAddress'].'</p>';
+           $output .='<p class="text-muted">'.$academicResults['contactnumber'].','.$academicResults['acontactnumber'].'</p>';
+           $output .='<p class="font-weight-bold mb-2">GST No:'.$academicResults['gstn'].'</p></div>';
+        }
+    }
+    return $output;
+}
 function customer_details($tId){
     include '../connection.php';
      mysqli_set_charset($conn,'utf8');
@@ -172,6 +192,7 @@ function invoice_details($tId){
     return $output;
 }
 $html = '<link rel="stylesheet" href="style.css">
+<style>.page_break { page-break-before: always; }</style>
 <div class="container">
 
     <div class="row">
@@ -180,16 +201,10 @@ $html = '<link rel="stylesheet" href="style.css">
                 <div class="card-body p-0">
                     <div class="row p-5">
                         <div class="col-xs-4">
-                        <p class="font-weight-bold mb-1">Tax Invoice</p>
                         <img class="img-fluid" src="../img/brand2.png">
                         </div>
 
-                        <div class="col-xs-8">
-                        <h2>Baliraja Krushi Seva Kendra</h2>
-                            <p class="font-weight-bold mb-1">Market Yard,Vambori Tal-Rahuri Ahmadnagar 413704</p>
-                            <p class="text-muted">(02426)-272075 Mo-7588024352,9763712777</p>
-                            <p class="font-weight-bold mb-2">GST No:27AVAPP4553A1ZV</p>
-                        </div>
+                      '.headerDetails().'
                     </div>
 
                     <hr class="my-5">
@@ -208,6 +223,7 @@ $html = '<link rel="stylesheet" href="style.css">
             </div>
         </div>
     </div>
+    <div class="page_break">Hello vikas</div>
 </div>';
 
 $dompdf->loadHtml($html);

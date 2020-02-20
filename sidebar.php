@@ -60,6 +60,7 @@
                                         <a href="blogcategory.php" class="menu-item active">Blog Category</a>
                                         <a href="blog.php" class="menu-item">Blogs</a>
                                         <a href="Slider.php" class="menu-item">Home Page Slider</a>
+                                        <a href="posts.php" class="menu-item">Posts</a>
                                     </div>
                                 </div>
                                 <div class="nav-item has-sub active">

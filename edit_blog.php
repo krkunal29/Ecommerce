@@ -40,15 +40,9 @@
                       </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label for="productDesc">Blog Content</label>
-                            <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
-                            <textarea class="form-control" name="blogContent" id="blogcontent" placeholder="Enter Blog Content" rows="4"></textarea>
-                        </div>
-                    </div>
+                   
 
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                           <div class="form-group">
                               <label for="productDesc">Blog Status</label>
                               <select class="form-control select2" id="blogStatus" name="blogStatus">
@@ -59,8 +53,21 @@
                               </select>
                           </div>
                       </div>
+                      <div class="col-sm-6"></div>
 
                   </div>
+                  <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                    <label for="productDesc">Blog Content</label>
+                                    </div>
+                                    <div class="card-body">
+                                        <textarea class="form-control html-editor" rows="5" name="blogContent" id="blogcontent"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                   <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -116,4 +123,11 @@ $("#blogStatus").select2();
 
 
 </script>
+<script>
+ $('.html-editor').summernote({
+      height: 300,
+      tabsize: 2
+    });
+</script>
+
 <script src="savecode/edit_blog.js" charset="utf-8"></script>

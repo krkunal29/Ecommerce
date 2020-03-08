@@ -20,7 +20,7 @@ var loadUsers = (roleId) => {
 
 var showUsers = userList => {
     $('#users').dataTable().fnDestroy();
-    $('.usersData').empty();
+    $('#usersData').empty();
     var tblData = '';
     for (let k of userList.keys()) {
         let users = userList.get(k);
@@ -28,14 +28,36 @@ var showUsers = userList => {
         tblData += '<tr><td><img src="' + url + 'customer/' + users.customerId + '.jpg" class="table-user-thumb" alt="Image"></td>';
         tblData += '<td>'+users.custName+'</td>';
         tblData += '<td>'+users.contactNumber+'</td>';
-        tblData += '<td>'+users.stateName+' '+users.custCity+'</td>';
+        tblData += '<td>'+users.stateName+'</td>';
+        tblData += '<td>'+users.custCity+'</td>';
         tblData += '<td>'+users.refferalCode+'</td>';
         tblData += '<td><a href="#" onclick="editUsers('+(k)+')"><i class="ik ik-edit f-16 mr-15 text-green"></i></a><a href="#!" onclick="removeUser('+(k)+')"><i class="ik ik-trash-2 f-16 text-red"></i></a></td>';
         tblData += '</tr>';
     }
 
-    $('.usersData').html(tblData);
+    $('#usersData').html(tblData);
     $('#users').dataTable({
+        initComplete: function() {
+            console.log('hi');
+            this.api().columns().every(function() {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function() {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                column.data().unique().sort().each(function(d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                });
+            });
+        },
         searching: true,
         retrieve: true,
         paging: true,

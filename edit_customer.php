@@ -132,7 +132,7 @@
 </div>
 <div class="col-md-8">
 <div class="form-group">
-        <label for="peek">Peek</label>
+        <label for="peek">Crop</label>
         <input type="text" class="form-control" id="peek" name="peek">
     </div>
 </div>

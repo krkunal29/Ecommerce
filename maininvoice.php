@@ -102,7 +102,7 @@ if(isset($_SESSION['userId'])){
                                             <thead>
                                                 <tr>
 
-                                                    <th style="width:5%;">Transaction Id</th>
+                                                    <th>Transaction Id</th>
                                                     <!-- <th>Transaction Type</th> -->
                                                     <th>Customer Name</th>
                                                     <th>Contact Number</th>

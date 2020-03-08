@@ -78,13 +78,13 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="salePrice">Price</label>
+                            <label for="salePrice">Sale Price</label>
                             <input type="text" class="form-control" id="salePrice" name="salePrice" placeholder="Price">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="displayPrice">Price for Diplay</label>
+                            <label for="displayPrice">M.R.P</label>
                             <input type="text" class="form-control" id="displayPrice"  name="displayPrice" placeholder="Display Price">
                         </div>
                     </div>

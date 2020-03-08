@@ -1,10 +1,3 @@
-// const data = {
-//     userId: $('#userId').val(),
-//     roleId: $('#roleId').val()
-// };
-// var userId = null; //for updation
-// var details = {};
-
 
 const showinvoicetable = invoiceList => {
     $('#Invoicetbl').dataTable().fnDestroy();
@@ -12,20 +5,16 @@ const showinvoicetable = invoiceList => {
     var tblData = '';
     for (let k of invoiceList.keys()) {
         let invoicecategory = invoiceList.get(k);
-        // console.log(invoicecategory);
         var slideStatus ='-';
         if(invoicecategory.isReturn==1){
             slideStatus ='<span class="badge badge-danger">Returned</span>';
         }
-        
         tblData +="<tr>";
         tblData +="<td style='width:5%;'>"+invoicecategory.transactionId+"</td>";
-
         tblData +="<td>"+invoicecategory.custName+"</td>";
-        // tblData +="<td>"+invoicecategory.emailId+"</td>";
         tblData +="<td>"+invoicecategory.contactNumber+"</td>";
         tblData +="<td>"+invoicecategory.invDate+"</td>";
-        tblData +="<td>"+invoicecategory.rate+"</td>";
+        tblData +="<td>"+invoicecategory.rate1+"</td>";
         tblData +="<td>"+slideStatus+"</td>";
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editinvoice(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';

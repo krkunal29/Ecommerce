@@ -6,7 +6,7 @@ function addopenInvoice() {
 var editarray;
 var uinvoiceId = null; //for updation
 var details = {};
-const editinvoice = invoiceid => {
+var editinvoice = invoiceid => {
   $('.invoicelist').hide();
   uinvoiceId=invoiceid;
   $('#newinvoice').load('edit_newinvoice.php');
@@ -19,16 +19,14 @@ const editinvoice = invoiceid => {
       transactionId:invoiceid
       },
       success: function(response) {
-         // console.log("edit - invoiceopen1.js"+response.Data);
+        console.log(response);
          if (response.Responsecode == 200) {
-           // console.log(response.Responsecode);
            const count = response.Data.length;
            editarray = response.Data;
 
-          // console.log("customer Id"+editarray[0].customer_Id);
            $('#customerName').val(editarray[0].customer_Id); // Select the option with a value of '1'
            let customerName = userList.get(editarray[0].customer_Id);
-           // console.log(customerName);
+           console.log(customerName);
            $('#customerName1').val(customerName.custName);
            $("#walletbal").html(customerName.wallet_amount);
            $("#walletbalance").val(customerName.wallet_amount);

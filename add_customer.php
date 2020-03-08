@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="productDesc">Peek</label>
+                            <label for="productDesc">Crop</label>
                             <!-- <input type="text" class="form-control" id="blogcontent" placeholder="Enter Blog Content"> -->
                             <input type="text" class="form-control" id="Peek" placeholder="Enter Customer Peek" name="peek" />
                         </div>

@@ -2,7 +2,7 @@ $(function() {
     $("#productform").validate( {
         ignore: [], rules: {
             productName: {
-                required: true, minlength: 1, maxlength: 50
+                required: true, minlength: 1, maxlength: 255
             }
             , unitId: {
                 required: true
@@ -25,7 +25,7 @@ $(function() {
         }
         , messages: {
             productName: {
-                required: "Please enter  product name", minlength: "Enter a product", maxlength: "Length Exceed 50 characters"
+                required: "Please enter  product name", minlength: "Enter a product", maxlength: "Length Exceed 255 characters"
             }
             , unitId: {
                 required: "Please select unit from list"

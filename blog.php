@@ -20,6 +20,7 @@ if(isset($_SESSION['userId'])){
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
           <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href=" plugins/summernote/dist/summernote-bs4.css">
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">

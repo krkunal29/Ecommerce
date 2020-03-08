@@ -4,7 +4,6 @@ const loadDetails = () => {
         type: 'POST',
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Data != null) {
                $('#firm').val(response.Data.firm);
                $('#contactNumber').val(response.Data.contactnumber);
